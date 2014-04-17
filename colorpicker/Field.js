@@ -56,7 +56,7 @@ Ext.define('Ext.ux.colorpicker.Field', {
         var me        = this,
             height    = me.getTriggerHeight() + 'px',
             triggerEl = me.triggerEl.elements[0],
-            width     = me.getTriggerWidth() + 'px';
+            width     = '0px'; // me.getTriggerWidth() + 'px';
 
         console.log(triggerEl.parent());
 

@@ -103,7 +103,7 @@ Ext.define('Ext.ux.colorpicker.Swatches', {
         config = config || {};
         Ext.applyIf(this, config);
 
-        this.uuidGenerator = Ext.data.IdGenerator.get('uuid');
+        this.uuidGenerator = Ext.create('Ext.data.identifier.Uuid');
 
         this.mixins.observable.constructor.call(this, config);
 

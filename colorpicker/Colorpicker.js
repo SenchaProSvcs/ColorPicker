@@ -3,6 +3,32 @@
  * @extends Ext.ux.colorpicker.Popup
  *
  */
+
+// TODO: Document events
+/**
+ * @event didCancel
+ * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
+ */
+// 'didCancel',
+
+/**
+ * @event didCancel
+ * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
+ */
+// 'didCancel',
+
+/**
+ * @event didCancel
+ * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
+ */
+// 'didCancel',
+
+/**
+ * @event didCancel
+ * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
+ */
+// 'didCancel'
+
 Ext.define('Ext.ux.colorpicker.Colorpicker', {
     extend : 'Ext.ux.colorpicker.Popup',
 
@@ -91,32 +117,6 @@ Ext.define('Ext.ux.colorpicker.Colorpicker', {
         me.contentClass = "th-colorpicker";
 
         me.callParent(arguments);
-
-        me.addEvents(
-            /**
-             * @event didCancel
-             * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
-             */
-            'didCancel',
-
-            /**
-             * @event didCancel
-             * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
-             */
-            'didCancel',
-
-            /**
-             * @event didCancel
-             * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
-             */
-            'didCancel',
-
-            /**
-             * @event didCancel
-             * Fires when the **{@link #autoSize}** function is triggered and the field is resized according to the
-             */
-            'didCancel'
-        );
     },
 
     /**
