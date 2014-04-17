@@ -63,21 +63,21 @@ Ext.define('Ext.ux.colorpicker.Swatches', {
      */
     defaultPalette : [
         {
-            uuid : '80a79daf-3a6e-4d69-aa30-65fcf3462113',
+            uuid : 'pregen-colorpicker-swatch-1',
             r    : 255,
             g    : 255,
             b    : 255,
             a    : 0
         },
         {
-            uuid : 'e634a59f-074b-4918-9042-51f6c6075264',
+            uuid : 'pregen-colorpicker-swatch-2',
             r    : 255,
             g    : 255,
             b    : 255,
             a    : 1
         },
         {
-            uuid : '603b112f-fc41-4231-8c95-6d7d1b53965d',
+            uuid : 'pregen-colorpicker-swatch-3',
             r    : 0,
             g    : 0,
             b    : 0,
@@ -102,8 +102,6 @@ Ext.define('Ext.ux.colorpicker.Swatches', {
     constructor : function(config) {
         config = config || {};
         Ext.applyIf(this, config);
-
-        this.uuidGenerator = Ext.create('Ext.data.identifier.Uuid');
 
         this.mixins.observable.constructor.call(this, config);
 
@@ -345,7 +343,7 @@ Ext.define('Ext.ux.colorpicker.Swatches', {
         var me = this;
 
         if (me.currentPalette.length < me.maxPaletteLength) {
-            var uuid = me.uuidGenerator.generate();
+            var uuid = Ext.id();
             me.save();
             me.insertSwatchToPalette({uuid : uuid, r : r, g : g, b : b, a : a}, me.currentPalette.length, 'popIn');
         }
@@ -537,7 +535,7 @@ Ext.define('Ext.ux.colorpicker.Swatches', {
             me.draggableSwatchData = me.currentPalette[me.swatchIndex];
             me.removeSwatchFromPalette(me.swatchIndex);
         } else {
-            me.draggableSwatchData = {r : rgba[0], g : rgba[1], b : rgba[2], a : rgba[3], uuid : me.uuidGenerator.generate()};
+            me.draggableSwatchData = {r : rgba[0], g : rgba[1], b : rgba[2], a : rgba[3], uuid : Ext.id()};
         }
     },
 
