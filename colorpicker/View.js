@@ -11,7 +11,8 @@ Ext.define('Ext.ux.colorpicker.View', {
         'Ext.ux.colorpicker.Map',
         'Ext.ux.colorpicker.SaturationSlider',
         'Ext.ux.colorpicker.Swatches',
-        'Ext.ux.colorpicker.ValueSlider'
+        'Ext.ux.colorpicker.ValueSlider',
+        'Ext.form.field.Text'
     ],
 
     mixins : {
@@ -51,6 +52,7 @@ Ext.define('Ext.ux.colorpicker.View', {
                 '<div class="old"></div>',
             '</div>',
             '<div class="buttons"></div>',
+            /*
             '<div class="labels">',
                 '<div class="hex">HEX</div>',
                 '<div class="red">R</div>',
@@ -61,6 +63,7 @@ Ext.define('Ext.ux.colorpicker.View', {
                 '<div class="value">V</div>',
                 '<div class="alpha">A</div>',
             '</div>',
+            */
             '<div class="fields">',
                 '<div class="hex"></div>',
                 '<div class="red"></div>',
@@ -92,11 +95,12 @@ Ext.define('Ext.ux.colorpicker.View', {
         //******** FIELDS ****************
         var fields = parent.down('.fields');
 
-        // var fieldsClone = cloneContainer.down('.fields')
-        me.hexField = new Ext.form.TextField({
+        me.hexField = Ext.widget('field', {
             renderTo        : fields.down('.hex'),
             value           : "#ff1122",
             enableKeyEvents : true,
+            fieldLabel      : 'HEX',
+            labelAlign      : 'top',
             colorParameter  : 'hex',
             listeners       : {
                 scope : me,
@@ -117,6 +121,7 @@ Ext.define('Ext.ux.colorpicker.View', {
             maxValue        : 255,
             minValue        : 0,
             value           : 0,
+            labelAlign      : 'top',
             listeners       : {
                 scope : me,
                 keyup : me.onFieldKeyup,
@@ -125,16 +130,40 @@ Ext.define('Ext.ux.colorpicker.View', {
             }
         };
 
-        me.redField = new AN.SliderField(
-            Ext.apply({}, {colorParameter : 'r', renderTo : fields.down('.red')}, fieldConfig)
+        me.redField = Ext.widget('field',
+            Ext.apply(
+                {},
+                {
+                    colorParameter : 'r',
+                    renderTo       : fields.down('.red'),
+                    fieldLabel     : 'R'
+                },
+                fieldConfig
+            )
         );
 
-        me.greenField = new AN.SliderField(
-            Ext.apply({}, {colorParameter : 'g', renderTo : fields.down('.green')}, fieldConfig)
+        me.greenField = Ext.widget('field',
+            Ext.apply(
+                {},
+                {
+                    colorParameter : 'g',
+                    renderTo       : fields.down('.green'),
+                    fieldLabel     : 'G'
+                },
+                fieldConfig
+            )
         );
 
-        me.blueField = new AN.SliderField(
-            Ext.apply({}, {colorParameter : 'b', renderTo : fields.down('.blue')}, fieldConfig)
+        me.blueField = Ext.widget('field',
+            Ext.apply(
+                {},
+                {
+                    colorParameter : 'b',
+                    renderTo       : fields.down('.blue'),
+                    fieldLabel     : 'B'
+                },
+                fieldConfig
+            )
         );
 
         Ext.apply(fieldConfig, {
@@ -142,27 +171,56 @@ Ext.define('Ext.ux.colorpicker.View', {
             multiplier : 100
         });
 
-        me.saturationField = new AN.SliderField(
-            Ext.apply({}, {colorParameter : 's', renderTo : fields.down('.saturation')}, fieldConfig)
+        me.saturationField = Ext.widget('field',
+            Ext.apply(
+                {},
+                {
+                    colorParameter : 's',
+                    renderTo       : fields.down('.saturation'),
+                    fieldLabel     : 'S'
+                },
+                fieldConfig
+            )
         );
 
-        me.valueField = new AN.SliderField(
-            Ext.apply({}, {colorParameter : 'v', renderTo : fields.down('.value')}, fieldConfig)
+        me.valueField = Ext.widget('field',
+            Ext.apply(
+                {},
+                {
+                    colorParameter : 'v',
+                    renderTo       : fields.down('.value'),
+                    fieldLabel     : 'V'
+                },
+                fieldConfig
+            )
         );
 
-        me.alphaField = new AN.SliderField(
-            Ext.apply({}, {colorParameter : 'a', renderTo : fields.down('.alpha')}, fieldConfig)
+        me.alphaField = Ext.widget('field',
+            Ext.apply(
+                {},
+                {
+                    colorParameter : 'a',
+                    renderTo       : fields.down('.alpha'),
+                    fieldLabel     : 'A'
+                },
+                fieldConfig
+            )
         );
 
-        me.hueField = new AN.SliderField(
-            Ext.apply({}, {
-                colorParameter : 'h',
-                maxValue        : 360,
-                multiplier      : 360,
-                renderTo       : fields.down('.hue')
-            }, fieldConfig)
+        me.hueField = Ext.widget('field',
+            Ext.apply(
+                {},
+                {
+                    colorParameter : 'h',
+                    maxValue       : 360,
+                    multiplier     : 360,
+                    renderTo       : fields.down('.hue'),
+                    fieldLabel     : 'H'
+                },
+                fieldConfig
+            )
         );
-
+        
         //******** MAPS/BARS ****************
 
         var mapClone = clone.down('.map').dom;

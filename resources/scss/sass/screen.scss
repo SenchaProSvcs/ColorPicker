@@ -83,8 +83,13 @@ $th-outer-border-color: #157fcc;
 
     overflow: visible !important;
 
+    // Ivan: this is a terrible rule causing many issues with using native components
     div {
         position: absolute;
+
+        &.x-field-body { // fix to get native fields back to normal
+            position: static;
+        }
     }
 
     //This is to fix appearance of Ext4 buttons within colorpicker that have Ext3 Architect style applied to them
@@ -239,21 +244,6 @@ $th-outer-border-color: #157fcc;
 
     //Label/Field Area
 
-    $labelsTop: $barHeight + $borderPadding + 7;
-
-    .labels {
-        top: $labelsTop;
-        font-size:11px;
-        font-weight: bold;
-
-        // @include color-by-background(#efa, 70%);
-    }
-
-    .labels div {
-        text-align:center;
-        color: $th-text-color;
-    }
-
     $hexWidth: 63px;
 
     .hex {
@@ -284,7 +274,7 @@ $th-outer-border-color: #157fcc;
     $hsvBaseLeft: $barBaseLeft - 4;
     $hsvBaseSpace: $barBaseSpace;
 
-    $fieldsTop: $labelsTop + 15;
+    $fieldsTop: $barHeight + $borderPadding;
 
     .hue {
         left: $hsvBaseLeft;
@@ -318,7 +308,7 @@ $th-outer-border-color: #157fcc;
 
 /*SWATCH LIBRARY*/
 
-    $libraryTop: $fieldsTop + 29;
+    $libraryTop: $fieldsTop + 59;
     $libraryWidth: 496px;
     $swatchSize: 15px;
     $rowWidth: 419px; //$libraryWidth - ($swatchSize + 4) - 9;
