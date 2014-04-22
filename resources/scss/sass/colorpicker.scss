@@ -7,6 +7,15 @@
 
 @import "compass/css3";
 
+/* NEW */
+
+/* Color Picker Button */
+.sps-colorpicker-button {
+    border: 1px solid gray;
+    background-color: tomato;
+}
+
+
 /* popup - needed by color picker */
 
 $th-text-color: #333;
