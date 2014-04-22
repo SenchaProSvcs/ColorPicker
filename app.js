@@ -24,38 +24,17 @@ Ext.onReady(function() {
             frame    : true,
             margin   : 10,
             renderTo : Ext.getBody(),
-            defaults : { xtype : 'fieldset' },
-            items    : [{
-                title : 'OLD Colorpicker Button',
-                items : [{
-                    xtype : 'colorpickerbutton'
-                }]
-            },
-            {
-                xtype : 'fieldset',
-                title : 'OLD Colorpicker Field',
-                items : [{
-                    xtype : 'colorpickerfield'
-                }]
-            },
-            {
-                xtype : 'fieldset',
-                title : 'NEW Colorpicker Button',
-                padding: 5,
-                items : [{
-                    xtype : 'sps_colorpickerbutton'
-                }]
-            },
-            {
-                xtype : 'fieldset',
-                title : 'NEW Colorpicker Field',
-                flex  : 1,
-                items : [{
-                    xtype : 'field',
-                    width : 200,
-                    value : '#FFAAAA'
-                }]
-            }]
+            defaults : { xtype: 'component' },
+            items    : [
+                { html  : 'OLD Colorpicker Button', margin: '20px 0px 0px 0px' },
+                { xtype : 'colorpickerbutton' },
+                { html  : 'OLD Colorpicker Field', margin: '20px 0px 0px 0px' },
+                { xtype : 'colorpickerfield' },
+                { html  : 'NEW Colorpicker Button', margin: '20px 0px 0px 0px' },
+                { xtype : 'sps_colorpickerbutton' },
+                { html  : 'NEW Colorpicker Field', margin: '20px 0px 0px 0px' },
+                { xtype : 'field', width : 200, value : '#FFAAAA' }
+            ]
         }]
     });
 });

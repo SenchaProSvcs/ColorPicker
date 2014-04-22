@@ -7,6 +7,11 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
     ],
 
     onButtonClick: function() {
-        Ext.widget('sps_colorpickerwindow').showBy(this.getView());
+        var me           = this,
+            pickerButton = this.getView(),
+            pickerWindow = Ext.widget('sps_colorpickerwindow');
+
+        pickerWindow.show();
+        pickerWindow.alignTo(pickerButton);
     }
 });

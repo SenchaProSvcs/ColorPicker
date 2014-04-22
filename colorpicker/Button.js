@@ -210,7 +210,7 @@ Ext.define('Ext.ux.colorpicker.Button', {
      *
      */
     updatePreviewColors : function() {
-        this.alphaColorEl.dom.style.backgroundColor = Ext.ux.colorpicker.color.getRGBAString(this.color);
+        //this.alphaColorEl.dom.style.backgroundColor = Ext.ux.colorpicker.color.getRGBAString(this.color);
     },
 
     /**
