@@ -12,6 +12,6 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
             pickerWindow = Ext.widget('sps_colorpickerwindow');
 
         pickerWindow.show();
-        pickerWindow.alignTo(pickerButton);
+        pickerWindow.alignTo(pickerButton, 'tl-br?');
     }
 });
