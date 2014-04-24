@@ -7,7 +7,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
 
     requires: [
         'Ext.layout.container.Border',
-        'Ext.layout.container.HBox'
+        'Ext.layout.container.HBox',
+        'Ext.slider.Single'
     ],
 
     sliderWidth : 30, // width of every slider
@@ -86,9 +87,9 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 // "MAP"
                 {
                     xtype  : 'component',
-                    style  : 'background: tomato;',
-                    html   : 'Map',
-                    flex   : 1
+                    flex   : 1,
+                    style  : 'position: relative; background-color: red;',
+                    html   : '<img src="/sencha/ColorPickerRepo/resources/images/colorpicker/map_gradient.png" style="position:absolute; top: 0; left: 0; width: 100%; height: 100%;"/>'
                 },
                 // HEX/R/G/B FIELDS
                 {
@@ -137,9 +138,16 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype  : 'component',
-                    style  : 'background: cornflowerblue;',
-                    flex   : 1
+                    xtype    : 'slider',
+                    vertical : true,
+                    useTips  : false,
+                    flex     : 1,
+                    style: Ext.isIE && Ext.ieVersion >= 8 && Ext.ieVersion <= 9
+                           ? '-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#FFFFFF, endColorstr=#00000000)";'
+                           :'background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgba(0, 0, 0, 0)), url(http://localhost/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png)'
+                           // IE 10 & 11 needs -ms-linear-gradient
+                           // IE8 cannot chain background image and gradient, so additional markup will be needed
+                           //     background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png) center repeat; 
                 },
                 {
                     xtype          : 'field',
@@ -168,9 +176,10 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype  : 'component',
-                    style  : 'background: cornflowerblue;',
-                    flex   : 1
+                    xtype    : 'slider',
+                    vertical : true,
+                    useTips  : false,
+                    flex     : 1
                 },
                 {
                     xtype          : 'field',
@@ -195,9 +204,10 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype  : 'component',
-                    style  : 'background: cornflowerblue;',
-                    flex   : 1
+                    xtype    : 'slider',
+                    vertical : true,
+                    useTips  : false,
+                    flex     : 1
                 },
                 {
                     xtype          : 'field',
@@ -225,9 +235,10 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype  : 'component',
-                    style  : 'background: cornflowerblue;',
-                    flex   : 1
+                    xtype    : 'slider',
+                    vertical : true,
+                    useTips  : false,
+                    flex     : 1
                 },
                 {
                     xtype          : 'field',

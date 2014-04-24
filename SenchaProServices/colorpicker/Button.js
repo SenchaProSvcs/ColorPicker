@@ -11,25 +11,20 @@ Ext.define('SenchaProServices.colorpicker.Button', {
         'SenchaProServices.colorpicker.ButtonController'
     ],
 
-    constructor: function(cfg) {
-        var me = this;
-        Ext.applyIf(cfg, {
-            baseCls   : 'sps-colorpicker-button',
-            width     : 20,
-            height    : 20,
-            listeners : {
-                render: {
-                    single : true,
-                    fn     : me.onFirstRender,
-                    scope  : me
-                },
-                click: {
-                    fn: 'onButtonClick',
-                    scope: 'controller'
-                }
-            }
-        });
-        me.callParent(arguments);
+    baseCls : 'sps-colorpicker-button',
+    width   : 20,
+    height  : 20,
+
+    listeners: {
+        render: {
+            single : true,
+            fn     : 'onFirstRender',
+            scope  : 'this'
+        },
+        click: {
+            fn    : 'onButtonClick',
+            scope : 'controller'
+        }
     },
 
     // Propagate "click" event from el
