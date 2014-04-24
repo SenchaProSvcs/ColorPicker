@@ -8,7 +8,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
     requires: [
         'Ext.layout.container.Border',
         'Ext.layout.container.HBox',
-        'Ext.slider.Single'
+        'Ext.slider.Single',
+        'SenchaProServices.colorpicker.ColorMap'
     ],
 
     sliderWidth : 30, // width of every slider
@@ -86,10 +87,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             items  : [
                 // "MAP"
                 {
-                    xtype  : 'component',
-                    flex   : 1,
-                    style  : 'position: relative; background-color: red;',
-                    html   : '<img src="/sencha/ColorPickerRepo/resources/images/colorpicker/map_gradient.png" style="position:absolute; top: 0; left: 0; width: 100%; height: 100%;"/>'
+                    xtype : 'sps_colorpickercolormap',
+                    flex  : 1
                 },
                 // HEX/R/G/B FIELDS
                 {

@@ -16,10 +16,10 @@ Ext.define('SenchaProServices.colorpicker.Button', {
     height  : 20,
 
     listeners: {
-        render: {
-            single : true,
-            fn     : 'onFirstRender',
-            scope  : 'this'
+        afterrender : {
+            single  : true,
+            fn      : 'onFirstRender',
+            scope   : 'this'
         },
         click: {
             fn    : 'onButtonClick',
