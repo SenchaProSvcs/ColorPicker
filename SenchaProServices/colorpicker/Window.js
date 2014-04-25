@@ -5,14 +5,19 @@ Ext.define('SenchaProServices.colorpicker.Window', {
     extend     : 'Ext.container.Container',
     alias      : 'widget.sps_colorpickerwindow',
 
+    viewModel: {
+        type: 'sps_colorpickerwindowmodel'
+    },
+
     requires: [
         'Ext.layout.container.Border',
         'Ext.layout.container.HBox',
         'Ext.slider.Single',
-        'SenchaProServices.colorpicker.ColorMap'
+        'SenchaProServices.colorpicker.ColorMap',
+        'SenchaProServices.colorpicker.WindowModel'
     ],
 
-    sliderWidth : 30, // width of every slider
+    sliderWidth : 40, // width of every slider
     sliderPad   : 5,  // padding between the sliders AND HEX/R/G/B fields
 
     constructor: function(cfg) {
@@ -88,7 +93,10 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 // "MAP"
                 {
                     xtype : 'sps_colorpickercolormap',
-                    flex  : 1
+                    flex  : 1,
+                    // bind  : {
+                    //     value: '{toHEX}'
+                    // }
                 },
                 // HEX/R/G/B FIELDS
                 {
@@ -99,24 +107,32 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     },
                     items: [
                         {
-                            xtype      : 'field',
+                            xtype      : 'textfield',
                             fieldLabel : 'HEX',
-                            labelAlign : 'top'
+                            labelAlign : 'top',
+                            width      : 60,
+                            bind       : '{hex}'
                         },
                         {
-                            xtype      : 'field',
+                            xtype      : 'textfield',
                             fieldLabel : 'R',
-                            labelAlign : 'top'
+                            labelAlign : 'top',
+                            bind       : '{selectedColor.r}',
+                            width      : me.sliderWidth
                         },
                         {
-                            xtype      : 'field',
+                            xtype      : 'textfield',
                             fieldLabel : 'G',
-                            labelAlign : 'top'
+                            labelAlign : 'top',
+                            bind       : '{selectedColor.g}',
+                            width      : me.sliderWidth
                         },
                         {
-                            xtype      : 'field',
+                            xtype      : 'textfield',
                             fieldLabel : 'B',
-                            labelAlign : 'top'
+                            labelAlign : 'top',
+                            bind       : '{selectedColor.b}',
+                            width      : me.sliderWidth
                         }
                     ]
                 }
@@ -149,10 +165,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                            //     background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png) center repeat; 
                 },
                 {
-                    xtype          : 'field',
+                    xtype          : 'textfield',
                     fieldLabel     : 'H',
                     labelAlign     : 'top',
-                    labelSeparator : ''
+                    labelSeparator : '',
+                    bind           : '{hue}'
                 }
             ]
         };
@@ -181,10 +198,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     flex     : 1
                 },
                 {
-                    xtype          : 'field',
+                    xtype          : 'textfield',
                     fieldLabel     : 'S',
                     labelAlign     : 'top',
-                    labelSeparator : ''
+                    labelSeparator : '',
+                    bind           : '{saturation}'
                 }
             ]
         };
@@ -209,10 +227,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     flex     : 1
                 },
                 {
-                    xtype          : 'field',
+                    xtype          : 'textfield',
                     fieldLabel     : 'V',
                     labelAlign     : 'top',
-                    labelSeparator : ''
+                    labelSeparator : '',
+                    bind           : '{value}'
                 }
             ]
         };
@@ -240,10 +259,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     flex     : 1
                 },
                 {
-                    xtype          : 'field',
+                    xtype          : 'textfield',
                     fieldLabel     : 'A',
                     labelAlign     : 'top',
-                    labelSeparator : ''
+                    labelSeparator : '',
+                    bind           : '{selectedColor.a}'
                 }
             ]
         };

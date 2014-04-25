@@ -29,5 +29,4 @@ Ext.define('SenchaProServices.colorpicker.ColorMap', {
             scope   : 'controller'
         }
     }
-
 });
