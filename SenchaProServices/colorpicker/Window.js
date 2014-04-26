@@ -4,20 +4,19 @@
 Ext.define('SenchaProServices.colorpicker.Window', {
     extend     : 'Ext.container.Container',
     alias      : 'widget.sps_colorpickerwindow',
-
-    viewModel: {
-        type: 'sps_colorpickerwindowmodel'
-    },
+    viewModel  : 'sps_colorpickerwindowmodel',
+    controller : 'sps_colorpickerwindowcontroller',
 
     requires: [
         'Ext.layout.container.Border',
         'Ext.layout.container.HBox',
         'Ext.slider.Single',
         'SenchaProServices.colorpicker.ColorMap',
-        'SenchaProServices.colorpicker.WindowModel'
+        'SenchaProServices.colorpicker.WindowModel',
+        'SenchaProServices.colorpicker.WindowController'
     ],
 
-    sliderWidth : 40, // width of every slider
+    sliderWidth : 50, // width of every slider
     sliderPad   : 5,  // padding between the sliders AND HEX/R/G/B fields
 
     constructor: function(cfg) {
@@ -25,7 +24,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
 
         Ext.applyIf(cfg, {
             cls      : 'sps-colorpicker-window',
-            width    : 500,
+            width    : 600,
             height   : 300,
             padding  : 5,
             floating : true,
@@ -92,8 +91,14 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             items  : [
                 // "MAP"
                 {
-                    xtype : 'sps_colorpickercolormap',
-                    flex  : 1,
+                    xtype     : 'sps_colorpickercolormap',
+                    flex      : 1,
+                    listeners : {
+                        handledrag: {
+                            fn    : 'onColorMapHandleDrag',
+                            //scope : 'this'
+                        }
+                    }
                     // bind  : {
                     //     value: '{toHEX}'
                     // }
@@ -110,7 +115,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             xtype      : 'textfield',
                             fieldLabel : 'HEX',
                             labelAlign : 'top',
-                            width      : 60,
+                            width      : 75,
                             bind       : '{hex}'
                         },
                         {

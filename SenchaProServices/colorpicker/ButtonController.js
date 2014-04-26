@@ -6,6 +6,18 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
         'SenchaProServices.colorpicker.Window'
     ],
 
+    // Propagate "click" event from el
+    onFirstRender: function() {
+        var me                = this,
+            button            = me.getView(),
+            originalArguments = arguments;
+
+        button.getEl().on('click', function() {
+            button.fireEvent('click', originalArguments);
+        });
+    },
+
+    // Show and align the color picker window
     onButtonClick: function() {
         var me           = this,
             pickerButton = this.getView(),

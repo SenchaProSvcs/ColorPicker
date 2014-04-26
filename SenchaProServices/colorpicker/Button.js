@@ -19,20 +19,11 @@ Ext.define('SenchaProServices.colorpicker.Button', {
         afterrender : {
             single  : true,
             fn      : 'onFirstRender',
-            scope   : 'this'
+            scope   : 'controller'
         },
         click: {
             fn    : 'onButtonClick',
             scope : 'controller'
         }
-    },
-
-    // Propagate "click" event from el
-    onFirstRender: function() {
-        var me = this,
-            originalArguments = arguments;
-        me.getEl().on('click', function() {
-            me.fireEvent('click', originalArguments);
-        });
     }
 });
