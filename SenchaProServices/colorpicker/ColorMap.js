@@ -16,10 +16,11 @@ Ext.define('SenchaProServices.colorpicker.ColorMap', {
     items: [{
         xtype     : 'component',
         itemId    : 'dragHandle',
-        width     : 15,
-        height    : 15,
-        style     : 'z-index: 1; background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/drag_circle_black.png);',
-        draggable : true
+        width     : 1,
+        height    : 1,
+        style     : 'overflow: visible; z-index: 1;',
+        draggable : true,
+        html: '<div style="width: 15px; height: 15px; position: relative; left: -7px; top: -7px; background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/drag_circle_black.png);"></div>'
     }],
 
     listeners : {

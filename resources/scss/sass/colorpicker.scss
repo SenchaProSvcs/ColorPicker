@@ -18,6 +18,25 @@
         text-align: center;
     }
 
+    // needed for overflow: visible for color map dragger
+    .sps-colopicker-window-container1 {
+        overflow: visible;
+
+        >.x-box-inner {
+            overflow: visible;
+
+            .sps-colopicker-window-container2 {
+                overflow: visible;
+
+                >.x-box-inner {
+                    overflow: visible;
+                }
+            } // eo .sps-colopicker-window-container2
+
+        } // eo >.x-box-inner
+
+    } // eo sps-colopicker-window-container1
+
 } // eo .sps-colorpicker-window
 
 

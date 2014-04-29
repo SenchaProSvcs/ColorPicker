@@ -28,8 +28,8 @@ Ext.onReady(function() {
             items    : [
                 { html  : 'OLD Colorpicker Button', margin: '20px 0px 0px 0px' },
                 { xtype : 'colorpickerbutton' },
-                { html  : 'OLD Colorpicker Field', margin: '20px 0px 0px 0px' },
-                { xtype : 'colorpickerfield' },
+                // { html  : 'OLD Colorpicker Field', margin: '20px 0px 0px 0px' },
+                // { xtype : 'colorpickerfield' },
                 { html  : 'NEW Colorpicker Button', margin: '20px 0px 0px 0px' },
                 { xtype : 'sps_colorpickerbutton' },
                 { html  : 'NEW Colorpicker Field', margin: '20px 0px 0px 0px' },
