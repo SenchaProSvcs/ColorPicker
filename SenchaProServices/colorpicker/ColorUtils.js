@@ -302,13 +302,13 @@ Ext.define('SenchaProServices.colorpicker.ColorUtils', {
          *
          * @param hex
          * @param failRGB
-         * @return {*}
+         * @return { r: ..., g: ..., b: ... }
          */
         hex2rgb: function(hex, failRGB) {
             hex = hex.replace("#", "");
 
             if (!failRGB) {
-                failRGB = [0,0,0];
+                failRGB = { r: 0, g: 0, b: 0 };
             }
 
             var r,g,b;
@@ -330,7 +330,12 @@ Ext.define('SenchaProServices.colorpicker.ColorUtils', {
             } else {
                 return failRGB;
             }
-            return [r,g,b];
+
+            return {
+                r: r,
+                g: g,
+                b: b
+            };
         },
 
         colorMap: {

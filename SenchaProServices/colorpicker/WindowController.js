@@ -14,7 +14,8 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
         var me = this,
             vm = me.getViewModel(),
             rgba = vm.get('selectedColor'),
-            hsv;
+            hsv,
+            newRgb;
 
         // Color map selection really only affects saturation and value of the color
         hsv = SenchaProServices.colorpicker.ColorUtils.rgb2hsv(rgba.r, rgba.g, rgba.b);
@@ -25,8 +26,11 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
         // y-axis of color map with value 0-1 translates to reverse of "value"
         hsv.v = 1-yPercent;
 
-        // Save back to view model in one shot
-        Ext.apply(rgba, SenchaProServices.colorpicker.ColorUtils.hsv2rgb(hsv.h, hsv.s, hsv.v));
-        vm.set('selectedColor', rgba);
+        newRgb = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(hsv.h, hsv.s, hsv.v);
+
+        // Save back to view model 
+        vm.set('selectedColor.r', newRgb.r);
+        vm.set('selectedColor.g', newRgb.g);
+        vm.set('selectedColor.b', newRgb.b);
     }
 });

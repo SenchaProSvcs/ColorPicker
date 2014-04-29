@@ -2,6 +2,10 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
     extend : 'Ext.app.ViewController',
     alias: 'controller.sps_colorpickercolormapcontroller',
 
+    requires: [
+        'SenchaProServices.colorpicker.ColorUtils'
+    ],
+
     // Configure draggable constraints after the component is rendered.
     onFirstBoxReady: function() {
         var me         = this,
@@ -39,5 +43,41 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
         }
 
         container.fireEvent('handledrag', xRatio, yRatio);
+    },
+
+    // Whenever the underlying binding data is changed we need to 
+    // update position of the dragger; active drag state has been
+    // accounted for earlier
+    onColorBindingChanged: function(selectedColor) {
+        var me              = this,
+            vm              = me.getViewModel(),
+            rgba            = vm.get('selectedColor'),
+            hsv,
+            container       = me.getView(), // the Color Map
+            dragHandle      = container.down('#dragHandle'),
+            containerEl     = container.getEl(),
+            containerWidth  = containerEl.getWidth(),
+            containerHeight = containerEl.getHeight(),
+            xRatio,
+            yRatio,
+            left,
+            top;
+            
+        // Color map selection really only depends on saturation and value of the color
+        hsv = SenchaProServices.colorpicker.ColorUtils.rgb2hsv(rgba.r, rgba.g, rgba.b);
+
+        // x-axis of color map with value 0-1 translates to saturation
+        xRatio = hsv.s;
+        left = containerWidth*xRatio;
+
+        // y-axis of color map with value 0-1 translates to reverse of "value"
+        yRatio = 1-hsv.v;
+        top = containerHeight*yRatio;
+
+        // Position dragger
+        dragHandle.getEl().setStyle({
+            left : left + 'px',
+            top  : top + 'px'
+        });
     }
 });

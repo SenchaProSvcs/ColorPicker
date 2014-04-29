@@ -10,6 +10,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
     requires: [
         'Ext.layout.container.Border',
         'Ext.layout.container.HBox',
+        'Ext.form.field.Text',
+        'Ext.form.field.Number',
         'Ext.slider.Single',
         'SenchaProServices.colorpicker.ColorMap',
         'SenchaProServices.colorpicker.WindowModel',
@@ -95,15 +97,18 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 {
                     xtype     : 'sps_colorpickercolormap',
                     flex      : 1,
+                    bind      : {
+                        position: {
+                            bindTo : '{selectedColor}',
+                            deep   : true
+                        }
+                    },
                     listeners : {
                         handledrag: {
-                            fn    : 'onColorMapHandleDrag',
-                            //scope : 'this'
+                            fn: 'onColorMapHandleDrag'
+                            // scope : 'controller' // cannot use here; EXTJS-13185
                         }
                     }
-                    // bind  : {
-                    //     value: '{toHEX}'
-                    // }
                 },
                 // HEX/R/G/B FIELDS
                 {
@@ -121,25 +126,34 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             bind       : '{hex}'
                         },
                         {
-                            xtype      : 'textfield',
-                            fieldLabel : 'R',
-                            labelAlign : 'top',
-                            bind       : '{selectedColor.r}',
-                            width      : me.sliderWidth
+                            xtype       : 'numberfield',
+                            fieldLabel  : 'R',
+                            labelAlign  : 'top',
+                            bind        : '{selectedColor.r}',
+                            width       : me.sliderWidth,
+                            hideTrigger : true,
+                            maxValue    : 255,
+                            minValue    : 0
                         },
                         {
-                            xtype      : 'textfield',
-                            fieldLabel : 'G',
-                            labelAlign : 'top',
-                            bind       : '{selectedColor.g}',
-                            width      : me.sliderWidth
+                            xtype       : 'numberfield',
+                            fieldLabel  : 'G',
+                            labelAlign  : 'top',
+                            bind        : '{selectedColor.g}',
+                            width       : me.sliderWidth,
+                            hideTrigger : true,
+                            maxValue    : 255,
+                            minValue    : 0
                         },
                         {
-                            xtype      : 'textfield',
-                            fieldLabel : 'B',
-                            labelAlign : 'top',
-                            bind       : '{selectedColor.b}',
-                            width      : me.sliderWidth
+                            xtype       : 'numberfield',
+                            fieldLabel  : 'B',
+                            labelAlign  : 'top',
+                            bind        : '{selectedColor.b}',
+                            width       : me.sliderWidth,
+                            hideTrigger : true,
+                            maxValue    : 255,
+                            minValue    : 0
                         }
                     ]
                 }
@@ -172,11 +186,14 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                            //     background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png) center repeat; 
                 },
                 {
-                    xtype          : 'textfield',
+                    xtype          : 'numberfield',
                     fieldLabel     : 'H',
                     labelAlign     : 'top',
                     labelSeparator : '',
-                    bind           : '{hue}'
+                    bind           : '{hue}',
+                    hideTrigger    : true,
+                    maxValue       : 360,
+                    minValue       : 0
                 }
             ]
         };
@@ -205,11 +222,14 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     flex     : 1
                 },
                 {
-                    xtype          : 'textfield',
+                    xtype          : 'numberfield',
                     fieldLabel     : 'S',
                     labelAlign     : 'top',
                     labelSeparator : '',
-                    bind           : '{saturation}'
+                    bind           : '{saturation}',
+                    hideTrigger    : true,
+                    maxValue       : 100,
+                    minValue       : 0
                 }
             ]
         };
@@ -234,11 +254,14 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     flex     : 1
                 },
                 {
-                    xtype          : 'textfield',
+                    xtype          : 'numberfield',
                     fieldLabel     : 'V',
                     labelAlign     : 'top',
                     labelSeparator : '',
-                    bind           : '{value}'
+                    bind           : '{value}',
+                    hideTrigger    : true,
+                    maxValue       : 100,
+                    minValue       : 0
                 }
             ]
         };
@@ -266,11 +289,14 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     flex     : 1
                 },
                 {
-                    xtype          : 'textfield',
+                    xtype          : 'numberfield',
                     fieldLabel     : 'A',
                     labelAlign     : 'top',
                     labelSeparator : '',
-                    bind           : '{selectedColor.a}'
+                    bind           : '{selectedColor.a}',
+                    hideTrigger    : true,
+                    maxValue       : 100,
+                    minValue       : 0
                 }
             ]
         };

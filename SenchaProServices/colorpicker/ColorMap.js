@@ -28,6 +28,28 @@ Ext.define('SenchaProServices.colorpicker.ColorMap', {
             single  : true,
             fn      : 'onFirstBoxReady',
             scope   : 'controller'
+        },
+        colorbindingchanged: {
+            fn: 'onColorBindingChanged',
+            scope   : 'controller'
         }
+    },
+
+    // Called via data binding whenever selected color changes; fires "colorbindingchanged"
+    setPosition: function(data) {
+        var me         = this,
+            dragHandle = me.down('#dragHandle');
+
+        // Too early in the render cycle? Skip event
+        if (!dragHandle.dd || !dragHandle.dd.constrain) {
+            return;
+        }
+
+        // User actively dragging? Skip event
+        if (typeof dragHandle.dd.dragEnded !== 'undefined' && !dragHandle.dd.dragEnded) {
+            return;
+        }
+
+        me.fireEvent('colorbindingchanged', data);
     }
 });
