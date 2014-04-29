@@ -26,8 +26,18 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             y               = dragHandle.getY() - container.getY(),
             containerEl     = container.getEl(),
             containerWidth  = containerEl.getWidth(),
-            containerHeight = containerEl.getHeight();
+            containerHeight = containerEl.getHeight(),
+            xRatio          = x/containerWidth,
+            yRatio          = y/containerHeight;
 
-        container.fireEvent('handledrag', x/containerWidth, y/containerHeight);
+        // Adjust x/y ratios for dragger always being 1 pixel from the edge on the right
+        if (xRatio > 0.99) {
+            xRatio = 1;
+        }
+        if (yRatio > 0.99) {
+            yRatio = 1;
+        }
+
+        container.fireEvent('handledrag', xRatio, yRatio);
     }
 });
