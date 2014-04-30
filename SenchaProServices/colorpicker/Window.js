@@ -15,7 +15,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         'Ext.slider.Single',
         'SenchaProServices.colorpicker.ColorMap',
         'SenchaProServices.colorpicker.WindowModel',
-        'SenchaProServices.colorpicker.WindowController'
+        'SenchaProServices.colorpicker.WindowController',
+        'SenchaProServices.colorpicker.ColorPreview'
     ],
 
     sliderWidth : 50, // width of every slider
@@ -316,9 +317,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items: [
                 {
-                    xtype  : 'component',
+                    xtype  : 'sps_colorpickercolorpreview',
                     height : 60,
-                    style  : 'background: sandybrown'
+                    bind: {
+                        color: '{hex}'
+                    }
                 },
                 {
                     xtype  : 'component',
