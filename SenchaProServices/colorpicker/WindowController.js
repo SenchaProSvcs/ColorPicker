@@ -10,27 +10,26 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
     // xPercent - where is the handle relative to the color map width
     // yPercent - where is the handle relative to the color map height
     onColorMapHandleDrag: function(xPercent, yPercent) {
-        // console.log(xPercent,yPercent);
-        var me = this,
-            vm = me.getViewModel(),
-            rgba = vm.get('selectedColor'),
-            hsv,
-            newRgb;
+        var me            = this,
+            vm            = me.getViewModel(),
+            selectedColor = vm.get('selectedColor'),
+            newHSV,
+            newRGB;
 
         // Color map selection really only affects saturation and value of the color
-        hsv = SenchaProServices.colorpicker.ColorUtils.rgb2hsv(rgba.r, rgba.g, rgba.b);
+        newHSV = { h: selectedColor.h, s: selectedColor.s, v: selectedColor.v };
 
         // x-axis of color map with value 0-1 translates to saturation
-        hsv.s = xPercent;
+        newHSV.s = xPercent;
 
         // y-axis of color map with value 0-1 translates to reverse of "value"
-        hsv.v = 1-yPercent;
+        newHSV.v = 1-yPercent;
 
-        newRgb = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(hsv.h, hsv.s, hsv.v);
+        newRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(newHSV.h, newHSV.s, newHSV.v);
 
-        // Save back to view model 
-        vm.set('selectedColor.r', newRgb.r);
-        vm.set('selectedColor.g', newRgb.g);
-        vm.set('selectedColor.b', newRgb.b);
+        // Save back to view model
+        Ext.apply(selectedColor, newHSV);
+        Ext.apply(selectedColor, newRGB);
+        vm.set('selectedColor', selectedColor);
     }
 });

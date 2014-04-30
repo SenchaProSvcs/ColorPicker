@@ -6,8 +6,8 @@
 
 /* Color Picker Button */
 .sps-colorpicker-button {
-    border: 1px solid gray;
-    background-color: tomato;
+    border           : 1px solid gray;
+    background-color : tomato;
 }
 
 /* The popup window with all the complex layouts */
@@ -36,6 +36,35 @@
         } // eo >.x-box-inner
 
     } // eo sps-colopicker-window-container1
+
+    // styles to support color map blending
+    .sps-colorpicker-colormap {
+        background-color: red;
+
+        .sps-colorpicker-colormap-blender {
+            position : absolute;
+            top      : 0;
+            left     : 0;
+            width    : 100%;
+            height   : 100%;
+        }
+
+        .sps-colorpicker-colormap-draghandle-container {
+            overflow : visible;
+            z-index  : 1;
+
+            .sps-colorpicker-colormap-draghandle {
+                width      : 15px;
+                height     : 15px;
+                position   : relative;
+                left       : -7px;
+                top        : -7px; 
+                background : url(../../images/colorpicker/drag_circle_black.png);
+            }
+
+        } // eo .sps-colorpicker-colormap-draghandle-container
+
+    } // eo .sps-colorpicker-colormap
 
 } // eo .sps-colorpicker-window
 

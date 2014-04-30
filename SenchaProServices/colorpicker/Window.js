@@ -101,7 +101,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                         position: {
                             bindTo : '{selectedColor}',
                             deep   : true
-                        }
+                        },
+                        color: '{selectedColor.h}'
                     },
                     listeners : {
                         handledrag: {
@@ -129,7 +130,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             xtype       : 'numberfield',
                             fieldLabel  : 'R',
                             labelAlign  : 'top',
-                            bind        : '{selectedColor.r}',
+                            bind        : '{red}',
                             width       : me.sliderWidth,
                             hideTrigger : true,
                             maxValue    : 255,
@@ -139,7 +140,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             xtype       : 'numberfield',
                             fieldLabel  : 'G',
                             labelAlign  : 'top',
-                            bind        : '{selectedColor.g}',
+                            bind        : '{green}',
                             width       : me.sliderWidth,
                             hideTrigger : true,
                             maxValue    : 255,
@@ -149,7 +150,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             xtype       : 'numberfield',
                             fieldLabel  : 'B',
                             labelAlign  : 'top',
-                            bind        : '{selectedColor.b}',
+                            bind        : '{blue}',
                             width       : me.sliderWidth,
                             hideTrigger : true,
                             maxValue    : 255,

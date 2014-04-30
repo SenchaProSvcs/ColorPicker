@@ -62,7 +62,7 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             yRatio,
             left,
             top;
-            
+
         // Color map selection really only depends on saturation and value of the color
         hsv = SenchaProServices.colorpicker.ColorUtils.rgb2hsv(rgba.r, rgba.g, rgba.b);
 
@@ -79,5 +79,18 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             left : left + 'px',
             top  : top + 'px'
         });
+    },
+
+    // Whenever only Hue changes we can update the 
+    // background color of the color map
+    // Param "hue" has value of 0-1
+    onHueBindingChanged: function(hue) {
+        var me            = this,
+            vm            = me.getViewModel(),
+            selectedColor = vm.get('selectedColor'),
+            hex;
+
+        hex = SenchaProServices.colorpicker.ColorUtils.rgb2hex(selectedColor.r, selectedColor.g, selectedColor.b);
+        me.getView().getEl().setStyle({ 'background-color': '#' + hex });
     }
 });
