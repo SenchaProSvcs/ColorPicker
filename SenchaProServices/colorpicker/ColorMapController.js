@@ -87,10 +87,11 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
     onHueBindingChanged: function(hue) {
         var me            = this,
             vm            = me.getViewModel(),
-            selectedColor = vm.get('selectedColor'),
+            fullColorRGB,
             hex;
 
-        hex = SenchaProServices.colorpicker.ColorUtils.rgb2hex(selectedColor.r, selectedColor.g, selectedColor.b);
+        fullColorRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(hue, 1, 1);
+        hex = SenchaProServices.colorpicker.ColorUtils.rgb2hex(fullColorRGB.r, fullColorRGB.g, fullColorRGB.b);
         me.getView().getEl().setStyle({ 'background-color': '#' + hex });
     }
 });
