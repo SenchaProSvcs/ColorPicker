@@ -106,6 +106,17 @@
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
             }
         }
+
+        &.saturation {
+            .draghandle-container {
+                background: -moz-linear-gradient(top, #ffffff 0%, #000000 100%); /* FF3.6+ */
+                background: -webkit-linear-gradient(top, #ffffff 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top, #ffffff 0%,#000000 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top, #ffffff 0%,#000000 100%); /* IE10+ */
+                background: linear-gradient(to bottom, #ffffff 0%,#000000 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+            }
+        }
             
     } // eo .sps-colorpicker-slider
 

@@ -33,6 +33,7 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
         vm.set('selectedColor', selectedColor);
     },
 
+    // Updates HSV Value in the model and downstream RGB settings
     onValueSliderHandleDrag: function(yPercent) {
         var me            = this,
             vm            = me.getViewModel(),
@@ -44,10 +45,29 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
         newHSV = { h: selectedColor.h, s: selectedColor.s, v: selectedColor.v };
         newHSV.v = 1-yPercent;
         newRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(newHSV.h, newHSV.s, newHSV.v);
-        
+
         // Save back to view model
         Ext.apply(selectedColor, newHSV);
         Ext.apply(selectedColor, newRGB);
         vm.set('selectedColor', selectedColor);
-    }
+    },
+
+    // Updates HSV Saturation in the model and downstream RGB settings
+    onSaturationSliderHandleDrag: function(yPercent) {
+        var me            = this,
+            vm            = me.getViewModel(),
+            selectedColor = vm.get('selectedColor'),
+            newHSV,
+            newRGB;
+
+        // Slider selection only affects value of the color
+        newHSV = { h: selectedColor.h, s: selectedColor.s, v: selectedColor.v };
+        newHSV.s = 1-yPercent;
+        newRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(newHSV.h, newHSV.s, newHSV.v);
+
+        // Save back to view model
+        Ext.apply(selectedColor, newHSV);
+        Ext.apply(selectedColor, newRGB);
+        vm.set('selectedColor', selectedColor);
+    },
 });

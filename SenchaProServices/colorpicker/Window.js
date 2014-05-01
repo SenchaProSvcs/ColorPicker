@@ -220,10 +220,18 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype    : 'slider',
-                    vertical : true,
-                    useTips  : false,
-                    flex     : 1
+                    xtype : 'sps_colorpickerslider',
+                    flex  : 1,
+                    cls   : 'saturation',
+                    bind  : {
+                        saturation: '{saturation}'
+                    },
+                    listeners : {
+                        handledrag: {
+                            fn: 'onSaturationSliderHandleDrag'
+                            // scope : 'controller' // cannot use here; EXTJS-13185
+                        }
+                    }
                 },
                 {
                     xtype          : 'numberfield',
@@ -257,7 +265,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     flex  : 1,
                     cls   : 'value',
                     bind  : {
-                        position: '{value}'
+                        value: '{value}'
                     },
                     listeners : {
                         handledrag: {
