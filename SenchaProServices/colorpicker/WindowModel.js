@@ -11,10 +11,10 @@ Ext.define('SenchaProServices.colorpicker.WindowModel', {
 
     data: {
         selectedColor: {
-            r : 20,   // red
-            g : 255,  // green
+            r : 255,  // red
+            g : 0,    // green
             b : 0,    // blue
-            h : 0.31, // hue,
+            h : 0,    // hue,
             s : 1,    // saturation
             v : 1,    // value
             a : 1     // alpha (opacity)

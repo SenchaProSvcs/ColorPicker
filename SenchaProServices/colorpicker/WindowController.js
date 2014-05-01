@@ -31,5 +31,23 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
         Ext.apply(selectedColor, newHSV);
         Ext.apply(selectedColor, newRGB);
         vm.set('selectedColor', selectedColor);
+    },
+
+    onValueSliderHandleDrag: function(yPercent) {
+        var me            = this,
+            vm            = me.getViewModel(),
+            selectedColor = vm.get('selectedColor'),
+            newHSV,
+            newRGB;
+
+        // Slider selection only affects value of the color
+        newHSV = { h: selectedColor.h, s: selectedColor.s, v: selectedColor.v };
+        newHSV.v = 1-yPercent;
+        newRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(newHSV.h, newHSV.s, newHSV.v);
+        
+        // Save back to view model
+        Ext.apply(selectedColor, newHSV);
+        Ext.apply(selectedColor, newRGB);
+        vm.set('selectedColor', selectedColor);
     }
 });

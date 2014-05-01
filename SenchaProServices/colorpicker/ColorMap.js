@@ -45,7 +45,7 @@ Ext.define('SenchaProServices.colorpicker.ColorMap', {
         }
     },
 
-    // Called via data binding whenever selected color changes; fires "colorbindingchanged"
+    // Called via data binding whenever selectedColor changes; fires "colorbindingchanged"
     setPosition: function(data) {
         var me         = this,
             dragHandle = me.down('#dragHandle');
@@ -63,7 +63,7 @@ Ext.define('SenchaProServices.colorpicker.ColorMap', {
         me.fireEvent('colorbindingchanged', data);
     },
 
-    // Called via data binding whenever selected color Hue changes;
+    // Called via data binding whenever selectedColor.h changes;
     // fires "huebindingchanged" event
     setColor: function(hue) {
         var me = this;

@@ -16,11 +16,12 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         'SenchaProServices.colorpicker.ColorMap',
         'SenchaProServices.colorpicker.WindowModel',
         'SenchaProServices.colorpicker.WindowController',
-        'SenchaProServices.colorpicker.ColorPreview'
+        'SenchaProServices.colorpicker.ColorPreview',
+        'SenchaProServices.colorpicker.Slider'
     ],
 
-    sliderWidth : 50, // width of every slider
-    sliderPad   : 5,  // padding between the sliders AND HEX/R/G/B fields
+    fieldWidth : 50, // how wide are the fields on the bottom (also increases spacing betwen sliders)
+    fieldPad   : 5,  // padding between the sliders AND HEX/R/G/B fields
 
     constructor: function(cfg) {
         var me = this;
@@ -37,7 +38,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 {
                     xtype  : 'container',
                     region : 'center',
-                    cls    : 'sps-colopicker-window-container1', // needed for overflow: visible for color map dragger
+                    cls    : 'sps-colopicker-window-container-center', // needed for overflow: visible for color map dragger
                     layout : {
                         type  : 'hbox',
                         align : 'stretch'
@@ -86,7 +87,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            cls    : 'sps-colopicker-window-container2', // needed for overflow: visible for color map dragger
+            cls    : 'sps-colopicker-window-container-mapnfields', // needed for overflow: visible for color map dragger
             flex   : 1,
             layout : {
                 type  : 'vbox',
@@ -116,7 +117,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 {
                     xtype    : 'container',
                     defaults : {
-                        style          : 'display: inline-table; margin-right: ' + me.sliderPad + 'px;',
+                        style          : 'display: inline-table; margin-right: ' + me.fieldPad + 'px;',
                         labelSeparator : ''
                     },
                     items: [
@@ -132,7 +133,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             fieldLabel  : 'R',
                             labelAlign  : 'top',
                             bind        : '{red}',
-                            width       : me.sliderWidth,
+                            width       : me.fieldWidth,
                             hideTrigger : true,
                             maxValue    : 255,
                             minValue    : 0
@@ -142,7 +143,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             fieldLabel  : 'G',
                             labelAlign  : 'top',
                             bind        : '{green}',
-                            width       : me.sliderWidth,
+                            width       : me.fieldWidth,
                             hideTrigger : true,
                             maxValue    : 255,
                             minValue    : 0
@@ -152,7 +153,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             fieldLabel  : 'B',
                             labelAlign  : 'top',
                             bind        : '{blue}',
-                            width       : me.sliderWidth,
+                            width       : me.fieldWidth,
                             hideTrigger : true,
                             maxValue    : 255,
                             minValue    : 0
@@ -169,10 +170,10 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            width  : me.sliderWidth,
+            width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
-                align : 'stretch'
+                align : 'center'
             },
             items  : [
                 {
@@ -191,6 +192,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     xtype          : 'numberfield',
                     fieldLabel     : 'H',
                     labelAlign     : 'top',
+                    width          : me.fieldWidth,
                     labelSeparator : '',
                     bind           : '{hue}',
                     hideTrigger    : true,
@@ -207,14 +209,14 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            width  : me.sliderWidth,
+            width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
                 align : 'stretch'
             },
             margin: {
-                right  : me.sliderPad,
-                left   : me.sliderPad
+                right  : me.fieldPad,
+                left   : me.fieldPad
             },
             items  : [
                 {
@@ -243,17 +245,26 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            width  : me.sliderWidth,
+            cls    : 'sps-colopicker-window-container-value',
+            width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
                 align : 'stretch'
             },
             items  : [
                 {
-                    xtype    : 'slider',
-                    vertical : true,
-                    useTips  : false,
-                    flex     : 1
+                    xtype : 'sps_colorpickerslider',
+                    flex  : 1,
+                    cls   : 'value',
+                    bind  : {
+                        position: '{value}'
+                    },
+                    listeners : {
+                        handledrag: {
+                            fn: 'onValueSliderHandleDrag'
+                            // scope : 'controller' // cannot use here; EXTJS-13185
+                        }
+                    }
                 },
                 {
                     xtype          : 'numberfield',
@@ -275,13 +286,13 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            width  : me.sliderWidth,
+            width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
                 align : 'stretch'
             },
             margin: {
-                left   : me.sliderPad
+                left   : me.fieldPad
             },
             items  : [
                 {
