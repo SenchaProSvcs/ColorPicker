@@ -17,7 +17,9 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         'SenchaProServices.colorpicker.WindowModel',
         'SenchaProServices.colorpicker.WindowController',
         'SenchaProServices.colorpicker.ColorPreview',
-        'SenchaProServices.colorpicker.Slider'
+        'SenchaProServices.colorpicker.Slider',
+        'SenchaProServices.colorpicker.SliderSaturation',
+        'SenchaProServices.colorpicker.SliderValue'
     ],
 
     fieldWidth : 50, // how wide are the fields on the bottom (also increases spacing betwen sliders)
@@ -104,7 +106,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                             bindTo : '{selectedColor}',
                             deep   : true
                         },
-                        color: '{selectedColor.h}'
+                        hue: '{selectedColor.h}'
                     },
                     listeners : {
                         handledrag: {
@@ -221,11 +223,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype : 'sps_colorpickerslider',
+                    xtype : 'sps_colorpickerslidersaturation',
                     flex  : 1,
-                    cls   : 'saturation',
                     bind  : {
-                        saturation: '{saturation}'
+                        saturation : '{saturation}',
+                        hue        : '{selectedColor.h}'
                     },
                     listeners : {
                         handledrag: {
@@ -262,11 +264,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype : 'sps_colorpickerslider',
+                    xtype : 'sps_colorpickerslidervalue',
                     flex  : 1,
-                    cls   : 'value',
                     bind  : {
-                        value: '{value}'
+                        value : '{value}',
+                        hue   : '{selectedColor.h}'
                     },
                     listeners : {
                         handledrag: {

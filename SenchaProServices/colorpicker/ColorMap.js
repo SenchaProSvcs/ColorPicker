@@ -63,9 +63,8 @@ Ext.define('SenchaProServices.colorpicker.ColorMap', {
         me.fireEvent('colorbindingchanged', data);
     },
 
-    // Called via data binding whenever selectedColor.h changes;
-    // fires "huebindingchanged" event
-    setColor: function(hue) {
+    // Called via data binding whenever selectedColor.h changes; fires "huebindingchanged" event
+    setHue: function(hue) {
         var me = this;
 
         // Too early in the render cycle? Skip event

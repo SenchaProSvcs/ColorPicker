@@ -42,52 +42,14 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
             single  : true,
             fn      : 'onFirstBoxReady',
             scope   : 'controller'
-        },
-        valuebindingchanged: {
-            fn    : 'onValueBindingChanged',
-            scope : 'controller'
-        },
-        saturationbindingchanged: {
-            fn    : 'onSaturationBindingChanged',
-            scope : 'controller'
         }
     },
 
-    // Called via data binding whenever selectedColor.v changes; fires "valuebindingchanged"
-    // value param is 0-100
-    setValue: function(value) {
-        var me         = this,
-            dragHandle = me.down('#dragHandle');
-
-        // Too early in the render cycle? Skip event
-        if (!dragHandle.dd || !dragHandle.dd.constrain) {
-            return;
-        }
-
-        // User actively dragging? Skip event
-        if (typeof dragHandle.dd.dragEnded !== 'undefined' && !dragHandle.dd.dragEnded) {
-            return;
-        }
-
-        me.fireEvent('valuebindingchanged', value);
+    // <debug>
+    // Called via data binding whenever selectedColor.h changes;
+    setHue: function(hue) {
+        Ext.Logger.warn('Must implement setHue() in a child class!');
     },
+    // </debug>
 
-    // Called via data binding whenever selectedColor.s changes; fires "saturationbindingchanged"
-    // saturation param is 0-100
-    setSaturation: function(saturation) {
-        var me         = this,
-            dragHandle = me.down('#dragHandle');
-
-        // Too early in the render cycle? Skip event
-        if (!dragHandle.dd || !dragHandle.dd.constrain) {
-            return;
-        }
-
-        // User actively dragging? Skip event
-        if (typeof dragHandle.dd.dragEnded !== 'undefined' && !dragHandle.dd.dragEnded) {
-            return;
-        }
-
-        me.fireEvent('saturationbindingchanged', saturation);
-    }
 });
