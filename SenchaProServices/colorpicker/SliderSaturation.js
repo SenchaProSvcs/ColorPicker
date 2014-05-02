@@ -6,6 +6,16 @@ Ext.define('SenchaProServices.colorpicker.SliderSaturation', {
     alias  : 'widget.sps_colorpickerslidersaturation',
     cls    : 'saturation',
 
+    gradientStyleTpl: Ext.create('Ext.XTemplate',
+        Ext.isIE && Ext.ieVersion < 10
+        ? 'filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=\'#{hex}\', endColorstr=\'#ffffff\');' /* IE6-9 */
+        : 'background: -moz-linear-gradient(top, #{hex} 0%, #ffffff 100%);' +   /* FF3.6+ */
+          'background: -webkit-linear-gradient(top, #{hex} 0%,#ffffff 100%);' + /* Chrome10+,Safari5.1+ */
+          'background: -o-linear-gradient(top, #{hex} 0%,#ffffff 100%);' +      /* Opera 11.10+ */
+          'background: -ms-linear-gradient(top, #{hex} 0%,#ffffff 100%);' +     /* IE10+ */
+          'background: linear-gradient(to bottom, #{hex} 0%,#ffffff 100%);'     /* W3C */
+    ),
+
     // Called via data binding whenever selectedColor.s changes; saturation param is 0-100
     setSaturation: function(saturation) {
         var view            = this,
@@ -38,24 +48,20 @@ Ext.define('SenchaProServices.colorpicker.SliderSaturation', {
         });
     },
 
-    // Called via data binding whenever selectedColor.h changes; fires "huebindingchanged" event
+    // Called via data binding whenever selectedColor.h changes; hue param is 0-1
     setHue: function(hue) {
-        var me = this;
+        var me = this,
+            fullColorRGB,
+            hex;
 
         // Too early in the render cycle? Skip event
         if (!me.getEl()) {
             return;
         }
 
-        console.log('setting HUE! for SATURATION', hue);
-
-        // var me            = this,
-        //     vm            = me.getViewModel(),
-        //     fullColorRGB,
-        //     hex;
-
-        // fullColorRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(hue, 1, 1);
-        // hex = SenchaProServices.colorpicker.ColorUtils.rgb2hex(fullColorRGB.r, fullColorRGB.g, fullColorRGB.b);
-        // me.getView().getEl().setStyle({ 'background-color': '#' + hex });
+        // Determine HEX for new hue and set as background based on template
+        fullColorRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(hue, 1, 1);
+        hex = SenchaProServices.colorpicker.ColorUtils.rgb2hex(fullColorRGB.r, fullColorRGB.g, fullColorRGB.b);
+        me.down('#dragHandleContainer').getEl().applyStyles(me.gradientStyleTpl.apply({hex: hex}));
     }
 });

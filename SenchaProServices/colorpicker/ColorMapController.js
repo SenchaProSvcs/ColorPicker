@@ -92,6 +92,6 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
 
         fullColorRGB = SenchaProServices.colorpicker.ColorUtils.hsv2rgb(hue, 1, 1);
         hex = SenchaProServices.colorpicker.ColorUtils.rgb2hex(fullColorRGB.r, fullColorRGB.g, fullColorRGB.b);
-        me.getView().getEl().setStyle({ 'background-color': '#' + hex });
+        me.getView().getEl().applyStyles({ 'background-color': '#' + hex });
     }
 });
