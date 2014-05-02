@@ -19,6 +19,7 @@
     }
 
     // needed for overflow: visible for color map & slider draggers
+    // to "break out" of their drag boundaries
     .sps-colopicker-window-container-center {
         overflow: visible;
 
@@ -32,6 +33,14 @@
                     overflow: visible;
                 }
             } // eo .sps-colopicker-window-container-mapnfields
+
+            .sps-colopicker-window-container-saturation {
+                overflow: visible;
+
+                >.x-box-inner {
+                    overflow: visible;
+                }
+            } // eo .sps-colopicker-window-container-saturation
 
             .sps-colopicker-window-container-value {
                 overflow: visible;

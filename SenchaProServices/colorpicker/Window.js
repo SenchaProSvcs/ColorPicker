@@ -38,7 +38,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 {
                     xtype  : 'container',
                     region : 'center',
-                    cls    : 'sps-colopicker-window-container-center', // needed for overflow: visible for color map dragger
+                    cls    : 'sps-colopicker-window-container-center',
                     layout : {
                         type  : 'hbox',
                         align : 'stretch'
@@ -87,7 +87,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            cls    : 'sps-colopicker-window-container-mapnfields', // needed for overflow: visible for color map dragger
+            cls    : 'sps-colopicker-window-container-mapnfields',
             flex   : 1,
             layout : {
                 type  : 'vbox',
@@ -209,6 +209,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
+            cls    : 'sps-colopicker-window-container-saturation',
             width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',

@@ -76,35 +76,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .sps-colorpicker-window .x-form-item-label {
   text-align: center;
 }
-/* line 22, ../sass/colorpicker.scss */
+/* line 23, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colopicker-window-container-center {
   overflow: visible;
 }
-/* line 25, ../sass/colorpicker.scss */
+/* line 26, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colopicker-window-container-center > .x-box-inner {
   overflow: visible;
 }
-/* line 28, ../sass/colorpicker.scss */
+/* line 29, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colopicker-window-container-center > .x-box-inner .sps-colopicker-window-container-mapnfields {
   overflow: visible;
 }
-/* line 31, ../sass/colorpicker.scss */
+/* line 32, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colopicker-window-container-center > .x-box-inner .sps-colopicker-window-container-mapnfields > .x-box-inner {
   overflow: visible;
 }
-/* line 36, ../sass/colorpicker.scss */
+/* line 37, ../sass/colorpicker.scss */
+.sps-colorpicker-window .sps-colopicker-window-container-center > .x-box-inner .sps-colopicker-window-container-saturation {
+  overflow: visible;
+}
+/* line 40, ../sass/colorpicker.scss */
+.sps-colorpicker-window .sps-colopicker-window-container-center > .x-box-inner .sps-colopicker-window-container-saturation > .x-box-inner {
+  overflow: visible;
+}
+/* line 45, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colopicker-window-container-center > .x-box-inner .sps-colopicker-window-container-value {
   overflow: visible;
 }
-/* line 39, ../sass/colorpicker.scss */
+/* line 48, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colopicker-window-container-center > .x-box-inner .sps-colopicker-window-container-value > .x-box-inner {
   overflow: visible;
 }
-/* line 49, ../sass/colorpicker.scss */
+/* line 58, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-colormap {
   background-color: red;
 }
-/* line 53, ../sass/colorpicker.scss */
+/* line 62, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-colormap .sps-colorpicker-colormap-blender {
   position: absolute;
   top: 0;
@@ -112,12 +120,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 100%;
   height: 100%;
 }
-/* line 62, ../sass/colorpicker.scss */
+/* line 71, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-colormap .sps-colorpicker-colormap-draghandle-container {
   overflow: visible;
   z-index: 1;
 }
-/* line 66, ../sass/colorpicker.scss */
+/* line 75, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-colormap .sps-colorpicker-colormap-draghandle-container .sps-colorpicker-colormap-draghandle {
   width: 15px;
   height: 15px;
@@ -126,11 +134,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: -7px;
   background: url(../../images/colorpicker/drag_circle_black.png);
 }
-/* line 82, ../sass/colorpicker.scss */
+/* line 91, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-slider .draghandle-container {
   width: 20px;
 }
-/* line 86, ../sass/colorpicker.scss */
+/* line 95, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-slider .draghandle-container .draghandle-outer .draghandle {
   width: 32px;
   height: 9px;
@@ -140,7 +148,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url(../../images/colorpicker/pickerslider.png);
   background-repeat: no-repeat;
 }
-/* line 100, ../sass/colorpicker.scss */
+/* line 109, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-slider.value .draghandle-container {
   background: -moz-linear-gradient(top, red 0%, black 100%);
   /* FF3.6+ */
@@ -155,7 +163,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#000000',GradientType=0 );
   /* IE6-9 */
 }
-/* line 111, ../sass/colorpicker.scss */
+/* line 120, ../sass/colorpicker.scss */
 .sps-colorpicker-window .sps-colorpicker-slider.saturation .draghandle-container {
   background: -moz-linear-gradient(top, white 0%, black 100%);
   /* FF3.6+ */
@@ -173,7 +181,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* OLD */
 /* popup - needed by color picker */
-/* line 137, ../sass/colorpicker.scss */
+/* line 146, ../sass/colorpicker.scss */
 .th-panel-popup {
   overflow: visible !important;
   border: 4px solid #157fcc;
@@ -184,7 +192,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 148, ../sass/colorpicker.scss */
+/* line 157, ../sass/colorpicker.scss */
 .th-panel-popup .pointer-mask {
   position: absolute;
   height: 13px;
@@ -192,7 +200,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: -13px;
   overflow: hidden;
 }
-/* line 155, ../sass/colorpicker.scss */
+/* line 164, ../sass/colorpicker.scss */
 .th-panel-popup .pointer-mask.bottom {
   -moz-transform: rotateZ(180deg);
   -webkit-transform: rotateZ(180deg);
@@ -201,7 +209,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   transform: rotateZ(180deg);
   top: 100%;
 }
-/* line 160, ../sass/colorpicker.scss */
+/* line 169, ../sass/colorpicker.scss */
 .th-panel-popup .pointer-mask.left {
   -moz-transform: rotateZ(270deg);
   -webkit-transform: rotateZ(270deg);
@@ -211,7 +219,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   left: -19.5px;
   top: 0;
 }
-/* line 166, ../sass/colorpicker.scss */
+/* line 175, ../sass/colorpicker.scss */
 .th-panel-popup .pointer-mask.right {
   -moz-transform-origin: 25% 50%;
   -webkit-transform-origin: 25% 50%;
@@ -226,7 +234,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   left: 100%;
   top: 0;
 }
-/* line 175, ../sass/colorpicker.scss */
+/* line 184, ../sass/colorpicker.scss */
 .th-panel-popup .pointer {
   position: absolute;
   height: 19.5px;
@@ -246,7 +254,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   transform-origin: 0 0;
   background-color: #eeeeee;
 }
-/* line 187, ../sass/colorpicker.scss */
+/* line 196, ../sass/colorpicker.scss */
 .th-panel-popup .content {
   overflow: hidden;
   position: absolute;
@@ -258,63 +266,63 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /*COLOR PICKER*/
-/* line 201, ../sass/colorpicker.scss */
+/* line 210, ../sass/colorpicker.scss */
 .th-colorpicker {
   overflow: visible !important;
   /*SWATCH LIBRARY*/
 }
-/* line 206, ../sass/colorpicker.scss */
+/* line 215, ../sass/colorpicker.scss */
 .th-colorpicker div {
   position: absolute;
 }
-/* line 209, ../sass/colorpicker.scss */
+/* line 218, ../sass/colorpicker.scss */
 .th-colorpicker div.x-field-body {
   position: static;
 }
-/* line 216, ../sass/colorpicker.scss */
+/* line 225, ../sass/colorpicker.scss */
 .th-colorpicker button {
   padding: 0 !important;
 }
-/* line 218, ../sass/colorpicker.scss */
+/* line 227, ../sass/colorpicker.scss */
 .th-colorpicker button span {
   margin: 0 !important;
   padding: 0 !important;
 }
-/* line 242, ../sass/colorpicker.scss */
+/* line 251, ../sass/colorpicker.scss */
 .th-colorpicker .map {
   top: 10px;
   left: 10px;
   width: 256px;
   height: 256px;
 }
-/* line 248, ../sass/colorpicker.scss */
+/* line 257, ../sass/colorpicker.scss */
 .th-colorpicker .map canvas {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 255, ../sass/colorpicker.scss */
+/* line 264, ../sass/colorpicker.scss */
 .th-colorpicker .barH {
   top: 10px;
   left: 284px;
   width: 22px;
   height: 256px;
 }
-/* line 262, ../sass/colorpicker.scss */
+/* line 271, ../sass/colorpicker.scss */
 .th-colorpicker .barS {
   top: 10px;
   left: 324px;
   width: 22px;
   height: 256px;
 }
-/* line 269, ../sass/colorpicker.scss */
+/* line 278, ../sass/colorpicker.scss */
 .th-colorpicker .barV {
   top: 10px;
   left: 364px;
   width: 22px;
   height: 256px;
 }
-/* line 276, ../sass/colorpicker.scss */
+/* line 285, ../sass/colorpicker.scss */
 .th-colorpicker .barA {
   top: 10px;
   left: 404px;
@@ -322,7 +330,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 256px;
   background-image: url("../images/colorpicker/checkerboard.png");
 }
-/* line 284, ../sass/colorpicker.scss */
+/* line 293, ../sass/colorpicker.scss */
 .th-colorpicker .map, .th-colorpicker .barH, .th-colorpicker .barS, .th-colorpicker .barV, .th-colorpicker .barA {
   border: 1px solid #a7a7a7;
   -moz-box-sizing: border-box;
@@ -330,7 +338,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 289, ../sass/colorpicker.scss */
+/* line 298, ../sass/colorpicker.scss */
 .th-colorpicker .slider .picker-outer {
   height: 0;
   width: 0;
@@ -338,7 +346,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: 0;
   left: 0;
 }
-/* line 296, ../sass/colorpicker.scss */
+/* line 305, ../sass/colorpicker.scss */
 .th-colorpicker .slider .picker-inner {
   height: 9px;
   width: 32px;
@@ -347,11 +355,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   left: -6px;
   background-image: url("../images/colorpicker/pickerslider.png");
 }
-/* line 304, ../sass/colorpicker.scss */
+/* line 313, ../sass/colorpicker.scss */
 .th-colorpicker .slider .picker-inner:active {
   opacity: 0.8;
 }
-/* line 310, ../sass/colorpicker.scss */
+/* line 319, ../sass/colorpicker.scss */
 .th-colorpicker .map .picker-outer {
   height: 13px;
   width: 13px;
@@ -362,14 +370,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-left: -7px;
   margin-top: -7px;
 }
-/* line 320, ../sass/colorpicker.scss */
+/* line 329, ../sass/colorpicker.scss */
 .th-colorpicker .map .picker-inner {
   height: 11px;
   width: 11px;
   border-radius: 7px;
   border: 1px solid white;
 }
-/* line 333, ../sass/colorpicker.scss */
+/* line 342, ../sass/colorpicker.scss */
 .th-colorpicker .preview {
   top: 10px;
   left: 444px;
@@ -378,89 +386,89 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border: 1px solid #a7a7a7;
   background-image: url("../images/colorpicker/checkerboard.png");
 }
-/* line 341, ../sass/colorpicker.scss */
+/* line 350, ../sass/colorpicker.scss */
 .th-colorpicker .preview .new {
   top: 0;
   left: 0;
   width: 60px;
   height: 45px;
 }
-/* line 348, ../sass/colorpicker.scss */
+/* line 357, ../sass/colorpicker.scss */
 .th-colorpicker .preview .old {
   top: 45px;
   left: 0;
   width: 60px;
   height: 45px;
 }
-/* line 357, ../sass/colorpicker.scss */
+/* line 366, ../sass/colorpicker.scss */
 .th-colorpicker .buttons {
   top: 110px;
   left: 444px;
   width: 68px;
   height: 66px;
 }
-/* line 368, ../sass/colorpicker.scss */
+/* line 377, ../sass/colorpicker.scss */
 .th-colorpicker .hex {
   left: 10px;
   width: 63px;
 }
-/* line 378, ../sass/colorpicker.scss */
+/* line 387, ../sass/colorpicker.scss */
 .th-colorpicker .red {
   left: 83px;
 }
-/* line 381, ../sass/colorpicker.scss */
+/* line 390, ../sass/colorpicker.scss */
 .th-colorpicker .green {
   left: 123px;
 }
-/* line 384, ../sass/colorpicker.scss */
+/* line 393, ../sass/colorpicker.scss */
 .th-colorpicker .blue {
   left: 163px;
 }
-/* line 388, ../sass/colorpicker.scss */
+/* line 397, ../sass/colorpicker.scss */
 .th-colorpicker .red, .th-colorpicker .green, .th-colorpicker .blue {
   width: 30px;
 }
-/* line 398, ../sass/colorpicker.scss */
+/* line 407, ../sass/colorpicker.scss */
 .th-colorpicker .hue {
   left: 280px;
 }
-/* line 401, ../sass/colorpicker.scss */
+/* line 410, ../sass/colorpicker.scss */
 .th-colorpicker .saturation {
   left: 320px;
 }
-/* line 404, ../sass/colorpicker.scss */
+/* line 413, ../sass/colorpicker.scss */
 .th-colorpicker .value {
   left: 360px;
 }
-/* line 407, ../sass/colorpicker.scss */
+/* line 416, ../sass/colorpicker.scss */
 .th-colorpicker .alpha {
   left: 400px;
 }
-/* line 410, ../sass/colorpicker.scss */
+/* line 419, ../sass/colorpicker.scss */
 .th-colorpicker .hue, .th-colorpicker .saturation, .th-colorpicker .value, .th-colorpicker .alpha {
   width: 30px;
 }
-/* line 414, ../sass/colorpicker.scss */
+/* line 423, ../sass/colorpicker.scss */
 .th-colorpicker .fields {
   top: 266px;
 }
-/* line 418, ../sass/colorpicker.scss */
+/* line 427, ../sass/colorpicker.scss */
 .th-colorpicker .fields div {
   text-align: center;
 }
-/* line 422, ../sass/colorpicker.scss */
+/* line 431, ../sass/colorpicker.scss */
 .th-colorpicker .fields div input {
   text-align: center;
   padding: 0px;
 }
-/* line 436, ../sass/colorpicker.scss */
+/* line 445, ../sass/colorpicker.scss */
 .th-colorpicker .library {
   position: absolute;
   top: 325px;
   left: 10px;
   width: 100%;
 }
-/* line 442, ../sass/colorpicker.scss */
+/* line 451, ../sass/colorpicker.scss */
 .th-colorpicker .library .label {
   text-align: center;
   width: 63px;
@@ -468,20 +476,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: bold;
   color: #333333;
 }
-/* line 451, ../sass/colorpicker.scss */
+/* line 460, ../sass/colorpicker.scss */
 .th-colorpicker .library .button-container {
   left: 434px;
   top: 15px;
   width: 62px;
   height: 23px;
 }
-/* line 458, ../sass/colorpicker.scss */
+/* line 467, ../sass/colorpicker.scss */
 .th-colorpicker .library .swatches {
   top: 15px;
   width: 496px;
   height: 21px;
 }
-/* line 463, ../sass/colorpicker.scss */
+/* line 472, ../sass/colorpicker.scss */
 .th-colorpicker .library .swatches .swatch-row {
   height: 19px;
   width: 419px;
@@ -493,7 +501,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background-image: url("../images/colorpicker/diagonal_lines.png");
   background-color: white;
 }
-/* line 472, ../sass/colorpicker.scss */
+/* line 481, ../sass/colorpicker.scss */
 .th-colorpicker .library .swatches .swatch-row .swatch-container {
   width: 15px;
   height: 15px;
@@ -505,20 +513,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   box-sizing: content-box;
   background-color: white;
 }
-/* line 483, ../sass/colorpicker.scss */
+/* line 492, ../sass/colorpicker.scss */
 .th-colorpicker .library .swatches .swatch-row .swatch-container:nth-child(21) {
   border-right: none;
 }
-/* line 487, ../sass/colorpicker.scss */
+/* line 496, ../sass/colorpicker.scss */
 .th-colorpicker .library .swatches .swatch-row .swatch-container:active {
   background-color: #c8c8c8;
 }
-/* line 491, ../sass/colorpicker.scss */
+/* line 500, ../sass/colorpicker.scss */
 .th-colorpicker .library .swatches .swatch-row .swatch-color {
   width: 15px;
   height: 15px;
 }
-/* line 496, ../sass/colorpicker.scss */
+/* line 505, ../sass/colorpicker.scss */
 .th-colorpicker .library .swatches .swatch-row .swatch-background {
   width: 15px;
   height: 15px;
@@ -527,63 +535,63 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /*ANIMS*/
 @-webkit-keyframes popIn {
-  /* line 510, ../sass/colorpicker.scss */
+  /* line 519, ../sass/colorpicker.scss */
   0% {
     -webkit-transform: scale(0.1, 0.1);
   }
 
-  /* line 513, ../sass/colorpicker.scss */
+  /* line 522, ../sass/colorpicker.scss */
   70% {
     -webkit-transform: scale(1.3, 1.3);
   }
 
-  /* line 516, ../sass/colorpicker.scss */
+  /* line 525, ../sass/colorpicker.scss */
   100% {
     -webkit-transform: scale(1, 1);
   }
 }
 
 @-webkit-keyframes dropIn {
-  /* line 522, ../sass/colorpicker.scss */
+  /* line 531, ../sass/colorpicker.scss */
   0% {
     -webkit-transform: scale(1.3, 1.3);
   }
 
-  /* line 525, ../sass/colorpicker.scss */
+  /* line 534, ../sass/colorpicker.scss */
   50% {
     -webkit-transform: scale(1.3, 1.3);
   }
 
-  /* line 528, ../sass/colorpicker.scss */
+  /* line 537, ../sass/colorpicker.scss */
   85% {
     -webkit-transform: scale(0.8, 0.8);
   }
 
-  /* line 531, ../sass/colorpicker.scss */
+  /* line 540, ../sass/colorpicker.scss */
   100% {
     -webkit-transform: scale(1, 1);
   }
 }
 
 @-webkit-keyframes popOut {
-  /* line 537, ../sass/colorpicker.scss */
+  /* line 546, ../sass/colorpicker.scss */
   0% {
     -webkit-transform: scale(0.75, 0.75);
   }
 
-  /* line 540, ../sass/colorpicker.scss */
+  /* line 549, ../sass/colorpicker.scss */
   70% {
     -webkit-transform: scale(1.3, 1.3);
   }
 
-  /* line 543, ../sass/colorpicker.scss */
+  /* line 552, ../sass/colorpicker.scss */
   100% {
     -webkit-transform: scale(1, 1);
   }
 }
 
 /*DRAGGABLE SWATCH*/
-/* line 550, ../sass/colorpicker.scss */
+/* line 559, ../sass/colorpicker.scss */
 .draggableSwatch {
   width: 20px;
   height: 20px;
@@ -597,13 +605,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   z-index: 1000;
   cursor: pointer;
 }
-/* line 560, ../sass/colorpicker.scss */
+/* line 569, ../sass/colorpicker.scss */
 .draggableSwatch .draggableColor {
   width: 20px;
   height: 20px;
 }
 
-/* line 566, ../sass/colorpicker.scss */
+/* line 575, ../sass/colorpicker.scss */
 .draggableIndicator {
   height: 19px;
   width: 5px;
@@ -620,12 +628,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /*COLOR PICKER BUTTON*/
-/* line 580, ../sass/colorpicker.scss */
+/* line 589, ../sass/colorpicker.scss */
 .colorpicker {
   margin-left: 6px;
 }
 
-/* line 587, ../sass/colorpicker.scss */
+/* line 596, ../sass/colorpicker.scss */
 .AN-colorbtn {
   height: 17px;
   width: 17px;
@@ -650,12 +658,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-/* line 602, ../sass/colorpicker.scss */
+/* line 611, ../sass/colorpicker.scss */
 .AN-colorbtn a {
   display: block !important;
 }
 
-/* line 609, ../sass/colorpicker.scss */
+/* line 618, ../sass/colorpicker.scss */
 .AN-colorbtn-rgb {
   width: 15px;
   height: 15px;
@@ -673,7 +681,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   transform-origin: 0 0 0 50%;
 }
 
-/* line 621, ../sass/colorpicker.scss */
+/* line 630, ../sass/colorpicker.scss */
 .AN-colorbtn-rgba {
   width: 15px;
   height: 15px;
@@ -686,7 +694,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   position: relative;
 }
 
-/* line 631, ../sass/colorpicker.scss */
+/* line 640, ../sass/colorpicker.scss */
 .AN-colorbtn-unknown {
   width: 15px;
   height: 15px;
@@ -698,7 +706,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: red !important;
 }
 
-/* line 642, ../sass/colorpicker.scss */
+/* line 651, ../sass/colorpicker.scss */
 .AN-colorbtn-mask {
   pointer-events: none;
   background-color: white;
@@ -714,17 +722,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 654, ../sass/colorpicker.scss */
+/* line 663, ../sass/colorpicker.scss */
 .x4-btn-over .AN-colorbtn-mask {
   opacity: 0.1;
 }
-/* line 658, ../sass/colorpicker.scss */
+/* line 667, ../sass/colorpicker.scss */
 .x4-btn-pressed .AN-colorbtn-mask {
   background-color: black;
   opacity: 0.1;
 }
 
-/* line 664, ../sass/colorpicker.scss */
+/* line 673, ../sass/colorpicker.scss */
 .x-checkerboard {
   background-image: url("../images/colorpicker/checkerboard.png");
 }
