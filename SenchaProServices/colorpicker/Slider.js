@@ -2,14 +2,16 @@
  * View for the 4 sliders seen on the color picker window.
  */
 Ext.define('SenchaProServices.colorpicker.Slider', {
-    extend  : 'Ext.container.Container',
-    alias   : 'widget.sps_colorpickerslider',
+    extend     : 'Ext.container.Container',
+    alias      : 'widget.sps_colorpickerslider',
+    controller : 'sps_colorpickerslidercontroller',
     
     baseCls : 'sps-colorpicker-slider',
     layout  : 'center',
 
     requires: [
-        'Ext.layout.container.Center'
+        'Ext.layout.container.Center',
+        'SenchaProServices.colorpicker.SliderController'
     ],
 
     // Container for the drag handle; needed since the slider
@@ -39,49 +41,16 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
         boxready: {
             single  : true,
             fn      : 'onFirstBoxReady',
-            scope   : 'this'
+            scope   : 'controller'
         },
         valuebindingchanged: {
             fn    : 'onValueBindingChanged',
-            scope : 'this'
+            scope : 'controller'
         },
         saturationbindingchanged: {
             fn    : 'onSaturationBindingChanged',
-            scope : 'this'
+            scope : 'controller'
         }
-    },
-
-    // Configure draggable constraints after the component is rendered.
-    onFirstBoxReady: function() {
-        var me         = this,
-            container  = me.down('#dragHandleContainer'),
-            dragHandle = container.down('#dragHandle'),
-            dd         = dragHandle.dd;
-
-        dd.constrain = true;
-        dd.constrainTo = container.getEl();
-        dd.initialConstrainTo = dd.constrainTo; // needed otheriwse error EXTJS-13187
-        dd.onDrag = Ext.Function.createSequence(dd.onDrag, Ext.bind(me.onHandleDrag, me));
-    },
-
-    // Fires when handle is dragged; propagates "handledrag" event on the slider
-    // with parameter  "percentY" 0-1, representing the handle position on the slider
-    // relative to the height
-    onHandleDrag: function(e) {
-        var me              = this,
-            container       = me.down('#dragHandleContainer'),
-            dragHandle      = container.down('#dragHandle'),
-            y               = dragHandle.getY() - container.getY(),
-            containerEl     = container.getEl(),
-            containerHeight = containerEl.getHeight(),
-            yRatio          = y/containerHeight;
-
-        // Adjust y ratio for dragger always being 1 pixel from the edge on the right
-        if (yRatio > 0.99) {
-            yRatio = 1;
-        }
-
-        me.fireEvent('handledrag', yRatio);
     },
 
     // Called via data binding whenever selectedColor.v changes; fires "valuebindingchanged"
@@ -103,28 +72,6 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
         me.fireEvent('valuebindingchanged', value);
     },
 
-    // Whenever underlying data HSV value changed we need to update the position of the dragger
-    onValueBindingChanged: function(value) {
-        var me              = this,
-            vm              = me.up('sps_colorpickerwindow').getViewModel(),
-            rgba            = vm.get('selectedColor'),
-            container       = me.down('#dragHandleContainer'),
-            dragHandle      = container.down('#dragHandle'),
-            containerEl     = container.getEl(),
-            containerHeight = containerEl.getHeight(),
-            yRatio,
-            top;
-
-        // y-axis of slider with value 0-1 translates to reverse of "value"
-        yRatio = 1-(value/100);
-        top = containerHeight*yRatio;
-
-        // Position dragger
-        dragHandle.getEl().setStyle({
-            top  : top + 'px'
-        });
-    },
-
     // Called via data binding whenever selectedColor.s changes; fires "saturationbindingchanged"
     // saturation param is 0-100
     setSaturation: function(saturation) {
@@ -142,27 +89,5 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
         }
 
         me.fireEvent('saturationbindingchanged', saturation);
-    },
-
-    // Whenever underlying data HSV saturation changed we need to update the position of the dragger
-    onSaturationBindingChanged: function(saturation) {
-        var me              = this,
-            vm              = me.up('sps_colorpickerwindow').getViewModel(),
-            rgba            = vm.get('selectedColor'),
-            container       = me.down('#dragHandleContainer'),
-            dragHandle      = container.down('#dragHandle'),
-            containerEl     = container.getEl(),
-            containerHeight = containerEl.getHeight(),
-            yRatio,
-            top;
-
-        // y-axis of slider with value 0-1 translates to reverse of "value"
-        yRatio = 1-(saturation/100);
-        top = containerHeight*yRatio;
-
-        // Position dragger
-        dragHandle.getEl().setStyle({
-            top  : top + 'px'
-        });
     }
 });
