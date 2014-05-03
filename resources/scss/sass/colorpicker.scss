@@ -114,7 +114,8 @@
 
         &.hue {
             .draghandle-container {
-                background: url(../../images/colorpicker/huegradient.png) no-repeat;
+                background      : url(../../images/colorpicker/huegradient.png) no-repeat;
+                background-size : auto 100%;
             }
         }
 
