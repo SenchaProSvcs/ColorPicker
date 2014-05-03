@@ -54,30 +54,30 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                         me.getSliderAndAField(),
                         me.getPreviewAndButtons()
                     ]
-                },
-                // Pallette and "Save" button (bottom region)
-                {
-                    xtype  : 'container',
-                    region : 'south',
-                    layout: {
-                        type  : 'hbox',
-                        align : 'stretch'
-                    },
-                    items: [
-                        {
-                            xtype  : 'component',
-                            style  : 'background: orange;',
-                            html   : 'Pallette',
-                            flex   : 1,
-                            margin : '0 10 0 0'
-                        },
-                        {
-                            xtype : 'button',
-                            text  : 'Save',
-                            width : 70
-                        }
-                    ]
                 }
+                // Pallette and "Save" button (bottom region)
+                // {
+                //     xtype  : 'container',
+                //     region : 'south',
+                //     layout: {
+                //         type  : 'hbox',
+                //         align : 'stretch'
+                //     },
+                //     items: [
+                //         {
+                //             xtype  : 'component',
+                //             style  : 'background: orange;',
+                //             html   : 'Pallette',
+                //             flex   : 1,
+                //             margin : '0 10 0 0'
+                //         },
+                //         {
+                //             xtype : 'button',
+                //             text  : 'Save',
+                //             width : 70
+                //         }
+                //     ]
+                // }
             ]
         });
 
