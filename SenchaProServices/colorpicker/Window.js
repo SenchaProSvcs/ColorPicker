@@ -19,7 +19,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         'SenchaProServices.colorpicker.ColorPreview',
         'SenchaProServices.colorpicker.Slider',
         'SenchaProServices.colorpicker.SliderSaturation',
-        'SenchaProServices.colorpicker.SliderValue'
+        'SenchaProServices.colorpicker.SliderValue',
+        'SenchaProServices.colorpicker.SliderHue'
     ],
 
     fieldWidth : 50, // how wide are the fields on the bottom (also increases spacing betwen sliders)
@@ -172,23 +173,25 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
+            cls    : 'sps-colopicker-window-container-hue',
             width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
-                align : 'center'
+                align : 'stretch'
             },
             items  : [
                 {
-                    xtype    : 'slider',
-                    vertical : true,
-                    useTips  : false,
+                    xtype    : 'sps_colorpickersliderhue',
                     flex     : 1,
-                    style: Ext.isIE && Ext.ieVersion >= 8 && Ext.ieVersion <= 9
-                           ? '-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#FFFFFF, endColorstr=#00000000)";'
-                           :'background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgba(0, 0, 0, 0)), url(http://localhost/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png)'
-                           // IE 10 & 11 needs -ms-linear-gradient
-                           // IE8 cannot chain background image and gradient, so additional markup will be needed
-                           //     background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png) center repeat; 
+                    bind     : {
+                        hue: '{selectedColor.h}'
+                    },
+                    listeners : {
+                        handledrag: {
+                            fn: 'onHueSliderHandleDrag'
+                            // scope : 'controller' // cannot use here; EXTJS-13185
+                        }
+                    }
                 },
                 {
                     xtype          : 'numberfield',
@@ -311,6 +314,12 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     vertical : true,
                     useTips  : false,
                     flex     : 1
+                    // style: Ext.isIE && Ext.ieVersion >= 8 && Ext.ieVersion <= 9
+                    //        ? '-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#FFFFFF, endColorstr=#00000000)";'
+                    //        :'background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgba(0, 0, 0, 0)), url(http://localhost/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png)'
+                    //        // IE 10 & 11 needs -ms-linear-gradient
+                    //        // IE8 cannot chain background image and gradient, so additional markup will be needed
+                    //        //     background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png) center repeat; 
                 },
                 {
                     xtype          : 'numberfield',

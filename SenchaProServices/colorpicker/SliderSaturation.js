@@ -38,7 +38,7 @@ Ext.define('SenchaProServices.colorpicker.SliderSaturation', {
             return;
         }
 
-        // y-axis of slider with value 0-1 translates to reverse of "value"
+        // y-axis of slider with value 0-1 translates to reverse of "saturation"
         yRatio = 1-(saturation/100);
         top = containerHeight*yRatio;
 

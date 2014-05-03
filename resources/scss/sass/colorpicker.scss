@@ -1,5 +1,4 @@
 @import "compass/reset";
-
 @import "compass/css3";
 
 /* NEW */
@@ -33,6 +32,14 @@
                     overflow: visible;
                 }
             } // eo .sps-colopicker-window-container-mapnfields
+
+            .sps-colopicker-window-container-hue {
+                overflow: visible;
+
+                >.x-box-inner {
+                    overflow: visible;
+                }
+            } // eo .sps-colopicker-window-container-hue
 
             .sps-colopicker-window-container-saturation {
                 overflow: visible;
@@ -104,6 +111,12 @@
             } // eo .draghandle-outer 
 
         } // eo .draghandle-container
+
+        &.hue {
+            .draghandle-container {
+                background: url(../../images/colorpicker/huegradient.png) no-repeat;
+            }
+        }
 
         &.saturation {
             .draghandle-container {

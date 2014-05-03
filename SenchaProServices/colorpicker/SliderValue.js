@@ -22,7 +22,7 @@ Ext.define('SenchaProServices.colorpicker.SliderValue', {
 
     // Called via data binding whenever selectedColor.v changes; value param is 0-100
     setValue: function(value) {
-        var view       = this,
+        var view            = this,
             vm              = view.getController().getViewModel(),
             rgba            = vm.get('selectedColor'),
             container       = view.down('#dragHandleContainer'),
@@ -41,7 +41,7 @@ Ext.define('SenchaProServices.colorpicker.SliderValue', {
         if (typeof dragHandle.dd.dragEnded !== 'undefined' && !dragHandle.dd.dragEnded) {
             return;
         }
-
+debugger;
         // y-axis of slider with value 0-1 translates to reverse of "value"
         yRatio = 1-(value/100);
         top = containerHeight*yRatio;
