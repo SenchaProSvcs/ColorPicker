@@ -41,7 +41,7 @@ Ext.define('SenchaProServices.colorpicker.SliderValue', {
         if (typeof dragHandle.dd.dragEnded !== 'undefined' && !dragHandle.dd.dragEnded) {
             return;
         }
-debugger;
+
         // y-axis of slider with value 0-1 translates to reverse of "value"
         yRatio = 1-(value/100);
         top = containerHeight*yRatio;
