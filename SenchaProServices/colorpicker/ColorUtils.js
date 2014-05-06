@@ -198,7 +198,9 @@ Ext.define('SenchaProServices.colorpicker.ColorUtils', {
                     rgb = [c, 0, x];
                     break;
                 default:
+                    // <debug>
                     console.error("unknown color " + h + ' ' + s + " " + v);
+                    // </debug>
                     break;
             }
 

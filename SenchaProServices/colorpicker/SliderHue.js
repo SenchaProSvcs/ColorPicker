@@ -28,8 +28,6 @@ Ext.define('SenchaProServices.colorpicker.SliderHue', {
             return;
         }
 
-        console.log('SET HUE', hue);
-
         // y-axis of slider with value 0-1 translates to reverse of "hue"
         yRatio = 1-hue;
         top = containerHeight*yRatio;
