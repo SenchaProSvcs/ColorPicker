@@ -8,12 +8,18 @@ Ext.define('SenchaProServices.colorpicker.Button', {
     controller : 'sps_colorpickerbuttoncontroller',
 
     requires: [
-        'SenchaProServices.colorpicker.ButtonController'
+        'SenchaProServices.colorpicker.ButtonController',
+        'SenchaProServices.colorpicker.ColorUtils'
     ],
 
     baseCls : 'sps-colorpicker-button',
     width   : 20,
     height  : 20,
+
+    config : {
+        color   : undefined
+    },
+    
 
     listeners: {
         afterrender : {
@@ -25,5 +31,23 @@ Ext.define('SenchaProServices.colorpicker.Button', {
             fn    : 'onButtonClick',
             scope : 'controller'
         }
+    },
+
+    setColor : function (color) {
+        var me = this,
+            ColorUtils = SenchaProServices.colorpicker.ColorUtils,
+            el = me.getEl();
+
+        if (color && typeof color === 'string'){
+            color = ColorUtils.colorFromString(color);
+        }
+
+        if (el) {
+            el.applyStyles({
+                backgroundColor: SenchaProServices.colorpicker.ColorUtils.getRGBAString(color)
+            });
+        }
+
+        this.color = color;
     }
 });

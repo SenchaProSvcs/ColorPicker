@@ -88,5 +88,13 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
         Ext.apply(selectedColor, newHSV);
         Ext.apply(selectedColor, newRGB);
         vm.set('selectedColor', selectedColor);
+    },
+
+    onColorSelected: function () {
+        var me  = this,
+            win = me.getView(),
+            vm  = me.getViewModel();
+
+        win.fireEvent('colorSelected', win, vm.get('selectedColor'));
     }
 });

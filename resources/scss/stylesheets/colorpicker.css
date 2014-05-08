@@ -1,4 +1,4 @@
-/* line 17, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -15,50 +15,50 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-body {
+/* line 22, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
   line-height: 1;
 }
 
-/* line 22, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -68,7 +68,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 7, ../sass/colorpicker.scss */
 .sps-colorpicker-button {
   border: 1px solid gray;
-  background-color: tomato;
 }
 
 /* The popup window with all the complex layouts */
@@ -198,11 +197,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .th-panel-popup {
   overflow: visible !important;
   border: 4px solid #157fcc;
-  -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
+  -o-border-radius: 5px;
   border-radius: 5px;
 }
 /* line 171, ../sass/colorpicker.scss */
@@ -215,34 +213,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 /* line 178, ../sass/colorpicker.scss */
 .th-panel-popup .pointer-mask.bottom {
-  -moz-transform: rotateZ(180deg);
   -webkit-transform: rotateZ(180deg);
-  -o-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
   -ms-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
   transform: rotateZ(180deg);
   top: 100%;
 }
 /* line 183, ../sass/colorpicker.scss */
 .th-panel-popup .pointer-mask.left {
-  -moz-transform: rotateZ(270deg);
   -webkit-transform: rotateZ(270deg);
-  -o-transform: rotateZ(270deg);
+  -moz-transform: rotateZ(270deg);
   -ms-transform: rotateZ(270deg);
+  -o-transform: rotateZ(270deg);
   transform: rotateZ(270deg);
   left: -19.5px;
   top: 0;
 }
 /* line 189, ../sass/colorpicker.scss */
 .th-panel-popup .pointer-mask.right {
-  -moz-transform-origin: 25% 50%;
   -webkit-transform-origin: 25% 50%;
-  -o-transform-origin: 25% 50%;
+  -moz-transform-origin: 25% 50%;
   -ms-transform-origin: 25% 50%;
+  -o-transform-origin: 25% 50%;
   transform-origin: 25% 50%;
-  -moz-transform: rotateZ(90deg);
   -webkit-transform: rotateZ(90deg);
-  -o-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
   -ms-transform: rotateZ(90deg);
+  -o-transform: rotateZ(90deg);
   transform: rotateZ(90deg);
   left: 100%;
   top: 0;
@@ -255,15 +253,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: 0;
   left: 13px;
   border: 4px solid #157fcc;
-  -moz-transform: rotateZ(45deg);
   -webkit-transform: rotateZ(45deg);
-  -o-transform: rotateZ(45deg);
+  -moz-transform: rotateZ(45deg);
   -ms-transform: rotateZ(45deg);
+  -o-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
-  -moz-transform-origin: 0 0;
   -webkit-transform-origin: 0 0;
-  -o-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
   transform-origin: 0 0;
   background-color: #eeeeee;
 }
@@ -346,9 +344,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 307, ../sass/colorpicker.scss */
 .th-colorpicker .map, .th-colorpicker .barH, .th-colorpicker .barS, .th-colorpicker .barV, .th-colorpicker .barA {
   border: 1px solid #a7a7a7;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* line 312, ../sass/colorpicker.scss */
@@ -507,9 +504,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 19px;
   width: 419px;
   border: 2px solid #c8c8c8;
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
-  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   background-image: url("../images/colorpicker/diagonal_lines.png");
   background-color: white;
@@ -520,9 +516,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 15px;
   padding: 2px;
   border-right: 1px solid #c8c8c8;
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
-  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   background-color: white;
 }
@@ -608,9 +603,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .draggableSwatch {
   width: 20px;
   height: 20px;
-  -moz-box-sizing: content-box !important;
   -webkit-box-sizing: content-box !important;
-  -ms-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
   box-sizing: content-box !important;
   position: absolute;
   background-image: url("../images/colorpicker/checkerboard.png");
@@ -634,8 +628,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: 17px;
   left: 3px;
   opacity: 0.5;
-  -moz-transition: 0.1s;
   -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
   -o-transition: 0.1s;
   transition: 0.1s;
 }
@@ -650,9 +644,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .AN-colorbtn {
   height: 17px;
   width: 17px;
-  -moz-box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0;
   -webkit-box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0;
-  -o-box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0;
+  -moz-box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0;
   box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0;
   border: 1px solid #c8c8c8;
   overflow: hidden;
@@ -661,14 +654,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   cursor: pointer;
   display: block;
   background-image: url("../images/colorpicker/checkerboard.png");
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 /* line 625, ../sass/colorpicker.scss */
@@ -683,14 +675,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   position: relative;
   top: 0;
   left: 0;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-transform-origin: 0 0 0 50%;
   -webkit-transform-origin: 0 0 0 50%;
-  -o-transform-origin: 0 0 0 50%;
+  -moz-transform-origin: 0 0 0 50%;
   -ms-transform-origin: 0 0 0 50%;
+  -o-transform-origin: 0 0 0 50%;
   transform-origin: 0 0 0 50%;
 }
 
@@ -700,9 +691,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 15px;
   display: block;
   pointer-events: none;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
 }
@@ -730,9 +720,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   position: relative;
   display: block;
   opacity: 0;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* line 677, ../sass/colorpicker.scss */

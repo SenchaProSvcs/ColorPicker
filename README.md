@@ -26,8 +26,8 @@ Verified this working using:
 * ColorMap drag handle needs to be black & white circle so it's visible in the dark colors
 * Drag functionality (on ColorMap & sliders) needs to work by clicking anywhere on the surface, not just drag handle
 * Color swatches & saving in local storage
-* Actual button (that opens the window) should change its color based on selection
-* Also that actual button should re-use one instance of color picker window
+* ~~Actual button (that opens the window) should change its color based on selection~~
+* ~~Also that actual button should re-use one instance of color picker window~~
 * Also implement "color field" which would have that button as well as HEX in text field
 * Color picker window should close on click outside of it
 

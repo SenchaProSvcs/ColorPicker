@@ -25,7 +25,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
 
     fieldWidth : 50, // how wide are the fields on the bottom (also increases spacing betwen sliders)
     fieldPad   : 5,  // padding between the sliders AND HEX/R/G/B fields
-
+    
     constructor: function(cfg) {
         var me = this;
 
@@ -362,7 +362,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 {
                     xtype  : 'button',
                     text   : 'OK',
-                    margin : '10 0 0 0'
+                    margin : '10 0 0 0',
+                    handler: 'onColorSelected'
                 },
                 {
                     xtype  : 'button',

@@ -31,7 +31,7 @@ Ext.onReady(function() {
                 // { html  : 'OLD Colorpicker Field', margin: '20px 0px 0px 0px' },
                 // { xtype : 'colorpickerfield' },
                 { html  : 'NEW Colorpicker Button', margin: '20px 0px 0px 0px' },
-                { xtype : 'sps_colorpickerbutton' },
+                { xtype : 'sps_colorpickerbutton', color: 'blue' },
                 { html  : 'NEW Colorpicker Field', margin: '20px 0px 0px 0px' },
                 { xtype : 'field', width : 200, value : '#FFAAAA' }
             ]
