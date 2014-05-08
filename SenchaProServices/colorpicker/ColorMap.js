@@ -42,7 +42,23 @@ Ext.define('SenchaProServices.colorpicker.ColorMap', {
         huebindingchanged: {
             fn    : 'onHueBindingChanged',
             scope : 'controller'
+        },
+        click : {
+            fn    : 'onMapClick',
+            scope : 'controller'
         }
+    },
+
+    onRender: function () {
+        var me = this;
+
+        me.callParent(arguments);
+
+        me.mon(me.el, 'click', me.onClick, me);
+    },
+
+    onClick: function (event) {
+        this.fireEvent('click', event);
     },
 
     // Called via data binding whenever selectedColor changes; fires "colorbindingchanged"

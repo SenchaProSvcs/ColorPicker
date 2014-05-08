@@ -42,7 +42,23 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
             single  : true,
             fn      : 'onFirstBoxReady',
             scope   : 'controller'
+        },
+        click : {
+            fn    : 'onSliderClick',
+            scope : 'controller'
         }
+    },
+
+    onRender: function () {
+        var me = this;
+
+        me.callParent(arguments);
+
+        me.mon(me.el, 'click', me.onClick, me);
+    },
+
+    onClick: function (event) {
+        this.fireEvent('click', event);
     },
 
     // <debug>

@@ -38,5 +38,22 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
         }
 
         view.fireEvent('handledrag', yRatio);
+    },
+
+    onSliderClick: function (e) {
+        var me          = this,
+            container   = me.getView(), // the Color Map
+            dragHandle  = container.down('#dragHandle'),
+            cY          = container.getY(),
+            eY         = e.getY(),
+            left, top;
+
+        top  = eY - cY;
+
+        dragHandle.getEl().setStyle({
+            top  : top + 'px'
+        });
+
+        me.onHandleDrag();
     }
 });

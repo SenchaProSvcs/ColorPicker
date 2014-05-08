@@ -42,12 +42,31 @@ Ext.define('SenchaProServices.colorpicker.Button', {
             color = ColorUtils.colorFromString(color);
         }
 
+
         if (el) {
-            el.applyStyles({
-                backgroundColor: SenchaProServices.colorpicker.ColorUtils.getRGBAString(color)
-            });
+            me.applyBgStyle(color, el);
         }
 
         this.color = color;
+    },
+
+    bgStyleTpl: Ext.create('Ext.XTemplate',
+        Ext.isIE && Ext.ieVersion < 9 ?
+          // 'filter: progid:DXImageTransform.Microsoft.Alpha(Opacity={alpha});'+
+          // '-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity={alpha});'+
+          'background-color: #{hex}' /* IE6-9 */
+        : 'background: {rgba};'
+    ),
+
+    applyBgStyle: function (color, el) {
+        var ColorUtils = SenchaProServices.colorpicker.ColorUtils,
+            style = {},
+            hex, alpha, rgba;
+
+        hex = ColorUtils.rgb2hex(color.r, color.g, color.b);
+        alpha = color.a;
+        rgba = ColorUtils.getRGBAString(color);
+
+        el.applyStyles(this.bgStyleTpl.apply({hex: hex, alpha: alpha, rgba: rgba}));
     }
 });

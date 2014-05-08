@@ -3,14 +3,14 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
     alias: 'controller.sps_colorpickerbuttoncontroller',
 
     requires: [
-        'SenchaProServices.colorpicker.Window',
-        'SenchaProServices.colorpicker.ColorUtils'
+        'SenchaProServices.colorpicker.Window'
     ],
 
     // Propagate "click" event from el
     onFirstRender: function() {
         var me                = this,
             button            = me.getView(),
+            color             = button.getColor(),
             originalArguments = arguments,
             btnEl             = button.getEl();
 
@@ -18,9 +18,7 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
             button.fireEvent('click', originalArguments);
         });
 
-        btnEl.applyStyles({
-            backgroundColor: SenchaProServices.colorpicker.ColorUtils.getRGBAString(button.getColor())
-        });
+        button.setColor(color);
     },
 
     // Show and align the color picker window

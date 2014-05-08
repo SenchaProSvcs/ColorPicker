@@ -22,7 +22,7 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
     // Fires when handle is dragged; propagates "handledrag" event on the ColorMap
     // with parameters "percentX" and "percentY", both 0-1, representing the handle
     // position on the color map, relative to the container
-    onHandleDrag: function(e) {
+    onHandleDrag: function() {
         var me              = this,
             container       = me.getView(), // the Color Map
             dragHandle      = container.down('#dragHandle'),
@@ -43,6 +43,25 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
         }
 
         container.fireEvent('handledrag', xRatio, yRatio);
+    },
+
+    onMapClick: function (e) {
+        var me          = this,
+            container   = me.getView(), // the Color Map
+            dragHandle  = container.down('#dragHandle'),
+            cXY         = container.getXY(),
+            eXY         = e.getXY(),
+            left, top;
+
+        left = eXY[0] - cXY[0];
+        top  = eXY[1] - cXY[1];
+
+        dragHandle.getEl().setStyle({
+            left : left + 'px',
+            top  : top + 'px'
+        });
+
+        me.onHandleDrag();
     },
 
     // Whenever the underlying binding data is changed we need to 

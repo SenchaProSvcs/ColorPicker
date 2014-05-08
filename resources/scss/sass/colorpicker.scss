@@ -116,6 +116,8 @@
             .draghandle-container {
                 background      : url(../../images/colorpicker/huegradient.png) no-repeat;
                 background-size : auto 100%;
+                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale');
+                -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale')";                
             }
         }
 

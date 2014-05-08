@@ -20,11 +20,11 @@ Verified this working using:
 * TODO: Test in Ext5 target platforms (IE9, IE10, IE11, Safari, Opera, Tablets, etc.)
 
 # TODO Features
-* Hue Slider background in IE8
+* ~~Hue Slider background in IE8~~
 * Alpha slider
 * "Last Color" (on right)
 * ColorMap drag handle needs to be black & white circle so it's visible in the dark colors
-* Drag functionality (on ColorMap & sliders) needs to work by clicking anywhere on the surface, not just drag handle
+* ~~Drag functionality (on ColorMap & sliders) needs to work by clicking anywhere on the surface, not just drag handle~~
 * Color swatches & saving in local storage
 * ~~Actual button (that opens the window) should change its color based on selection~~
 * ~~Also that actual button should re-use one instance of color picker window~~
