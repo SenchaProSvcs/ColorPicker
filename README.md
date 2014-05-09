@@ -23,7 +23,7 @@ Verified this working using:
 * ~~Hue Slider background in IE8~~
 * ~~Alpha slider~~
 * ~~"Last Color" (on right)~~
-* ColorMap drag handle needs to be black & white circle so it's visible in the dark colors
+* ~~ColorMap drag handle needs to be black & white circle so it's visible in the dark colors~~
 * ~~Drag functionality (on ColorMap & sliders) needs to work by clicking anywhere on the surface, not just drag handle~~
 * Color swatches & saving in local storage
 * ~~Actual button (that opens the window) should change its color based on selection~~

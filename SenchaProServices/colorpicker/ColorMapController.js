@@ -42,7 +42,16 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             yRatio = 1;
         }
 
+        me.updateHandlerColor(xRatio, yRatio, dragHandle);
         container.fireEvent('handledrag', xRatio, yRatio);
+    },
+
+
+    updateHandlerColor: function (x, y, handler) {
+        var el = handler.getEl().down('.sps-colorpicker-colormap-draghandle');
+        var color = x < 0.5 && y < 0.5 ? 'black' : 'white';
+
+        el.setStyle('border-color', color);
     },
 
     onMapClick: function (e) {
@@ -98,6 +107,8 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             left : left + 'px',
             top  : top + 'px'
         });
+
+        me.updateHandlerColor(xRatio, yRatio, dragHandle);
     },
 
     // Whenever only Hue changes we can update the 
