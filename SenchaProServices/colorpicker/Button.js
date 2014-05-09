@@ -13,14 +13,19 @@ Ext.define('SenchaProServices.colorpicker.Button', {
     ],
 
     baseCls : 'sps-colorpicker-button',
+
     width   : 20,
     height  : 20,
 
     config : {
         color   : undefined
     },
-    
 
+    //hack to solve issue with IE, when applying a filter the click listener is not being fired.
+    style: 'position: relative',
+    html: '<a class="btn" style="height:100%; width:100%; position: absolute;"></a>',
+    //eo hack
+    
     listeners: {
         afterrender : {
             single  : true,
@@ -42,7 +47,6 @@ Ext.define('SenchaProServices.colorpicker.Button', {
             color = ColorUtils.colorFromString(color);
         }
 
-
         if (el) {
             me.applyBgStyle(color, el);
         }
@@ -51,22 +55,22 @@ Ext.define('SenchaProServices.colorpicker.Button', {
     },
 
     bgStyleTpl: Ext.create('Ext.XTemplate',
-        Ext.isIE && Ext.ieVersion < 9 ?
-          // 'filter: progid:DXImageTransform.Microsoft.Alpha(Opacity={alpha});'+
-          // '-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity={alpha});'+
-          'background-color: #{hex}' /* IE6-9 */
+        Ext.isIE && Ext.ieVersion < 10 ?
+          'filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=\'#{hexAlpha}{hex}\', endColorstr=\'#{hexAlpha}{hex}\');' /* IE6-9 */
         : 'background: {rgba};'
     ),
 
     applyBgStyle: function (color, el) {
         var ColorUtils = SenchaProServices.colorpicker.ColorUtils,
             style = {},
-            hex, alpha, rgba;
+            hex, alpha, rgba, bgStyle;
 
         hex = ColorUtils.rgb2hex(color.r, color.g, color.b);
-        alpha = color.a;
+        alpha = Math.floor(color.a * 255).toString(16) ;
         rgba = ColorUtils.getRGBAString(color);
 
-        el.applyStyles(this.bgStyleTpl.apply({hex: hex, alpha: alpha, rgba: rgba}));
+        bgStyle = this.bgStyleTpl.apply({hex: hex, hexAlpha: alpha, rgba: rgba});
+
+        el.applyStyles(bgStyle);
     }
 });

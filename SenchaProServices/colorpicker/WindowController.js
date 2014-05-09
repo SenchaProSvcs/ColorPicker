@@ -90,11 +90,37 @@ Ext.define('SenchaProServices.colorpicker.WindowController', {
         vm.set('selectedColor', selectedColor);
     },
 
+    onAlphaSliderHandleDrag: function (yPercent) {
+        var me            = this,
+            vm            = me.getViewModel(),
+            selectedColor = vm.get('selectedColor');
+
+        // Slider selection only affects value of the color
+        selectedColor.a = 1-yPercent;
+
+        // Save back to view model
+        vm.set('selectedColor', selectedColor);
+    },
+
+    onPreviousColorSelected: function (comp, color) {
+        var me  = this,
+            win = me.getView();
+        
+        win.setColor(color);
+    },
+
     onColorSelected: function () {
         var me  = this,
             win = me.getView(),
             vm  = me.getViewModel();
 
         win.fireEvent('colorSelected', win, vm.get('selectedColor'));
+    },
+
+    onCancel: function () {
+        var me  = this,
+            win = me.getView();
+
+        win.hide();
     }
 });

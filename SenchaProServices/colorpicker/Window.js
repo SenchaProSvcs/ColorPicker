@@ -18,6 +18,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         'SenchaProServices.colorpicker.WindowController',
         'SenchaProServices.colorpicker.ColorPreview',
         'SenchaProServices.colorpicker.Slider',
+        'SenchaProServices.colorpicker.SliderAlpha',
         'SenchaProServices.colorpicker.SliderSaturation',
         'SenchaProServices.colorpicker.SliderValue',
         'SenchaProServices.colorpicker.SliderHue'
@@ -26,6 +27,11 @@ Ext.define('SenchaProServices.colorpicker.Window', {
     fieldWidth : 50, // how wide are the fields on the bottom (also increases spacing betwen sliders)
     fieldPad   : 5,  // padding between the sliders AND HEX/R/G/B fields
     
+
+    config: {
+        color: undefined
+    },
+
     constructor: function(cfg) {
         var me = this;
 
@@ -82,6 +88,16 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         });
 
         me.callParent(arguments);
+    },
+
+    setColor: function (color) {
+        var me = this,
+            vm = me.getViewModel();
+
+        vm.set('selectedColor', color);
+
+        vm.set('previousColor', Ext.clone(color));
+
     },
 
     // Splits up view declaration for readability
@@ -300,6 +316,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
+            cls    : 'sps-colopicker-window-container-alpha',
             width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
@@ -310,23 +327,28 @@ Ext.define('SenchaProServices.colorpicker.Window', {
             },
             items  : [
                 {
-                    xtype    : 'slider',
-                    vertical : true,
-                    useTips  : false,
-                    flex     : 1
-                    // style: Ext.isIE && Ext.ieVersion >= 8 && Ext.ieVersion <= 9
-                    //        ? '-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#FFFFFF, endColorstr=#00000000)";'
-                    //        :'background-image: -webkit-linear-gradient(top, rgb(255, 255, 255), rgba(0, 0, 0, 0)), url(http://localhost/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png)'
-                    //        // IE 10 & 11 needs -ms-linear-gradient
-                    //        // IE8 cannot chain background image and gradient, so additional markup will be needed
-                    //        //     background: url(/sencha/ColorPickerRepo/resources/images/colorpicker/checkerboard.png) center repeat; 
+                    xtype : 'sps_colorpickerslideralpha',
+                    flex  : 1,
+                    bind  : {
+                        alpha : '{alpha}',
+                        color : {
+                            bindTo: '{selectedColor}',
+                            deep: true
+                        }
+                    },
+                    listeners : {
+                        handledrag: {
+                            fn: 'onAlphaSliderHandleDrag'
+                            // scope : 'controller' // cannot use here; EXTJS-13185
+                        }
+                    }
                 },
                 {
                     xtype          : 'numberfield',
                     fieldLabel     : 'A',
                     labelAlign     : 'top',
                     labelSeparator : '',
-                    bind           : '{selectedColor.a}',
+                    bind           : '{alpha}',
                     hideTrigger    : true,
                     maxValue       : 100,
                     minValue       : 0
@@ -351,13 +373,24 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                     xtype  : 'sps_colorpickercolorpreview',
                     height : 60,
                     bind: {
-                        color: '{hex}'
+                        color: {
+                            bindTo: '{selectedColor}',
+                            deep: true
+                        }
                     }
                 },
                 {
-                    xtype  : 'component',
+                    xtype  : 'sps_colorpickercolorpreview',
+                    bind: {
+                        color: {
+                            bindTo: '{previousColor}',
+                            deep: true
+                        }
+                    },
                     height : 60,
-                    style  : 'background: saddlebrown'
+                    listeners: {
+                        click: 'onPreviousColorSelected'
+                    }
                 },
                 {
                     xtype  : 'button',
@@ -368,7 +401,8 @@ Ext.define('SenchaProServices.colorpicker.Window', {
                 {
                     xtype  : 'button',
                     text   : 'Cancel',
-                    margin : '10 0 0 0'
+                    margin : '10 0 0 0',
+                    handler: 'onCancel'
                 }
             ]
         };

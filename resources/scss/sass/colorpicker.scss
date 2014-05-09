@@ -57,6 +57,14 @@
                 }
             } // eo .sps-colopicker-window-container-value
 
+            .sps-colopicker-window-container-alpha {
+                overflow: visible;
+
+                >.x-box-inner {
+                    overflow: visible;
+                }
+            } // eo .sps-colopicker-window-container-alpha
+            
         } // eo >.x-box-inner
 
     } // eo sps-colopicker-window-container-center

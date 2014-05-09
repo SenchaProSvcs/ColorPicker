@@ -177,6 +177,21 @@ Ext.define('SenchaProServices.colorpicker.WindowModel', {
                 Ext.apply(selectedColor, newRGB);
                 vm.set('selectedColor', selectedColor);
             }
+        },
+
+        alpha: {
+            get: function(data) {
+                var a = data('selectedColor.a');
+                return a * 100;
+            },
+
+            set: function(alpha) {
+                var vm            = this,
+                    selectedColor = vm.get('selectedColor');
+
+                selectedColor.a = alpha/100;
+                vm.set('selectedColor', selectedColor);
+            }
         }
     } // eo formulas
 

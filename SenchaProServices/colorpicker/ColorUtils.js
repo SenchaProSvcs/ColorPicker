@@ -11,7 +11,7 @@ Ext.define('SenchaProServices.colorpicker.ColorUtils', {
                 colorString = "";
             }
 
-            var r,g,b,a;
+            var r,g,b,a, rgba, hsv, color;
             var results;
 
             var unknownColor = {
@@ -83,7 +83,7 @@ Ext.define('SenchaProServices.colorpicker.ColorUtils', {
                         return unknownColor;
                     }
 
-                    var color = Ext.ux.colorpicker.color.colorFromString(results[1]);
+                    color = Ext.ux.colorpicker.color.colorFromString(results[1]);
 
                     r = color.r;
                     g = color.g;
@@ -108,7 +108,7 @@ Ext.define('SenchaProServices.colorpicker.ColorUtils', {
 
             } else {
                 //check if is a string color
-                var color = this.colorMap[colorString];
+                color = this.colorMap[colorString];
                 if(colorString === 'transparent') {
                     return {
                         r: 0,
@@ -127,12 +127,16 @@ Ext.define('SenchaProServices.colorpicker.ColorUtils', {
                 }
             }
 
-            return {
+            rgba = {
                 r: r,
                 g: g,
                 b: b,
                 a: a
             };
+
+            hsv = this.rgb2hsv(r,g,b);
+
+            return Ext.apply(rgba, hsv);
         },
 
         /**

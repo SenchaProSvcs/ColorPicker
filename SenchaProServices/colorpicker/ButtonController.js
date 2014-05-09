@@ -14,7 +14,7 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
             originalArguments = arguments,
             btnEl             = button.getEl();
 
-        btnEl.on('click', function() {
+        btnEl.down('.btn').on('click', function() {
             button.fireEvent('click', originalArguments);
         });
 
@@ -25,6 +25,7 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
     onButtonClick: function() {
         var me           = this,
             pickerButton = me.getView(),
+            color        = pickerButton.getColor(),
             pickerWindow = me.pickerWindow;
 
         if (!pickerWindow) {
@@ -40,7 +41,8 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
 
             me.pickerWindow = pickerWindow;
         }
-
+    
+        pickerWindow.setColor(color);
         pickerWindow.show();
     },
 
