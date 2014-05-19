@@ -55,7 +55,7 @@ Ext.define('SenchaProServices.colorpicker.SliderAlpha', {
     // Called via data binding whenever selectedColor.h changes; hue param is 0-1
     setColor: function(color) {
         var me = this,
-            hex;
+            hex, el;
 
         // Too early in the render cycle? Skip event
         if (!me.getEl()) {
@@ -64,6 +64,8 @@ Ext.define('SenchaProServices.colorpicker.SliderAlpha', {
 
         // Determine HEX for new hue and set as background based on template
         hex = SenchaProServices.colorpicker.ColorUtils.rgb2hex(color.r, color.g, color.b);
-        me.down('#dragHandleContainer').getEl().applyStyles(me.gradientStyleTpl.apply({hex: hex, r: color.r, g: color.g, b: color.b}));
+
+        el =  me.down('#dragHandleContainer').getEl().down('.x-autocontainer-innerCt');
+        el.applyStyles(me.gradientStyleTpl.apply({hex: hex, r: color.r, g: color.g, b: color.b}));
     }
 });
