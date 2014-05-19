@@ -5,8 +5,12 @@
 
 /* Color Picker Button */
 .sps-colorpicker-button {
-    border           : 1px solid gray;
-    // background-color : tomato;
+    border: 1px solid gray;
+
+}
+
+.sps-colorpicker-button, .sps-colorpreview {
+    background-image : url(../../images/colorpicker/checkerboard.png);
 }
 
 /* The popup window with all the complex layouts */

@@ -7,9 +7,11 @@ Ext.define('SenchaProServices.colorpicker.ColorPreview', {
 
     //hack to solve issue with IE, when applying a filter the click listener is not being fired.
     style: 'position: relative',
-    html: '<a class="btn" style="height:100%; width:100%; position: absolute;"></a>',
+    html: '<div class="filter" style="height:100%; width:100%; position: absolute;"></div>'+
+          '<a class="btn" style="height:100%; width:100%; position: absolute;"></a>',
     //eo hack
 
+    cls: 'sps-colorpreview',
 
     onRender: function () {
         var me = this;
@@ -35,7 +37,7 @@ Ext.define('SenchaProServices.colorpicker.ColorPreview', {
         }
         me.color = color;
 
-        me.applyBgStyle(color, el);
+        me.applyBgStyle(color);
     },
 
     bgStyleTpl: Ext.create('Ext.XTemplate',
@@ -44,9 +46,11 @@ Ext.define('SenchaProServices.colorpicker.ColorPreview', {
         : 'background: {rgba};'
     ),
 
-    applyBgStyle: function (color, el) {
-        var ColorUtils = SenchaProServices.colorpicker.ColorUtils,
+    applyBgStyle: function (color) {
+        var me = this,
+            ColorUtils = SenchaProServices.colorpicker.ColorUtils,
             style = {},
+            el = me.getEl().down('.filter'),
             hex, alpha, rgba, bgStyle;
 
         hex = ColorUtils.rgb2hex(color.r, color.g, color.b);
