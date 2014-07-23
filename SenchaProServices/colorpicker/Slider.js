@@ -65,7 +65,7 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
     // Called via data binding whenever selectedColor.h changes;
     setHue: function(hue) {
         Ext.Logger.warn('Must implement setHue() in a child class!');
-    },
+    }
     // </debug>
 
 });
