@@ -33,6 +33,7 @@ Ext.define('SenchaProServices.colorpicker.ButtonController', {
                 alignTarget: pickerButton,
                 defaultAlign: 'tl-br?',
                 animateTarget: pickerButton.getEl(),
+                resizable: true,
                 listeners: {
                     colorselected: 'onColorSelected',
                     scope: me
