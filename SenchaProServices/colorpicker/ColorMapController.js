@@ -16,7 +16,7 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
         dd.constrain = true;
         dd.constrainTo = colorMap.getEl();
         dd.initialConstrainTo = dd.constrainTo; // needed otheriwse error EXTJS-13187
-        dd.onDrag = Ext.Function.createSequence(dd.onDrag, Ext.bind(me.onHandleDrag, me));
+        dd.on('drag', Ext.bind(me.onHandleDrag, me));
     },
 
     // Fires when handle is dragged; propagates "handledrag" event on the ColorMap
@@ -42,18 +42,20 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             yRatio = 1;
         }
 
-        me.updateHandlerColor(xRatio, yRatio, dragHandle);
+        me.updateDragHandleColor(xRatio, yRatio, dragHandle);
         container.fireEvent('handledrag', xRatio, yRatio);
     },
 
-
-    updateHandlerColor: function (x, y, handler) {
-        var el = handler.getEl().down('.sps-colorpicker-colormap-draghandle');
-        var color = x < 0.5 && y < 0.5 ? 'black' : 'white';
+    // Switches handle circle from black to white, to contrast on the color map
+    updateDragHandleColor: function (x, y, handler) {
+        var el    = handler.getEl().down('.sps-colorpicker-colormap-draghandle'),
+            color = x < 0.5 && y < 0.5 ? 'black' : 'white';
 
         el.setStyle('border-color', color);
     },
 
+    // Whenever the map is clicked (but not the drag handle) we need to position
+    // the drag handle to the point of click
     onMapClick: function (e) {
         var me          = this,
             container   = me.getView(), // the Color Map
@@ -108,7 +110,7 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             top  : top + 'px'
         });
 
-        me.updateHandlerColor(xRatio, yRatio, dragHandle);
+        me.updateDragHandleColor(xRatio, yRatio, dragHandle);
     },
 
     // Whenever only Hue changes we can update the 

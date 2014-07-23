@@ -1,5 +1,5 @@
 /**
- * View for the 4 sliders seen on the color picker window.
+ * Parent view for the 4 sliders seen on the color picker window.
  */
 Ext.define('SenchaProServices.colorpicker.Slider', {
     extend     : 'Ext.container.Container',
@@ -33,7 +33,7 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
             width     : '100%',
             height    : 1,
             draggable : true,
-            html: '<div class="draghandle"></div>'
+            html      : '<div class="draghandle"></div>'
         }]
     }],
 

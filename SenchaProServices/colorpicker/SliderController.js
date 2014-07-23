@@ -13,10 +13,7 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
         dd.constrain = true;
         dd.constrainTo = container.getEl();
         dd.initialConstrainTo = dd.constrainTo; // needed otheriwse error EXTJS-13187
-
-        // Sequence original onDrag function and our additional onHandleDrag behavior;
-        // dragger doesn't have a clean "drag" event
-        dd.onDrag = Ext.Function.createSequence(dd.onDrag, Ext.bind(me.onHandleDrag, me));
+        dd.on('drag', Ext.bind(me.onHandleDrag, me));
     },
 
     // Fires when handle is dragged; fires "handledrag" event on the slider
@@ -32,7 +29,7 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
             containerHeight = containerEl.getHeight(),
             yRatio          = y/containerHeight;
 
-        // Adjust y ratio for dragger always being 1 pixel from the edge on the right
+        // Adjust y ratio for dragger always being 1 pixel from the edge on the bottom
         if (yRatio > 0.99) {
             yRatio = 1;
         }
@@ -40,9 +37,11 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
         view.fireEvent('handledrag', yRatio);
     },
 
+    // Handle clicks on the slider (but not the handle) to position
+    // the handle accordinlgy
     onSliderClick: function (e) {
         var me          = this,
-            container   = me.getView(), // the Color Map
+            container   = me.getView(),
             dragHandle  = container.down('#dragHandle'),
             cY          = container.getY(),
             eY         = e.getY(),
