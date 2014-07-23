@@ -3,17 +3,13 @@
 
 /* NEW */
 
-/* Color Picker Button */
+/* Color Picker Button - what pulls up the color picker */
 .sps-colorpicker-button {
-    border: 1px solid gray;
-
-}
-
-.sps-colorpicker-button, .sps-colorpreview {
+    border           : 1px solid gray;
     background-image : url(../../images/colorpicker/checkerboard.png);
 }
 
-/* The popup window with all the complex layouts */
+/* The actual pop window with the color picker components */
 .sps-colorpicker-window {
     
     // Center field labels
@@ -29,45 +25,13 @@
         >.x-box-inner {
             overflow: visible;
 
-            .sps-colopicker-window-container-mapnfields {
+            .sps-colopicker-escape-overflow {
                 overflow: visible;
 
                 >.x-box-inner {
                     overflow: visible;
                 }
-            } // eo .sps-colopicker-window-container-mapnfields
-
-            .sps-colopicker-window-container-hue {
-                overflow: visible;
-
-                >.x-box-inner {
-                    overflow: visible;
-                }
-            } // eo .sps-colopicker-window-container-hue
-
-            .sps-colopicker-window-container-saturation {
-                overflow: visible;
-
-                >.x-box-inner {
-                    overflow: visible;
-                }
-            } // eo .sps-colopicker-window-container-saturation
-
-            .sps-colopicker-window-container-value {
-                overflow: visible;
-
-                >.x-box-inner {
-                    overflow: visible;
-                }
-            } // eo .sps-colopicker-window-container-value
-
-            .sps-colopicker-window-container-alpha {
-                overflow: visible;
-
-                >.x-box-inner {
-                    overflow: visible;
-                }
-            } // eo .sps-colopicker-window-container-alpha
+            } // eo .sps-colopicker-escape-overflow
 
         } // eo >.x-box-inner
 
@@ -110,7 +74,7 @@
     .sps-colorpicker-slider {
 
         .draghandle-container {
-            width    : 20px;
+            width: 20px;
 
             .draghandle-outer {
                 .draghandle {
@@ -130,30 +94,30 @@
             .draghandle-container {
                 background      : url(../../images/colorpicker/huegradient.png) no-repeat;
                 background-size : auto 100%;
-                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale');
-                -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale')";                
+                filter          : progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale');
+                -ms-filter      : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale')";                
             }
         }
 
         &.saturation {
             .draghandle-container {
-                background: -moz-linear-gradient(top, #ffffff 0%, #000000 100%); /* FF3.6+ */
-                background: -webkit-linear-gradient(top, #ffffff 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
-                background: -o-linear-gradient(top, #ffffff 0%,#000000 100%); /* Opera 11.10+ */
-                background: -ms-linear-gradient(top, #ffffff 0%,#000000 100%); /* IE10+ */
-                background: linear-gradient(to bottom, #ffffff 0%,#000000 100%); /* W3C */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+                background : -moz-linear-gradient(top, #ffffff 0%, #000000 100%); /* FF3.6+ */
+                background : -webkit-linear-gradient(top, #ffffff 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+                background : -o-linear-gradient(top, #ffffff 0%,#000000 100%); /* Opera 11.10+ */
+                background : -ms-linear-gradient(top, #ffffff 0%,#000000 100%); /* IE10+ */
+                background : linear-gradient(to bottom, #ffffff 0%,#000000 100%); /* W3C */
+                filter     : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
             }
         }
 
         &.value {
             .draghandle-container {
-                background: -moz-linear-gradient(top, #ff0000 0%, #000000 100%); /* FF3.6+ */
-                background: -webkit-linear-gradient(top, #ff0000 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
-                background: -o-linear-gradient(top, #ff0000 0%,#000000 100%); /* Opera 11.10+ */
-                background: -ms-linear-gradient(top, #ff0000 0%,#000000 100%); /* IE10+ */
-                background: linear-gradient(to bottom, #ff0000 0%,#000000 100%); /* W3C */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+                background : -moz-linear-gradient(top, #ff0000 0%, #000000 100%); /* FF3.6+ */
+                background : -webkit-linear-gradient(top, #ff0000 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+                background : -o-linear-gradient(top, #ff0000 0%,#000000 100%); /* Opera 11.10+ */
+                background : -ms-linear-gradient(top, #ff0000 0%,#000000 100%); /* IE10+ */
+                background : linear-gradient(to bottom, #ff0000 0%,#000000 100%); /* W3C */
+                filter     : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
             }
         }
 
@@ -164,6 +128,11 @@
         }
             
     } // eo .sps-colorpicker-slider
+
+    // Preview on the right top
+    .sps-colorpreview {
+        background-image: url(../../images/colorpicker/checkerboard.png);
+    }
 
 } // eo .sps-colorpicker-window
 

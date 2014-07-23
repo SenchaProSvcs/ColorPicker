@@ -26,7 +26,6 @@ Ext.define('SenchaProServices.colorpicker.Window', {
 
     fieldWidth : 50, // how wide are the fields on the bottom (also increases spacing betwen sliders)
     fieldPad   : 5,  // padding between the sliders AND HEX/R/G/B fields
-    
 
     config: {
         color: undefined
@@ -106,7 +105,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            cls    : 'sps-colopicker-window-container-mapnfields',
+            cls    : 'sps-colopicker-escape-overflow',
             flex   : 1,
             layout : {
                 type  : 'vbox',
@@ -189,7 +188,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            cls    : 'sps-colopicker-window-container-hue',
+            cls    : 'sps-colopicker-escape-overflow',
             width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
@@ -230,7 +229,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            cls    : 'sps-colopicker-window-container-saturation',
+            cls    : 'sps-colopicker-escape-overflow',
             width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
@@ -275,7 +274,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            cls    : 'sps-colopicker-window-container-value',
+            cls    : 'sps-colopicker-escape-overflow',
             width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
@@ -316,7 +315,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
         return {
             xtype  : 'container',
-            cls    : 'sps-colopicker-window-container-alpha',
+            cls    : 'sps-colopicker-escape-overflow',
             width  : me.fieldWidth,
             layout : {
                 type  : 'vbox',
