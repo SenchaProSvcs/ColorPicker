@@ -41,17 +41,8 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
         if (yRatio > 0.99) {
             yRatio = 1;
         }
-
-        me.updateDragHandleColor(xRatio, yRatio, dragHandle);
+        
         container.fireEvent('handledrag', xRatio, yRatio);
-    },
-
-    // Switches handle circle from black to white, to contrast on the color map
-    updateDragHandleColor: function (x, y, handler) {
-        var el    = handler.getEl().down('.sps-colorpicker-colormap-draghandle'),
-            color = x < 0.5 && y < 0.5 ? 'black' : 'white';
-
-        el.setStyle('border-color', color);
     },
 
     // Whenever the map is clicked (but not the drag handle) we need to position
@@ -109,8 +100,6 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
             left : left + 'px',
             top  : top + 'px'
         });
-
-        me.updateDragHandleColor(xRatio, yRatio, dragHandle);
     },
 
     // Whenever only Hue changes we can update the 

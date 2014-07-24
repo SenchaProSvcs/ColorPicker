@@ -25,6 +25,7 @@ Verified this working using:
 * ~~"Last Color" (on right)~~
 * ~~ColorMap drag handle needs to be black & white circle so it's visible in the dark colors~~
 * ~~Drag functionality (on ColorMap & sliders) needs to work by clicking anywhere on the surface, not just drag handle~~
+  * Currently we can click anywhere and it will work, but we cannot continue dragging from that point (it's a one-time click deal); I tried to "tie it in" to the normal drag behavior if the mouse continues to move, but so far have not succeeded
 * Color swatches & saving in local storage
 * ~~Actual button (that opens the window) should change its color based on selection~~
 * ~~Also that actual button should re-use one instance of color picker window~~

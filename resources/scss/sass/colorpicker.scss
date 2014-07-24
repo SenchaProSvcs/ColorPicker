@@ -56,14 +56,12 @@
             z-index  : 1;
 
             .sps-colorpicker-colormap-draghandle {
-                width      : 10px;
-                height     : 10px;
+                width      : 15px;
+                height     : 15px;
                 position   : relative;
-                left       : -5px;
-                top        : -5px; 
-                border     : 1px solid black;
-                @include border-radius(10px);
-                // background : url(../../images/colorpicker/drag_circle_black.png);
+                left       : -7px;
+                top        : -7px;
+                background : url(../../images/colorpicker/drag_circle.png);
             }
 
         } // eo .sps-colorpicker-colormap-draghandle-container
