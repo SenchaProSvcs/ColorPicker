@@ -5,7 +5,7 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
     extend     : 'Ext.container.Container',
     alias      : 'widget.sps_colorpickerslider',
     controller : 'sps_colorpickerslidercontroller',
-    
+
     baseCls : 'sps-colorpicker-slider',
     layout  : 'center',
 
@@ -43,8 +43,19 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
             fn      : 'onFirstBoxReady',
             scope   : 'controller'
         },
-        click : {
-            fn    : 'onSliderClick',
+
+        mousemove : {
+            fn    : 'onMouseMove',
+            scope : 'controller'
+        },
+
+        mouseup : {
+            fn    : 'onMouseUp',
+            scope : 'controller'
+        },
+
+        mousedown : {
+            fn    : 'onMouseDown',
             scope : 'controller'
         }
     },
@@ -54,11 +65,21 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
 
         me.callParent(arguments);
 
-        me.mon(me.el, 'click', me.onClick, me);
+        me.mon(me.el, 'mousemove', me.onMouseMove, me);
+        me.mon(me.el, 'mouseup', me.onMouseUp, me);
+        me.mon(me.el, 'mousedown', me.onMouseDown, me);
     },
 
-    onClick: function (event) {
-        this.fireEvent('click', event);
+    onMouseMove: function (event) {
+        this.fireEvent('mousemove', event);
+    },
+
+    onMouseUp: function (event) {
+        this.fireEvent('mouseup', event);
+    },
+
+    onMouseDown: function (event) {
+        this.fireEvent('mousedown', event);
     },
 
     // <debug>

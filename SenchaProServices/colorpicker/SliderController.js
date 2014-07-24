@@ -37,15 +37,17 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
         view.fireEvent('handledrag', yRatio);
     },
 
-    // Handle clicks on the slider (but not the handle) to position
-    // the handle accordinlgy
-    onSliderClick: function (e) {
+    onMouseMove: function(e){
         var me          = this,
             container   = me.getView(),
             dragHandle  = container.down('#dragHandle'),
             cY          = container.getY(),
             eY         = e.getY(),
-            left, top;
+            top;
+
+        if(!container.isMouseDown){
+            return false;
+        }
 
         top  = eY - cY;
 
@@ -54,5 +56,20 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
         });
 
         me.onHandleDrag();
+    },
+
+    onMouseDown: function(e){
+        var me          = this,
+            container   = me.getView();
+
+        container.isMouseDown = true;
+        me.onMouseMove(e);
+    },
+
+    onMouseUp: function(e){
+        var me          = this,
+            container   = me.getView();
+
+        container.isMouseDown = false;
     }
 });
