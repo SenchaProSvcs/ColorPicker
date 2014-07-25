@@ -42,7 +42,7 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
     },
 
     // Whenever we mousedown over the slider area
-    onMouseDown: function(e){
+    onMouseDown: function(e) {
         var me         = this,
             container  = me.getView(),
             dragHandle = container.down('#dragHandle');

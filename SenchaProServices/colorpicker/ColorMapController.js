@@ -6,17 +6,21 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
         'SenchaProServices.colorpicker.ColorUtils'
     ],
 
-    // Configure draggable constraints after the component is rendered.
+    // After the component is rendered
     onFirstBoxReady: function() {
         var me         = this,
             colorMap   = me.getView(),
             dragHandle = colorMap.down('#dragHandle'),
             dd         = dragHandle.dd;
 
+        // configure draggable constraints 
         dd.constrain = true;
         dd.constrainTo = colorMap.getEl();
         dd.initialConstrainTo = dd.constrainTo; // needed otheriwse error EXTJS-13187
+
+        // event handlers
         dd.on('drag', Ext.bind(me.onHandleDrag, me));
+        me.mon(colorMap.getEl(), 'mousedown', me.onMouseDown, me);
     },
 
     // Fires when handle is dragged; propagates "handledrag" event on the ColorMap
@@ -43,6 +47,21 @@ Ext.define('SenchaProServices.colorpicker.ColorMapController', {
         }
         
         container.fireEvent('handledrag', xRatio, yRatio);
+    },
+
+    // Whenever we mousedown over the colormap area
+    onMouseDown: function(e) {
+        var me         = this,
+            container  = me.getView(),
+            dragHandle = container.down('#dragHandle');
+
+        // position drag handle accordingly
+        dragHandle.setY(e.getY());
+        dragHandle.setX(e.getX());
+        me.onHandleDrag();
+
+        // tie into the default dd mechanism
+        dragHandle.dd.onMouseDown(e, dragHandle.dd.el);
     },
 
     // Whenever the map is clicked (but not the drag handle) we need to position
