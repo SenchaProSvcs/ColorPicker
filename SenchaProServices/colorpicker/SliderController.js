@@ -37,39 +37,13 @@ Ext.define('SenchaProServices.colorpicker.SliderController', {
         view.fireEvent('handledrag', yRatio);
     },
 
-    onMouseMove: function(e){
-        var me          = this,
-            container   = me.getView(),
-            dragHandle  = container.down('#dragHandle'),
-            cY          = container.getY(),
-            eY         = e.getY(),
-            top;
-
-        if(!container.isMouseDown){
-            return false;
-        }
-
-        top  = eY - cY;
-
-        dragHandle.getEl().setStyle({
-            top  : top + 'px'
-        });
-
-        me.onHandleDrag();
-    },
-
     onMouseDown: function(e){
         var me          = this,
-            container   = me.getView();
+            container   = me.getView(),
+            dragHandle      = container.down('#dragHandle');
 
-        container.isMouseDown = true;
-        me.onMouseMove(e);
-    },
-
-    onMouseUp: function(e){
-        var me          = this,
-            container   = me.getView();
-
-        container.isMouseDown = false;
+        dragHandle.setY(e.getY());
+        me.onHandleDrag();
+        dragHandle.dd.onMouseDown(e, dragHandle.dd.el);
     }
 });

@@ -44,16 +44,6 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
             scope   : 'controller'
         },
 
-        mousemove : {
-            fn    : 'onMouseMove',
-            scope : 'controller'
-        },
-
-        mouseup : {
-            fn    : 'onMouseUp',
-            scope : 'controller'
-        },
-
         mousedown : {
             fn    : 'onMouseDown',
             scope : 'controller'
@@ -65,17 +55,7 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
 
         me.callParent(arguments);
 
-        me.mon(me.el, 'mousemove', me.onMouseMove, me);
-        me.mon(me.el, 'mouseup', me.onMouseUp, me);
         me.mon(me.el, 'mousedown', me.onMouseDown, me);
-    },
-
-    onMouseMove: function (event) {
-        this.fireEvent('mousemove', event);
-    },
-
-    onMouseUp: function (event) {
-        this.fireEvent('mouseup', event);
     },
 
     onMouseDown: function (event) {
