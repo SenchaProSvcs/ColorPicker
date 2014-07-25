@@ -25,7 +25,10 @@ Verified this working using:
 * ~~"Last Color" (on right)~~
 * ~~ColorMap drag handle needs to be black & white circle so it's visible in the dark colors~~
 * ~~Drag functionality (on ColorMap & sliders) needs to work by clicking anywhere on the surface, not just drag handle~~
-  * Currently we can click anywhere and it will work, but we cannot continue dragging from that point (it's a one-time click deal); I tried to "tie it in" to the normal drag behavior if the mouse continues to move, but so far have not succeeded
+  * Issue: we are not actually leveraging the "draggable" mechanism when this happens, resulting in issues:
+  * Dragging outside the window causes selection of underlying elements
+  * Dragging outside the slider and releasing the mouse causes "dragging" to resume if you bring the cursor back to the slider
+  * You are able to drag to top outside the constraints, causing bad values (have to drag very slowly)
 * Color swatches & saving in local storage
 * ~~Actual button (that opens the window) should change its color based on selection~~
 * ~~Also that actual button should re-use one instance of color picker window~~
