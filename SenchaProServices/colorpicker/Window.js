@@ -35,7 +35,7 @@ Ext.define('SenchaProServices.colorpicker.Window', {
         var me = this;
 
         Ext.applyIf(cfg, {
-            cls      : 'sps-colorpicker-window x-unselectable',
+            cls      : 'sps-colorpicker-window',
             width    : 600,
             height   : 300,
             padding  : 10,
