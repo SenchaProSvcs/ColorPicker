@@ -1,6 +1,6 @@
-## Setup Instructions
+# Setup Instructions
 
-All you need to do is setup references in index.html to point to your ExtJS 5 folder:
+All you need to do is setup references in index.html to point to your ExtJS 5 (as in raw SDK) folder:
 
     <script type="text/javascript" src="/SDK/ext/examples/shared/include-ext.js"></script>
     <script type="text/javascript" src="/SDK/ext/examples/shared/options-toolbar.js"></script>
@@ -10,33 +10,26 @@ All you need to do is setup references in index.html to point to your ExtJS 5 fo
 # NEW IMPLEMENTATION
 
 ## Supported Platforms
-
 Verified this working using:
-* ExtJS5 from repo branch sencha-5.0.x
-* Codebase from April 17, 2014
+* ExtJS5 from repo tag 5.0.0 (aka GA)
 * Tested in Chrome
 * Tested in FireFox
 * Tested in IE8
 * TODO: Test in Ext5 target platforms (IE9, IE10, IE11, Safari, Opera, Tablets, etc.)
 
-# TODO Features
-* ~~Hue Slider background in IE8~~
-* ~~Alpha slider~~
-* ~~"Last Color" (on right)~~
-* ~~ColorMap drag handle needs to be black & white circle so it's visible in the dark colors~~
-* ~~Drag functionality (on ColorMap & sliders) needs to work by clicking anywhere on the surface, not just drag handle~~
-  * Currently we can click anywhere and it will work, but we cannot continue dragging from that point (it's a one-time click deal); I tried to "tie it in" to the normal drag behavior if the mouse continues to move, but so far have not succeeded
-* Color swatches & saving in local storage
-* ~~Actual button (that opens the window) should change its color based on selection~~
-* ~~Also that actual button should re-use one instance of color picker window~~
-* Also implement "color field" which would have that button as well as HEX in text field
+## TODO Features
+* Previous color should act as a button
+* Change to UX namespace
+* Also implement "color field" with arrow (?) trigger which would have that button as well as HEX in text field
+* Implemet as embeddable container, not just window
 * Color picker window should close on click outside of it
+* Move to SDK examples
+* Color swatches & saving in local storage
 
 
 # OLD IMPLEMENTATION
 
 ## Supported Platforms
-
 Verified this working using:
 * ExtJS5 from repo branch sencha-5.0.x
 * Codebase from April 17, 2014
