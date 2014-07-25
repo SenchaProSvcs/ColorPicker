@@ -42,24 +42,7 @@ Ext.define('SenchaProServices.colorpicker.Slider', {
             single  : true,
             fn      : 'onFirstBoxReady',
             scope   : 'controller'
-        },
-
-        mousedown : {
-            fn    : 'onMouseDown',
-            scope : 'controller'
         }
-    },
-
-    onRender: function () {
-        var me = this;
-
-        me.callParent(arguments);
-
-        me.mon(me.el, 'mousedown', me.onMouseDown, me);
-    },
-
-    onMouseDown: function (event) {
-        this.fireEvent('mousedown', event);
     },
 
     // <debug>
