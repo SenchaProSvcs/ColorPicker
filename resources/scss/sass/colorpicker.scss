@@ -4,13 +4,13 @@
 /* NEW */
 
 /* Color Picker Button - what pulls up the color picker */
-.sps-colorpicker-button {
+.x-colorpicker-button {
     border           : 1px solid gray;
     background-image : url(../../images/colorpicker/checkerboard.png);
 }
 
 /* The actual pop window with the color picker components */
-.sps-colorpicker-window {
+.x-colorpicker-window {
     
     // Center field labels
     .x-form-item-label {
@@ -19,30 +19,30 @@
 
     // needed for overflow: visible for color map & slider draggers
     // to "break out" of their drag boundaries
-    .sps-colopicker-window-container-center {
+    .x-colopicker-window-container-center {
         overflow: visible;
 
         >.x-box-inner {
             overflow: visible;
 
-            .sps-colopicker-escape-overflow {
+            .x-colopicker-escape-overflow {
                 overflow: visible;
 
                 >.x-box-inner {
                     overflow: visible;
                 }
-            } // eo .sps-colopicker-escape-overflow
+            } // eo .x-colopicker-escape-overflow
 
         } // eo >.x-box-inner
 
-    } // eo sps-colopicker-window-container-center
+    } // eo x-colopicker-window-container-center
 
     // main color map for shade selection with draggable circle
-    .sps-colorpicker-colormap {
+    .x-colorpicker-colormap {
         background-color: red;
 
         // transparent PNG for shades blending
-        .sps-colorpicker-colormap-blender {
+        .x-colorpicker-colormap-blender {
             position : absolute;
             top      : 0;
             left     : 0;
@@ -51,11 +51,11 @@
         }
 
         // circle for dragging
-        .sps-colorpicker-colormap-draghandle-container {
+        .x-colorpicker-colormap-draghandle-container {
             overflow : visible;
             z-index  : 1;
 
-            .sps-colorpicker-colormap-draghandle {
+            .x-colorpicker-colormap-draghandle {
                 width      : 15px;
                 height     : 15px;
                 position   : relative;
@@ -64,12 +64,12 @@
                 background : url(../../images/colorpicker/drag_circle.png);
             }
 
-        } // eo .sps-colorpicker-colormap-draghandle-container
+        } // eo .x-colorpicker-colormap-draghandle-container
 
-    } // eo .sps-colorpicker-colormap
+    } // eo .x-colorpicker-colormap
 
     // 4 sliders
-    .sps-colorpicker-slider {
+    .x-colorpicker-slider {
 
         .draghandle-container {
             width: 20px;
@@ -99,7 +99,7 @@
 
         &.saturation {
             .draghandle-container {
-                background : -moz-linear-gradient(top, #ffffff 0%, #000000 100%); /* FF3.6+ */
+                background : -mox-linear-gradient(top, #ffffff 0%, #000000 100%); /* FF3.6+ */
                 background : -webkit-linear-gradient(top, #ffffff 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
                 background : -o-linear-gradient(top, #ffffff 0%,#000000 100%); /* Opera 11.10+ */
                 background : -ms-linear-gradient(top, #ffffff 0%,#000000 100%); /* IE10+ */
@@ -110,7 +110,7 @@
 
         &.value {
             .draghandle-container {
-                background : -moz-linear-gradient(top, #ff0000 0%, #000000 100%); /* FF3.6+ */
+                background : -mox-linear-gradient(top, #ff0000 0%, #000000 100%); /* FF3.6+ */
                 background : -webkit-linear-gradient(top, #ff0000 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
                 background : -o-linear-gradient(top, #ff0000 0%,#000000 100%); /* Opera 11.10+ */
                 background : -ms-linear-gradient(top, #ff0000 0%,#000000 100%); /* IE10+ */
@@ -125,14 +125,14 @@
             }
         }
             
-    } // eo .sps-colorpicker-slider
+    } // eo .x-colorpicker-slider
 
     // Preview on the right top
-    .sps-colorpreview {
+    .x-colorpreview {
         background-image: url(../../images/colorpicker/checkerboard.png);
     }
 
-} // eo .sps-colorpicker-window
+} // eo .x-colorpicker-window
 
 
 

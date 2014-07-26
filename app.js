@@ -1,18 +1,20 @@
 Ext.Loader.setConfig({
     paths : {
-        'Ext.ux.colorpicker' : 'colorpicker',
-        'SenchaProServices'  : 'SenchaProServices'
+        'Ext.uxold.colorpicker' : 'OLDcolorpicker',
+        'Ext.ux'                : 'ux'
     }
 });
 
 Ext.require([
-    'Ext.ux.colorpicker.Button',
-    'Ext.ux.colorpicker.Colorpicker',
-    'Ext.ux.colorpicker.Field',
+    // old
+    'Ext.uxold.colorpicker.Button',
+    'Ext.uxold.colorpicker.Colorpicker',
+    'Ext.uxold.colorpicker.Field',
 
+    // new
     'Ext.container.Viewport',
     'Ext.form.FieldSet',
-    'SenchaProServices.colorpicker.Button'
+    'Ext.ux.colorpicker.Button'
 ]);
 
 Ext.onReady(function() {
@@ -27,11 +29,11 @@ Ext.onReady(function() {
             defaults : { xtype: 'component' },
             items    : [
                 { html  : 'OLD Colorpicker Button', margin: '20px 0px 0px 0px' },
-                { xtype : 'colorpickerbutton' },
+                { xtype : 'oldcolorpickerbutton' },
                 // { html  : 'OLD Colorpicker Field', margin: '20px 0px 0px 0px' },
-                // { xtype : 'colorpickerfield' },
+                // { xtype : 'oldcolorpickerfield' },
                 { html  : 'NEW Colorpicker Button', margin: '20px 0px 0px 0px' },
-                { xtype : 'sps_colorpickerbutton', color: 'blue' },
+                { xtype : 'colorpickerbutton', color: 'blue' },
                 { html  : 'NEW Colorpicker Field', margin: '20px 0px 0px 0px' },
                 { xtype : 'field', width : 200, value : '#FFAAAA' }
             ]

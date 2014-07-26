@@ -18,7 +18,6 @@ Verified this working using:
 * TODO: Test in Ext5 target platforms (IE9, IE10, IE11, Safari, Opera, Tablets, etc.)
 
 ## TODO Features
-* Previous color should act as a button
 * Change to UX namespace
 * Also implement "color field" with arrow (?) trigger which would have that button as well as HEX in text field
 * Implemet as embeddable container, not just window
