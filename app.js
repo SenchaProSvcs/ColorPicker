@@ -30,10 +30,10 @@ Ext.onReady(function() {
             items    : [
                 { html  : 'OLD Colorpicker Button', margin: '20px 0px 0px 0px' },
                 { xtype : 'oldcolorpickerbutton' },
-                // { html  : 'OLD Colorpicker Field', margin: '20px 0px 0px 0px' },
-                // { xtype : 'oldcolorpickerfield' },
                 { html  : 'NEW Colorpicker Button', margin: '20px 0px 0px 0px' },
                 { xtype : 'colorpickerbutton', color: 'blue' },
+                { html  : 'NEW Colorpicker Button #2', margin: '20px 0px 0px 0px' },
+                { xtype : 'colorpickerbutton', color: 'red' },
                 { html  : 'NEW Colorpicker Field', margin: '20px 0px 0px 0px' },
                 { xtype : 'field', width : 200, value : '#FFAAAA' }
             ]

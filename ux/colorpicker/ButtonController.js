@@ -39,7 +39,6 @@ Ext.define('Ext.ux.colorpicker.ButtonController', {
                     scope: me
                 }
             });
-
             me.pickerWindow = pickerWindow;
         }
     
@@ -52,7 +51,6 @@ Ext.define('Ext.ux.colorpicker.ButtonController', {
             pickerButton = me.getView();
 
         pickerButton.setColor(color);
-
         win.hide();
     }
 });
