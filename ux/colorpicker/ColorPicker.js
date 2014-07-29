@@ -459,8 +459,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
         // selected color preview is always shown
         items.push({
             xtype  : 'colorpickercolorpreview',
-            height : 60,
-            bind: {
+            flex   : 1,
+            bind   : {
                 color: {
                     bindTo : '{selectedColor}',
                     deep   : true
@@ -472,8 +472,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
         if (cfg.showPreviousColor) {
             items.push({
                 xtype  : 'colorpickercolorpreview',
-                height : 60,
-                bind: {
+                flex   : 1,
+                bind   : {
                     color: {
                         bindTo : '{previousColor}',
                         deep   : true

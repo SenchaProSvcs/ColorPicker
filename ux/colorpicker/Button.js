@@ -63,7 +63,6 @@ Ext.define('Ext.ux.colorpicker.Button', {
 
         cpCfg = {
             floating            : true,
-            resizable           : true,
             alignTarget         : me,
             defaultAlign        : 'tl-br?',
             showPreviousColor   : true,
@@ -72,13 +71,22 @@ Ext.define('Ext.ux.colorpicker.Button', {
                 select: {
                     fn    : vc.onColorPickerSelection,
                     scope : vc
+                },
+                okbuttonclick: {
+                    fn    : vc.onColorPickerOkBtn,
+                    scope : vc
+                },
+                cancelbuttonclick: {
+                    fn    : vc.onColorPickerCancelBtn,
+                    scope : vc
                 }
             }
         };
 
         // initial color picker value
         if (cfg.value) {
-            cpCfg.value = cfg.value;
+            cpCfg.value         = cfg.value;
+            cpCfg.previousValue = cfg.value;
         }
 
         // create a color picker instance but don't render yet

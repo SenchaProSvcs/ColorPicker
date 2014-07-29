@@ -46,7 +46,7 @@ Ext.onReady(function() {
                         console.log('Color change via handler(): ' + col);
                     },
                     listeners: {
-                        selected: function(cp, col) {
+                        select: function(cp, col) {
                             console.log('Color change via "selected" event: ' + col);
                         }
                     }
