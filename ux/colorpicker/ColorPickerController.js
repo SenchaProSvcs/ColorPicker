@@ -109,18 +109,18 @@ Ext.define('Ext.ux.colorpicker.ColorPickerController', {
         view.setColor(color);
     },
 
-    onColorSelected: function () {
+    onOkBtn: function () {
         var me   = this,
             view = me.getView(),
             vm   = me.getViewModel();
 
-        view.fireEvent('colorSelected', view, vm.get('selectedColor'));
+        view.fireEvent('okbuttonclick', view, view.getValue());
     },
 
-    onCancel: function () {
+    onCancelBtn: function () {
         var me   = this,
             view = me.getView();
 
-        view.hide();
+        view.fireEvent('cancelbuttonclick', view);
     }
 });

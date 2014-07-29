@@ -35,7 +35,7 @@ Ext.define('Ext.ux.colorpicker.Window', {
         var me = this;
 
         Ext.applyIf(cfg, {
-            cls      : 'x-colorpicker-window',
+            cls      : 'x-colorpicker',
             width    : 600,
             height   : 300,
             padding  : 10,
@@ -46,7 +46,7 @@ Ext.define('Ext.ux.colorpicker.Window', {
                 {
                     xtype  : 'container',
                     region : 'center',
-                    cls    : 'x-colopicker-window-container-center',
+                    cls    : 'x-colorpicker-container-center',
                     layout : {
                         type  : 'hbox',
                         align : 'stretch'

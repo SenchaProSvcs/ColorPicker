@@ -104,11 +104,24 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
      * @param {String} color The 6-digit color hex code (without the # symbol)
      */
 
+    /**
+     * @event okbuttonclick
+     * Fires when Ok button is clicked (see {@link #showOkCancelButtons}).
+     * @param {Ext.ux.colorpicker.ColorPicker} this
+     * @param {String} color The 6-digit color hex code (without the # symbol)
+     */
+
+    /**
+     * @event cancelbuttonclick
+     * Fires when Cancel button is clicked (see {@link #showOkCancelButtons}).
+     * @param {Ext.ux.colorpicker.ColorPicker} this
+     */
+
     constructor: function(cfg) {
         var me = this;
 
         Ext.applyIf(cfg, {
-            cls      : 'x-colorpicker-window',
+            cls      : 'x-colorpicker',
             padding  : 10,
             layout   : 'border',
             items: [
@@ -116,7 +129,7 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                 {
                     xtype  : 'container',
                     region : 'center',
-                    cls    : 'x-colopicker-window-container-center',
+                    cls    : 'x-colorpicker-container-center',
                     layout : {
                         type  : 'hbox',
                         align : 'stretch'
@@ -478,13 +491,13 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                 xtype   : 'button',
                 text    : 'OK',
                 margin  : '10 0 0 0',
-                handler : 'onColorSelected'
+                handler : 'onOkBtn'
             },
             {
                 xtype   : 'button',
                 text    : 'Cancel',
                 margin  : '10 0 0 0',
-                handler : 'onCancel'
+                handler : 'onCancelBtn'
             });
         }
 

@@ -10,7 +10,7 @@
 }
 
 /* The actual pop window with the color picker components */
-.x-colorpicker-window {
+.x-colorpicker {
     
     // Center field labels
     .x-form-item-label {
@@ -19,7 +19,7 @@
 
     // needed for overflow: visible for color map & slider draggers
     // to "break out" of their drag boundaries
-    .x-colopicker-window-container-center {
+    .x-colorpicker-container-center {
         overflow: visible;
 
         >.x-box-inner {
@@ -35,7 +35,7 @@
 
         } // eo >.x-box-inner
 
-    } // eo x-colopicker-window-container-center
+    } // eo x-colorpicker-container-center
 
     // main color map for shade selection with draggable circle
     .x-colorpicker-colormap {
@@ -132,7 +132,7 @@
         background-image: url(../../images/colorpicker/checkerboard.png);
     }
 
-} // eo .x-colorpicker-window
+} // eo .x-colorpicker
 
 
 

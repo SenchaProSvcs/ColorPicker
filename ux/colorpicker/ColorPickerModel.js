@@ -38,7 +38,7 @@ Ext.define('Ext.ux.colorpicker.ColorPickerModel', {
         me.bind('{selectedColor}', me.onSelectedColorChange, me, { deep: true });
     },
 
-    // Fires "selected" event and calls handler() on the view
+    // Fires "select" event and calls handler() on the view
     onSelectedColorChange: function() {
         var me             = this,
             view           = me.getView(),
@@ -50,7 +50,7 @@ Ext.define('Ext.ux.colorpicker.ColorPickerModel', {
         }
 
         // fire event
-        view.fireEvent('selected', view, hexNoHashValue)
+        view.fireEvent('select', view, hexNoHashValue);
     },
 
     formulas: {

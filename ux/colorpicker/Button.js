@@ -8,6 +8,7 @@ Ext.define('Ext.ux.colorpicker.Button', {
     controller : 'colorpickerbuttoncontroller',
 
     requires: [
+        'Ext.ux.colorpicker.ColorPicker',
         'Ext.ux.colorpicker.ButtonController',
         'Ext.ux.colorpicker.ColorUtils'
     ],
@@ -18,7 +19,12 @@ Ext.define('Ext.ux.colorpicker.Button', {
     height  : 20,
 
     config : {
-        color   : undefined
+        /**
+         * @cfg {String} value
+         * The initial color to highlight (should be a valid 6-digit color hex code without the # symbol). Note that the hex
+         * codes are case-sensitive.
+         */
+        value: 'FFFFFF'
     },
 
     // hack to solve issue with IE, when applying a filter the click listener is not being fired.
@@ -41,38 +47,56 @@ Ext.define('Ext.ux.colorpicker.Button', {
             scope   : 'controller'
         },
         click: {
-            fn    : 'onButtonClick',
+            fn    : 'onClick',
             scope : 'controller'
         }
     },
 
-    setColor: function (color) {
-        var me         = this,
-            ColorUtils = Ext.ux.colorpicker.ColorUtils,
-            el         = me.getEl();
+    constructor: function(cfg) {
+        var me = this,
+            vc,
+            cpCfg; // config for color picker instance
 
-        if (color && typeof color === 'string'){
-            color = ColorUtils.colorFromString(color);
+        me.callParent(arguments);
+
+        vc = me.getController();
+
+        cpCfg = {
+            floating            : true,
+            resizable           : true,
+            alignTarget         : me,
+            defaultAlign        : 'tl-br?',
+            showPreviousColor   : true,
+            showOkCancelButtons : true,
+            listeners           : {
+                select: {
+                    fn    : vc.onColorPickerSelection,
+                    scope : vc
+                }
+            }
+        };
+
+        // initial color picker value
+        if (cfg.value) {
+            cpCfg.value = cfg.value;
         }
 
-        if (el) {
-            me.applyBgStyle(color);
-        }
-
-        me.color = color;
+        // create a color picker instance but don't render yet
+        me.colorPicker = Ext.widget('acolorpicker', cpCfg);
     },
 
-    applyBgStyle: function (color) {
-        var ColorUtils     = Ext.ux.colorpicker.ColorUtils,
-            me             = this,
-            style          = {},
-            el             = me.getEl().down('.filter'),
-            hex, alpha, rgba, bgStyle;
+    setValue: function (color) {
+        var me = this;
 
-        hex     = ColorUtils.rgb2hex(color.r, color.g, color.b);
-        alpha   = Math.floor(color.a * 255).toString(16) ;
-        rgba    = ColorUtils.getRGBAString(color);
-        bgStyle = me.bgStyleTpl.apply({hex: hex, hexAlpha: alpha, rgba: rgba});
-        el.applyStyles(bgStyle);
+        if (!me.colorPicker) {
+            return;
+        }
+
+        me.colorPicker.setValue(color);
+    },
+
+    getValue: function (color) {
+        var me = this;
+        return me.colorPicker.getValue();
     }
 });
