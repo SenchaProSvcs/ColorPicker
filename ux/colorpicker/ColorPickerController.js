@@ -103,10 +103,10 @@ Ext.define('Ext.ux.colorpicker.ColorPickerController', {
     },
 
     onPreviousColorSelected: function (comp, color) {
-        var me   = this,
-            view = me.getView();
-        
-        view.setColor(color);
+        var me = this,
+            vm = me.getViewModel();
+            
+        vm.set('selectedColor', Ext.clone(color));
     },
 
     onOkBtn: function () {
