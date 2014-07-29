@@ -1,12 +1,25 @@
 Ext.define('Ext.ux.colorpicker.ColorUtils', {
     statics : {
         /**
-         *
-         * @param colorString
-         * @return {Object}
+         * Turn a string to a color object.
+         * @param {String} colorString Valid formats:
+         * - "#ABC" (HEX short)
+         * - "#ABCDEF" (HEX)
+         * - "red" (named colors - see {@link #colorMap} source code for a full list)
+         * - "rgba(r,g,b,a)" i.e "rgba(255,0,0,1)" (a == alpha == 0-1)
+         * - "rgba(red, 0.4)" 
+         * - "rgba(#ABC, 0.9)"
+         * - "rgba(#ABCDEF, 0.8)"
+         * @return {Object} Representing a color with the following properties:
+         * - r (red        0-255)
+         * - g (green      0-255)
+         * - b (blue       0-255)
+         * - a (alpha      0-1)
+         * - h (hue        0-1)
+         * - s (saturation 0-1)
+         * - v (value      0-1)
          */
         colorFromString : function(colorString) {
-            //check if we have the hash for hex colors
             if (!colorString) {
                 colorString = "";
             }
@@ -22,6 +35,7 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
                 unknown : true
             };
 
+            //check if we have the hash for hex colors
             if (colorString.search('#') === 0) {
                 //if we have the same length as a shorthand hex color
                 if (colorString.length === 4) {

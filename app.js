@@ -14,6 +14,7 @@ Ext.require([
     // new
     'Ext.container.Viewport',
     'Ext.form.FieldSet',
+    'Ext.ux.colorpicker.ColorPicker',
     'Ext.ux.colorpicker.Button'
 ]);
 
@@ -35,7 +36,21 @@ Ext.onReady(function() {
                 { html  : 'NEW Colorpicker Button #2', margin: '20px 0px 0px 0px' },
                 { xtype : 'colorpickerbutton', color: 'red' },
                 { html  : 'NEW Colorpicker Field', margin: '20px 0px 0px 0px' },
-                { xtype : 'field', width : 200, value : '#FFAAAA' }
+                { xtype : 'field', width : 200, value : '#FFAAAA' },
+                { html  : 'NEW Colorpicker Embedded', margin: '20px 0px 10px 0px' },
+                { 
+                    xtype         : 'acolorpicker',
+                    value         : 'b84646',
+                    previousValue : '00ff00',
+                    handler: function(cp, col) {
+                        console.log('Color change via handler(): ' + col);
+                    },
+                    listeners: {
+                        selected: function(cp, col) {
+                            console.log('Color change via "selected" event: ' + col);
+                        }
+                    }
+                } 
             ]
         }]
     });
