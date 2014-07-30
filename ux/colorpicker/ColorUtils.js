@@ -35,7 +35,9 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
                     return Ext.ux.colorpicker.ColorUtils.colorFromString(colorS);
                 },
                 format: function(colorO) {
-                    return '#' + Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+                    return '#' + 
+                            Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b) + 
+                            Math.round(colorO.a*255).toString(16);
                 }
             }
 
