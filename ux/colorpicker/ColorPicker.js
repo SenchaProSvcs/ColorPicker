@@ -40,10 +40,10 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
         'Ext.ux.colorpicker.SliderHue'
     ],
 
-    width     : 580,
-    minWidth  : 460,
-    height    : 345,
-    minHeight : 200,
+    width     : 580, // default width and height gives 255x255 color map in Crisp
+    minWidth  : 440,
+    height    : 337,
+    minHeight : 250,
 
     /**
      * @cfg fieldWidth {Number} Width of the text fields on the container (excluding HEX);
@@ -260,7 +260,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                             fieldLabel : 'HEX',
                             labelAlign : 'top',
                             width      : 75,
-                            bind       : '{hex}'
+                            bind       : '{hex}',
+                            margin     : { top: 0, right: me.fieldPad, bottom: 0, left: 0 }
                         },
                         {
                             xtype       : 'numberfield',
@@ -270,7 +271,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                             width       : me.fieldWidth,
                             hideTrigger : true,
                             maxValue    : 255,
-                            minValue    : 0
+                            minValue    : 0,
+                            margin      : { top: 0, right: me.fieldPad, bottom: 0, left: 0 }
                         },
                         {
                             xtype       : 'numberfield',
@@ -280,7 +282,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                             width       : me.fieldWidth,
                             hideTrigger : true,
                             maxValue    : 255,
-                            minValue    : 0
+                            minValue    : 0,
+                            margin      : { top: 0, right: me.fieldPad, bottom: 0, left: 0 }
                         },
                         {
                             xtype       : 'numberfield',
@@ -290,7 +293,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                             width       : me.fieldWidth,
                             hideTrigger : true,
                             maxValue    : 255,
-                            minValue    : 0
+                            minValue    : 0,
+                            margin      : 0
                         }
                     ]
                 }
@@ -334,7 +338,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                     hideTrigger    : true,
                     maxValue       : 360,
                     minValue       : 0,
-                    allowBlank     : false
+                    allowBlank     : false,
+                    margin         : 0
                 }
             ]
         };
@@ -380,7 +385,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                     hideTrigger    : true,
                     maxValue       : 100,
                     minValue       : 0,
-                    allowBlank     : false
+                    allowBlank     : false,
+                    margin         : 0
                 }
             ]
         };
@@ -422,7 +428,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                     hideTrigger    : true,
                     maxValue       : 100,
                     minValue       : 0,
-                    allowBlank     : false
+                    allowBlank     : false,
+                    margin         : 0
                 }
             ]
         };
@@ -470,7 +477,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                     hideTrigger    : true,
                     maxValue       : 100,
                     minValue       : 0,
-                    allowBlank     : false
+                    allowBlank     : false,
+                    margin         : 0
                 }
             ]
         };
