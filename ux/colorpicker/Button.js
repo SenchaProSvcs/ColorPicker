@@ -66,6 +66,20 @@ Ext.define('Ext.ux.colorpicker.Button', {
         }
     },
 
+    /**
+     * @event select
+     * Fires when a color is selected. Simply dragging sliders around will trigger this.
+     * @param {Ext.ux.colorpicker.ColorPicker} the color picker
+     * @param {String} color The value of the selected color as per specified {@link #format}.
+     */
+
+    /**
+     * @event selected
+     * Fires when a color is selected by actually clicking the Ok button on the colorpicker.
+     * @param {Ext.ux.colorpicker.ColorPicker} the color picker
+     * @param {String} color The value of the selected color as per specified {@link #format}.
+     */
+
     constructor: function(cfg) {
         var me = this,
             vc,
@@ -84,7 +98,7 @@ Ext.define('Ext.ux.colorpicker.Button', {
             showOkCancelButtons : true,
             listeners           : {
                 select: {
-                    fn    : vc.onColorPickerSelection,
+                    fn    : vc.onColorPickerSelect,
                     scope : vc
                 },
                 okbuttonclick: {

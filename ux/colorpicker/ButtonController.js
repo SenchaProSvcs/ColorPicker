@@ -42,19 +42,23 @@ Ext.define('Ext.ux.colorpicker.ButtonController', {
 
     // Whenever selection on the color picker changes (i.e when dragging);
     // not to be confused with actually clicking the Ok button
-    onColorPickerSelection: function(colorPicker, hashlessHex) {
-        var me = this;
+    onColorPickerSelect: function(colorPicker, formattedValue) {
+        var me   = this,
+            view = me.getView();
+
         me.applyBtnBgStyle(colorPicker.getViewModel().get('selectedColor'));
+        view.fireEvent('select', colorPicker, formattedValue);
     },
 
     // When the Ok button is clicked on color picker, preserve the previous value
-    onColorPickerOkBtn: function(colorPicker, hashlessHex) {
+    onColorPickerOkBtn: function(colorPicker, formattedValue) {
         var me   = this,
             view = me.getView(),
             cp   = view.colorPicker;
 
         cp.hide();
-        cp.setPreviousValue(hashlessHex);
+        cp.setPreviousValue(formattedValue);
+        view.fireEvent('selected', colorPicker, formattedValue);
     },
 
     // When the Cancel button is clicked on color picker
