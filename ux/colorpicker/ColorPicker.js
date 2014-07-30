@@ -40,8 +40,10 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
         'Ext.ux.colorpicker.SliderHue'
     ],
 
-    width  : 600,
-    height : 300,
+    width     : 580,
+    minWidth  : 460,
+    height    : 345,
+    minHeight : 200,
 
     /**
      * @cfg fieldWidth {Number} Width of the text fields on the container (excluding HEX);
