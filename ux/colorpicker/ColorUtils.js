@@ -1,10 +1,52 @@
 Ext.define('Ext.ux.colorpicker.ColorUtils', {
-    statics : {
+    statics: {
+
+        // parse and format functions under objects that match supported format config
+        // values of the color picker; parse() methods recieve the supplied color value
+        // as a string (i.e "FFAAAA") and return an object form, just like the one 
+        // ColorPickerModel vm "selectedColor" uses. That same object form is used as a 
+        // parameter to the format() methods, where the appropriate string form is expected
+        // for the return result
+        formats: {
+
+            // "FFAA00"
+            hex6NoHash: {
+                parse: function(colorS) {
+                    return Ext.ux.colorpicker.ColorUtils.colorFromString('#' + colorS);
+                },
+                format: function(colorO) {
+                    return Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+                }
+            },
+
+            // "#FFAA00"
+            hex6: {
+                parse: function(colorS) {
+                    return Ext.ux.colorpicker.ColorUtils.colorFromString(colorS);
+                },
+                format: function(colorO) {
+                    return '#' + Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+                }
+            },
+
+            // "#FFAA00FF" (last 2 are opacity)
+            hex8: {
+                parse: function(colorS) {
+                    return Ext.ux.colorpicker.ColorUtils.colorFromString(colorS);
+                },
+                format: function(colorO) {
+                    return '#' + Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+                }
+            }
+
+        },
+
         /**
          * Turn a string to a color object.
          * @param {String} colorString Valid formats:
          * - "#ABC" (HEX short)
          * - "#ABCDEF" (HEX)
+         * - "#ABCDEFDD" (HEX with opacity)
          * - "red" (named colors - see {@link #colorMap} source code for a full list)
          * - "rgba(r,g,b,a)" i.e "rgba(255,0,0,1)" (a == alpha == 0-1)
          * - "rgba(red, 0.4)" 
@@ -19,7 +61,7 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
          * - s (saturation 0-1)
          * - v (value      0-1)
          */
-        colorFromString : function(colorString) {
+        colorFromString: function(colorString) {
             if (!colorString) {
                 colorString = "";
             }
@@ -68,6 +110,22 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
                     g = parseInt(results[2], 16);
                     b = parseInt(results[3], 16);
                     a = 1;
+
+                    //if we also have opacity at the end
+                } else if (colorString.length === 9) {
+
+                    //match color numbers
+                    results = colorString.match(/#(\w\w)(\w\w)(\w\w)(\w\w)/);
+
+                    if (!results) {
+                        return unknownColor;
+                    }
+
+                    //convert hex numbers into decimal
+                    r = parseInt(results[1], 16);
+                    g = parseInt(results[2], 16);
+                    b = parseInt(results[3], 16);
+                    a = parseInt(results[4], 16)/255;
 
                 } else {
                     return unknownColor;

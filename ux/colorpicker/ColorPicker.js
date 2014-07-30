@@ -58,18 +58,32 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
 
     config: {
         /**
-         * @cfg {String} value
-         * The initial color to highlight (should be a valid 6-digit color hex code without the # symbol). Note that the hex
-         * codes are case-sensitive.
+         * @cfg {String} [value=FFFFFF]
+         * The initial color to highlight; see {@link #format} for supported formats.
          */
         value: 'FFFFFF',
 
         /**
-         * @cfg {String} previousValue
-         * The "previous" color (shown on the top right corner, below the "active selection" box) - should be a valid 6-digit
-         * color hex code without the # symbol). Note that the hex codes are case-sensitive.
+         * @cfg {String} [previousValue=000000]
+         * The "previous" color (shown on the top right corner, below the "active selection" box);
+         * see {@link #format} for supported formats.
          */
-        previousValue: '000000'
+        previousValue: '000000',
+
+        /**
+         * @cfg {String} [format=hex6NoHash]
+         * !important - if changing this from default, make sure to set {@link #value} to
+         * a default value that matches your format.
+         * Which color format to use for getValue()/setValue() methods (or the initial value
+         * config); supported formats are configured with parse/format method inside of
+         * {@link Ext.ux.colorpicker.ColorUtils#formats}; they are:
+         * - hex6NoHash - i.e. "FFAA00" - the default format used as it happens to match the
+         *   (one and only) format of the standard {@link Ext.picker.Color}; note that this 
+         *   formats lacks transparency data
+         * - hex6 - i.e. "#FFAA00" - nearly the same thing as hex6NoHash, but with the hash
+         * - hex8 - i.e. "#FFAA00FF" - the last 2 chars represent a 0-FF transparency value
+         */
+        format: 'hex6NoHash'
     },
 
     /**
@@ -86,7 +100,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
 
     /**
      * @cfg {Function} handler
-     * A function that will handle the select event of this picker. The handler is passed the following parameters:
+     * A function that will handle the select event of this picker. Simply dragging sliders around
+     * will trigger this. The handler is passed the following parameters:
      *
      * - `picker` : ColorPicker
      *
@@ -94,21 +109,21 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
      *
      * - `color` : String
      *
-     *   The 6-digit color hex code (without the # symbol).
+     *   The value of the selected color as per specified {@link #format}.
      */
 
     /**
      * @event select
-     * Fires when a color is selected
+     * Fires when a color is selected. Simply dragging sliders around will trigger this.
      * @param {Ext.ux.colorpicker.ColorPicker} this
-     * @param {String} color The 6-digit color hex code (without the # symbol)
+     * @param {String} color The value of the selected color as per specified {@link #format}.
      */
 
     /**
      * @event okbuttonclick
      * Fires when Ok button is clicked (see {@link #showOkCancelButtons}).
      * @param {Ext.ux.colorpicker.ColorPicker} this
-     * @param {String} color The 6-digit color hex code (without the # symbol)
+     * @param {String} color The value of the selected color as per specified {@link #format}.
      */
 
     /**
@@ -154,9 +169,7 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
             vm = me.getViewModel(),
             colorO;
 
-        // convert hashless API HEX to color object
-        colorO = Ext.ux.colorpicker.ColorUtils.colorFromString('#' + color);
-
+        colorO = Ext.ux.colorpicker.ColorUtils.formats[me.getFormat()].parse(color);
         vm.set('selectedColor', colorO);
     },
 
@@ -166,7 +179,7 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
             colorO;
 
         colorO = vm.get('selectedColor');
-        return Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+        return Ext.ux.colorpicker.ColorUtils.formats[me.getFormat()].format(colorO);
     },
 
     setPreviousValue: function(color) {
@@ -174,9 +187,7 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
             vm = me.getViewModel(),
             colorO;
 
-        // convert hashless API HEX to color object
-        colorO = Ext.ux.colorpicker.ColorUtils.colorFromString('#' + color);
-
+        colorO = Ext.ux.colorpicker.ColorUtils.formats[me.getFormat()].parse(color);
         vm.set('previousColor', colorO);
     },
 
@@ -186,7 +197,19 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
             colorO;
 
         colorO = vm.get('previousColor');
-        return Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+        return Ext.ux.colorpicker.ColorUtils.formats[me.getFormat()].format(colorO);
+    },
+
+    // Sets this.format
+    setFormat: function(format) {
+        var me = this;
+        me.format = format;
+    },
+
+    // Return this.format
+    getFormat: function() {
+        var me = this;
+        return me.format;
     },
 
     // Splits up view declaration for readability
