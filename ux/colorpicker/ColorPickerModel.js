@@ -42,15 +42,15 @@ Ext.define('Ext.ux.colorpicker.ColorPickerModel', {
     onSelectedColorChange: function() {
         var me             = this,
             view           = me.getView(),
-            hexNoHashValue = view.getValue();
+            formattedValue = view.getValue();
 
         // fire handler() on view if it has it
         if (view.handler) {
-            view.handler.apply(view, [view, hexNoHashValue]);
+            view.handler.apply(view, [view, formattedValue]);
         }
 
         // fire event
-        view.fireEvent('select', view, hexNoHashValue);
+        view.fireEvent('select', view, formattedValue);
     },
 
     formulas: {
