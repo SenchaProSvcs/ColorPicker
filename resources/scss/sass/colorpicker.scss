@@ -11,31 +11,27 @@
 
 /* The actual pop window with the color picker components */
 .x-colorpicker {
+
+    // needed for overflow: visible for color map & slider draggers
+    // to "break out" of their drag boundaries
+    overflow: visible;
+    >.x-box-inner {
+        overflow: visible;
+
+        .x-colopicker-escape-overflow {
+            overflow: visible;
+
+            >.x-box-inner {
+                overflow: visible;
+            }
+        } // eo .x-colopicker-escape-overflow
+
+    } // eo >.x-box-inner
     
     // Center field labels
     .x-form-item-label {
         text-align: center;
     }
-
-    // needed for overflow: visible for color map & slider draggers
-    // to "break out" of their drag boundaries
-    .x-colorpicker-container-center {
-        overflow: visible;
-
-        >.x-box-inner {
-            overflow: visible;
-
-            .x-colopicker-escape-overflow {
-                overflow: visible;
-
-                >.x-box-inner {
-                    overflow: visible;
-                }
-            } // eo .x-colopicker-escape-overflow
-
-        } // eo >.x-box-inner
-
-    } // eo x-colorpicker-container-center
 
     // main color map for shade selection with draggable circle
     .x-colorpicker-colormap {

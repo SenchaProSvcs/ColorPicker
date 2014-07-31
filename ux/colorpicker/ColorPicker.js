@@ -140,26 +140,17 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
         Ext.applyIf(cfg, {
             cls      : 'x-colorpicker',
             padding  : 10,
-            layout   : 'border',
+            layout : {
+                type  : 'hbox',
+                align : 'stretch'
+            },
             items: [
-                // Map, Sliders, Fields, and Preview (center region)
-                {
-                    xtype  : 'container',
-                    region : 'center',
-                    cls    : 'x-colorpicker-container-center',
-                    layout : {
-                        type  : 'hbox',
-                        align : 'stretch'
-                    },
-                    items: [
-                        me.getMapAndHexRGBFields(),
-                        me.getSliderAndHField(),
-                        me.getSliderAndSField(),
-                        me.getSliderAndVField(),
-                        me.getSliderAndAField(),
-                        me.getPreviewAndButtons(cfg)
-                    ]
-                }
+                me.getMapAndHexRGBFields(),
+                me.getSliderAndHField(),
+                me.getSliderAndSField(),
+                me.getSliderAndVField(),
+                me.getSliderAndAField(),
+                me.getPreviewAndButtons(cfg)
             ]
         });
 
@@ -250,7 +241,7 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                 {
                     xtype    : 'container',
                     defaults : {
-                        style          : 'display: inline-table; margin-right: ' + me.fieldPad + 'px;',
+                        style          : 'display: inline-table;',
                         labelSeparator : '',
                         allowBlank     : false
                     },
