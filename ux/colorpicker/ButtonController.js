@@ -18,9 +18,9 @@ Ext.define('Ext.ux.colorpicker.ButtonController', {
     onClick: function() {
         var me           = this,
             pickerButton = me.getView(),
-            picker       = pickerButton.colorPicker;
+            pickerWindow = pickerButton.colorPickerWindow;
             
-        picker.show();
+        pickerWindow.show();
     },
 
     // Sets background color on button (accounting for opacity);
@@ -52,22 +52,24 @@ Ext.define('Ext.ux.colorpicker.ButtonController', {
 
     // When the Ok button is clicked on color picker, preserve the previous value
     onColorPickerOkBtn: function(colorPicker, formattedValue) {
-        var me   = this,
-            view = me.getView(),
-            cp   = view.colorPicker;
+        var me    = this,
+            view  = me.getView(),
+            cp    = view.colorPicker,
+            cpWin = view.colorPickerWindow;
 
-        cp.hide();
+        cpWin.hide();
         cp.setPreviousValue(formattedValue);
         view.fireEvent('selected', colorPicker, formattedValue);
     },
 
     // When the Cancel button is clicked on color picker
     onColorPickerCancelBtn: function(colorPicker) {
-        var me   = this,
-            view = me.getView(),
-            cp   = view.colorPicker;
+        var me    = this,
+            view  = me.getView(),
+            cp    = view.colorPicker,
+            cpWin = view.colorPickerWindow;
 
-        cp.hide();
+        cpWin.hide();
         cp.setValue(cp.getPreviousValue());
     }
 });

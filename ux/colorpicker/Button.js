@@ -8,6 +8,7 @@ Ext.define('Ext.ux.colorpicker.Button', {
     controller : 'colorpickerbuttoncontroller',
 
     requires: [
+        'Ext.window.Window',
         'Ext.ux.colorpicker.ColorPicker',
         'Ext.ux.colorpicker.ButtonController',
         'Ext.ux.colorpicker.ColorUtils'
@@ -91,9 +92,6 @@ Ext.define('Ext.ux.colorpicker.Button', {
 
         cpCfg = {
             format              : me.getFormat(),
-            floating            : true,
-            alignTarget         : me,
-            defaultAlign        : 'tl-br?',
             showPreviousColor   : true,
             showOkCancelButtons : true,
             listeners           : {
@@ -120,6 +118,15 @@ Ext.define('Ext.ux.colorpicker.Button', {
 
         // create a color picker instance but don't render yet
         me.colorPicker = Ext.widget('acolorpicker', cpCfg);
+
+        // the window will actually be shown and will house the picker
+        me.colorPickerWindow = Ext.widget('window', {
+            items        : [me.colorPicker],
+            alignTarget  : me,
+            defaultAlign : 'tl-br?',
+            header       : false,
+            resizable    : false
+        });
     },
 
     // Expects value formatted as per "format" config
