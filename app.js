@@ -24,15 +24,15 @@ Ext.onReady(function() {
     Ext.create('Ext.container.Viewport', {
         layout: 'fit',
         items: [{
-            xtype      : 'panel',
-            title      : 'ColorPicker Example',
-            autoScroll : true,
-            padding    : 20,
-            frame      : true,
-            margin     : 10,
-            renderTo   : Ext.getBody(),
-            defaults   : { xtype: 'component' },
-            items      : [
+            xtype       : 'panel',
+            title       : 'ColorPicker Example',
+            autoScroll  : true,
+            bodyPadding : 10,
+            frame       : true,
+            margin      : 10,
+            renderTo    : Ext.getBody(),
+            defaults    : { xtype: 'component' },
+            items       : [
                 { html: 'OLD (Architect) Colorpicker Button', margin: '20px 0px 0px 0px' },
                 { xtype: 'oldcolorpickerbutton' },
                 
@@ -40,7 +40,7 @@ Ext.onReady(function() {
                 { html: 'NEW Colorpicker Button (default format)', margin: '20px 0px 0px 0px' },
                 { 
                     xtype     : 'colorpickerbutton',
-                    value     : 'FFFFFF',
+                    value     : '00FFFF',
                     listeners : {
                         selected: function(cp, val) {
                             Ext.getCmp('defaultFormatValue').setData({value: val});
@@ -70,11 +70,25 @@ Ext.onReady(function() {
                 { xtype: 'field', width : 200, value : '#FFAAAA' },
 
 
-                { html: 'NEW Colorpicker Embedded (Smallest + Laggy Text Update)', margin: '20px 0px 0px 0px' },
+                { html: 'NEW Colorpicker Embedded (Default Size in a Panel)', margin: '20px 0px 0px 0px' },
+                {
+                    xtype      : 'panel',
+                    frame      : true,
+                    title      : 'Sencha Pro Services Rock!',
+                    shrinkWrap : true,
+                    items      : [{
+                        xtype  : 'acolorpicker',
+                        format : 'hex8',
+                        value  : '#FF0000FF'
+                    }]
+                },
+
+
+                { html: 'NEW Colorpicker Embedded (Bare + Smallest + Laggy Text Update)', margin: '20px 0px 0px 0px' },
                 { id: 'embeddedPickerValue', tpl: 'Value: {value}', data: {value: '#FFFFFF99'} },
                 { 
                     xtype  : 'acolorpicker',
-                    // format : 'hex8',
+                    // format : 'hex8', // IE 8 issue
                     // value  : '#FFFFFF99',
                     format : 'hex6',
                     value  : '#FFFFFF',
@@ -88,11 +102,16 @@ Ext.onReady(function() {
                 },
 
 
-                { html: 'NEW Colorpicker Embedded (Default Size)', margin: '20px 0px 0px 0px' },
-                { 
-                    xtype  : 'acolorpicker',
-                    format : 'hex8',
-                    value  : '#FF0000FF'
+                { html: 'NEW Colorpicker Embedded (Default Size in a Container with custom background)', margin: '20px 0px 0px 0px' },
+                {
+                    xtype      : 'container',
+                    style      : 'background: cornflowerblue;',
+                    // shrinkWrap : true, // doesn't work? https://fiddle.sencha.com/#fiddle/890
+                    items      : [{
+                        xtype  : 'acolorpicker',
+                        format : 'hex8',
+                        value  : '#FF0000FF'
+                    }]
                 }
             ]
         }]
