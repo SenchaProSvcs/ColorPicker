@@ -40,7 +40,7 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
 
                     return '#' + 
                             colorUtils.rgb2hex(colorO.r, colorO.g, colorO.b) + 
-                            colorUtils.addLeadingZero(opacityHex);
+                            colorUtils.addLeadingOpacityHexZero(opacityHex);
                 }
             }
 
@@ -49,7 +49,7 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
         // i.e. opacity of 0 in hex8  is shown as 00
         // "num" param expects a string i.e "FF" or "F" or "0"
         // would return "FF" or "0F" or "00"
-        addLeadingZero: function(num) {
+        addLeadingOpacityHexZero: function(num) {
             var s = "0" + num;
             return s.substr(s.length-2);
         },

@@ -18,7 +18,6 @@ Verified this working using:
 * TODO: Test in Ext5 target platforms (IE9, IE10, IE11, Safari, Opera, Tablets, etc.)
 
 ## TODO Features
-* IE8 - color preview opacity disappears at near-0 alpha
 * Implement format config (which would drive value) in both button and cp
 * Putting blank value in any of the fields breaks it
 * Previous color doesn't reflect opacity

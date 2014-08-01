@@ -1,5 +1,6 @@
 /**
- * A basic component that changes background color.
+ * A basic component that changes background color, with considerations for opacity
+ * support (checkered background image and IE8 support).
  */
 Ext.define('Ext.ux.colorpicker.ColorPreview', {
     extend     : 'Ext.Component',
@@ -25,8 +26,7 @@ Ext.define('Ext.ux.colorpicker.ColorPreview', {
         this.fireEvent('click', this, this.color);
     },
 
-    // Called via databinding - update background color whenever
-    // Window's ViewModel changes
+    // Called via databinding - update background color whenever ViewModel changes
     setColor: function(color) {
         var me = this,
             el = me.getEl();
@@ -47,16 +47,15 @@ Ext.define('Ext.ux.colorpicker.ColorPreview', {
     ),
 
     applyBgStyle: function (color) {
-        var me = this,
-            ColorUtils = Ext.ux.colorpicker.ColorUtils,
-            style = {},
-            el = me.getEl().down('.filter'),
+        var me         = this,
+            colorUtils = Ext.ux.colorpicker.ColorUtils,
+            style      = {},
+            el         = me.getEl().down('.filter'),
             hex, alpha, rgba, bgStyle;
 
-        hex = ColorUtils.rgb2hex(color.r, color.g, color.b);
-        alpha = Math.floor(color.a * 255).toString(16) ;
-        rgba = ColorUtils.getRGBAString(color);
-
+        hex     = colorUtils.rgb2hex(color.r, color.g, color.b);
+        alpha   = colorUtils.addLeadingOpacityHexZero(Math.floor(color.a * 255).toString(16));
+        rgba    = colorUtils.getRGBAString(color);
         bgStyle = this.bgStyleTpl.apply({hex: hex, hexAlpha: alpha, rgba: rgba});
 
         el.applyStyles(bgStyle);
