@@ -51,5 +51,4 @@ Ext.define('Ext.ux.colorpicker.Slider', {
         Ext.Logger.warn('Must implement setHue() in a child class!');
     }
     // </debug>
-
 });

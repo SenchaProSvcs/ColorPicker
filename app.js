@@ -91,7 +91,7 @@ Ext.onReady(function() {
                     // format : 'hex8', // IE 8 issue
                     // value  : '#FFFFFF99',
                     format : 'hex6',
-                    value  : '#FFFFFF',
+                    value  : '#FF0000',
                     width  : Ext.ux.colorpicker.ColorPicker.prototype.minWidth,
                     height : Ext.ux.colorpicker.ColorPicker.prototype.minHeight,
                     listeners: {
@@ -105,8 +105,8 @@ Ext.onReady(function() {
                 { html: 'NEW Colorpicker Embedded (Default Size in a Container with custom background)', margin: '20px 0px 0px 0px' },
                 {
                     xtype      : 'container',
-                    style      : 'background: cornflowerblue;',
-                    // shrinkWrap : true, // doesn't work? https://fiddle.sencha.com/#fiddle/890
+                    style      : 'background: cornflowerblue; display: inline-block;',
+                    shrinkWrap : true,
                     items      : [{
                         xtype  : 'acolorpicker',
                         format : 'hex8',

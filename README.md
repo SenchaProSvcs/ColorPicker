@@ -19,10 +19,12 @@ Verified this working using:
 
 ## TODO Features
 * Chrome "smallest size" Hue slider background not full width
+* Styling - light gray border around edges
+* hex8 format 0 at end needs to be 00
 * hex8 format doesn't work in IE8 (but only with embedded; not button)
 * Implement format config (which would drive value) in both button and cp
 * Putting blank value in any of the fields breaks it
-* Previous coloe doesn't reflect opacity
+* Previous color doesn't reflect opacity
 * Also implement "color field" with arrow (?) trigger which would have that button as well as HEX in text field
 * Move to SDK examples
 * Color swatches & saving in local storage
