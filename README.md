@@ -18,9 +18,8 @@ Verified this working using:
 * TODO: Test in Ext5 target platforms (IE9, IE10, IE11, Safari, Opera, Tablets, etc.)
 
 ## TODO Features
-* Chrome "smallest size" Hue slider background not full width
-* hex8 format 0 at end needs to be 00
 * hex8 format doesn't work in IE8 (but only with embedded; not button)
+* hex8 format 0 at end needs to be 00
 * Implement format config (which would drive value) in both button and cp
 * Putting blank value in any of the fields breaks it
 * Previous color doesn't reflect opacity

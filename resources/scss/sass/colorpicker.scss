@@ -27,7 +27,7 @@
         } // eo .x-colopicker-escape-overflow
 
     } // eo >.x-box-inner
-    
+
     // Center field labels
     .x-form-item-label {
         text-align: center;
@@ -87,7 +87,7 @@
         &.hue {
             .draghandle-container {
                 background      : url(../../images/colorpicker/huegradient.png) no-repeat;
-                background-size : auto 100%;
+                background-size : 100% 100%;
                 filter          : progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale');
                 -ms-filter      : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./resources/images/colorpicker/huegradient.png', sizingMethod='scale')";                
             }
