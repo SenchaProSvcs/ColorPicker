@@ -19,8 +19,8 @@ Ext.define('Ext.ux.colorpicker.ButtonController', {
         var me           = this,
             pickerButton = me.getView(),
             pickerWindow = pickerButton.colorPickerWindow;
-            
-        pickerWindow.show();
+
+        pickerWindow.showBy(pickerButton, 'tl-br?');
     },
 
     // Sets background color on button (accounting for opacity);

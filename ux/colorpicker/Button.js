@@ -122,8 +122,6 @@ Ext.define('Ext.ux.colorpicker.Button', {
         // the window will actually be shown and will house the picker
         me.colorPickerWindow = Ext.widget('window', {
             items        : [me.colorPicker],
-            alignTarget  : me,
-            defaultAlign : 'tl-br?',
             header       : false,
             resizable    : false
         });
