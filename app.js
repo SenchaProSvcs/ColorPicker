@@ -88,10 +88,10 @@ Ext.onReady(function() {
                 { id: 'embeddedPickerValue', tpl: 'Value: {value}', data: {value: '#FFFFFF99'} },
                 { 
                     xtype  : 'acolorpicker',
-                    // format : 'hex8', // IE 8 issue
-                    // value  : '#FFFFFF99',
-                    format : 'hex6',
-                    value  : '#FF0000',
+                    format : 'hex8', // IE 8 issue
+                    value  : '#FFFFFF99',
+                    // format : 'hex6',
+                    // value  : '#FF0000',
                     width  : Ext.ux.colorpicker.ColorPicker.prototype.minWidth,
                     height : Ext.ux.colorpicker.ColorPicker.prototype.minHeight,
                     listeners: {
