@@ -18,9 +18,6 @@ Verified this working using:
 * TODO: Test in Ext5 target platforms (IE9, IE10, IE11, Safari, Opera, Tablets, etc.)
 
 ## TODO Features
-* Implement format config (which would drive value) in both button and cp
-* Putting blank value in any of the fields breaks it
-* Previous color doesn't reflect opacity
 * Also implement "color field" with arrow (?) trigger which would have that button as well as HEX in text field
 * Move to SDK examples
 * Color swatches & saving in local storage

@@ -243,7 +243,15 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                     defaults : {
                         style          : 'display: inline-table;',
                         labelSeparator : '',
-                        allowBlank     : false
+                        allowBlank     : false,
+                        onChange       : function() { // prevent data binding propagation if bad value
+                            var me = this;
+                            if (me.isValid()) {
+                                // this is kind of dirty and ideally we would extend these fields
+                                // and override the method, but works for now
+                                Ext.form.field.Base.prototype.onChange.apply(me, arguments);
+                            }
+                        }
                     },
                     items: [
                         {
@@ -252,7 +260,8 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
                             labelAlign : 'top',
                             width      : 75,
                             bind       : '{hex}',
-                            margin     : { top: 0, right: me.fieldPad, bottom: 0, left: 0 }
+                            margin     : { top: 0, right: me.fieldPad, bottom: 0, left: 0 },
+                            readOnly   : true
                         },
                         {
                             xtype       : 'numberfield',
