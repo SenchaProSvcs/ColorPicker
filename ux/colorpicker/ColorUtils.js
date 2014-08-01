@@ -35,12 +35,23 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
                     return Ext.ux.colorpicker.ColorUtils.colorFromString(colorS);
                 },
                 format: function(colorO) {
+                    var colorUtils = Ext.ux.colorpicker.ColorUtils,
+                        opacityHex = Math.round(colorO.a*255).toString(16);
+
                     return '#' + 
-                            Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b) + 
-                            Math.round(colorO.a*255).toString(16);
+                            colorUtils.rgb2hex(colorO.r, colorO.g, colorO.b) + 
+                            colorUtils.addLeadingZero(opacityHex);
                 }
             }
 
+        },
+
+        // i.e. opacity of 0 in hex8  is shown as 00
+        // "num" param expects a string i.e "FF" or "F" or "0"
+        // would return "FF" or "0F" or "00"
+        addLeadingZero: function(num) {
+            var s = "0" + num;
+            return s.substr(s.length-2);
         },
 
         /**
