@@ -15,9 +15,9 @@ Ext.require([
     'Ext.container.Viewport',
     'Ext.layout.container.Fit',
     'Ext.panel.Panel',
-    'Ext.form.FieldSet',
     'Ext.ux.colorpicker.ColorPicker',
-    'Ext.ux.colorpicker.Button'
+    'Ext.ux.colorpicker.Button',
+    'Ext.ux.colorpicker.Field'
 ]);
 
 Ext.onReady(function() {
@@ -66,8 +66,18 @@ Ext.onReady(function() {
                 { id: 'hex8FormatValue', tpl: 'Value: {value}', data: {value: '#00FF0099'} },
 
 
-                { html: 'NEW Colorpicker Field (TODO)', margin: '20px 0px 0px 0px' },
-                { xtype: 'field', width : 200, value : '#FFAAAA' },
+                { html: 'NEW Colorpicker Field', margin: '20px 0px 0px 0px' },
+                { 
+                    xtype: 'colorpickerfield'
+                },
+
+
+                { html: 'NEW Colorpicker Field (format: hex8)', margin: '20px 0px 0px 0px' },
+                { 
+                    xtype  : 'colorpickerfield',
+                    format : 'hex8',
+                    value  : '#FF000099'
+                },
 
 
                 { html: 'NEW Colorpicker Embedded (Default Size in a Panel)', margin: '20px 0px 0px 0px' },

@@ -17,10 +17,10 @@ Verified this working using:
 * Tested in IE8
 * TODO: Test in Ext5 target platforms (IE9, IE10, IE11, Safari, Opera, Tablets, etc.)
 
-## TODO Features
-* Also implement "color field" with arrow (?) trigger which would have that button as well as HEX in text field
+## TODO Features/Issues
 * Move to SDK examples
 * Color swatches & saving in local storage
+* When dragging a Slider or ColorMap handle, if you simultaneously scroll the outer window, the handle will be able to break out of the boundaries, but only during the current drag session
 
 # OLD IMPLEMENTATION
 

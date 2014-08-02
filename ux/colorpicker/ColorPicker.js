@@ -60,10 +60,10 @@ Ext.define('Ext.ux.colorpicker.ColorPicker', {
 
     config: {
         /**
-         * @cfg {String} [value=FFFFFF]
+         * @cfg {String} [value=FF0000]
          * The initial color to highlight; see {@link #format} for supported formats.
          */
-        value: 'FFFFFF',
+        value: 'FF0000',
 
         /**
          * @cfg {String} [previousValue=000000]

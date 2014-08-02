@@ -15,7 +15,7 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
                     return Ext.ux.colorpicker.ColorUtils.colorFromString('#' + colorS);
                 },
                 format: function(colorO) {
-                    return Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+                    return Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b).toUpperCase();
                 }
             },
 
@@ -25,7 +25,7 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
                     return Ext.ux.colorpicker.ColorUtils.colorFromString(colorS);
                 },
                 format: function(colorO) {
-                    return '#' + Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b);
+                    return '#' + Ext.ux.colorpicker.ColorUtils.rgb2hex(colorO.r, colorO.g, colorO.b).toUpperCase();
                 }
             },
 
@@ -39,8 +39,8 @@ Ext.define('Ext.ux.colorpicker.ColorUtils', {
                         opacityHex = Math.round(colorO.a*255).toString(16);
 
                     return '#' + 
-                            colorUtils.rgb2hex(colorO.r, colorO.g, colorO.b) + 
-                            colorUtils.addLeadingOpacityHexZero(opacityHex);
+                            colorUtils.rgb2hex(colorO.r, colorO.g, colorO.b).toUpperCase() + 
+                            colorUtils.addLeadingOpacityHexZero(opacityHex).toUpperCase();
                 }
             }
 

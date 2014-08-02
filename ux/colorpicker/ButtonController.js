@@ -1,6 +1,6 @@
 Ext.define('Ext.ux.colorpicker.ButtonController', {
     extend : 'Ext.app.ViewController',
-    alias: 'controller.colorpickerbuttoncontroller',
+    alias  : 'controller.colorpickerbuttoncontroller',
 
     // Propagate "click" event from el
     onFirstRender: function() {

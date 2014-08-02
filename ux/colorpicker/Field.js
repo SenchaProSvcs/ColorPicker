@@ -1,10 +1,9 @@
 /**
- * A button (not extending from Button) that can be clicked to bring up the
- * color picker. It also changes its color based on the color picker selection.
+ * A field that can be clicked to bring up the color picker. The value changes based on the color picker selection.
  * The defaul selected color is configurable via {@link #value}.
  *
  *     @example
- *     Ext.create('Ext.ux.colorpicker.Button', {
+ *     Ext.create('Ext.ux.colorpicker.Field', {
  *         value     : '993300',  // initial selected color
  *         renderTo  : Ext.getBody(),
  *         listeners : {
@@ -14,22 +13,20 @@
  *         }
  *     });
  */
-Ext.define('Ext.ux.colorpicker.Button', {
-    extend     : 'Ext.Component',
-    alias      : 'widget.colorpickerbutton',
-    controller : 'colorpickerbuttoncontroller',
+Ext.define('Ext.ux.colorpicker.Field', {
+    extend     : 'Ext.form.field.Picker',
+    alias      : 'widget.colorpickerfield',
+    controller : 'colorpickerfieldcontroller',
 
     requires: [
         'Ext.window.Window',
         'Ext.ux.colorpicker.ColorPicker',
-        'Ext.ux.colorpicker.ButtonController',
+        'Ext.ux.colorpicker.FieldController',
         'Ext.ux.colorpicker.ColorUtils'
     ],
 
-    baseCls : 'x-colorpicker-button',
-
-    width   : 20,
-    height  : 20,
+    matchFieldWidth : false, // picker is usually wider than field
+    editable        : false,
 
     config : {
         /**
@@ -54,31 +51,6 @@ Ext.define('Ext.ux.colorpicker.Button', {
         format: 'hex6NoHash'
     },
 
-    // hack to solve issue with IE, when applying a filter the click listener is not being fired.
-    style : 'position: relative',
-    html  : '<div class="filter" style="height:100%; width:100%; position: absolute;"></div>'+
-            '<a class="btn" style="height:100%; width:100%; position: absolute;"></a>',
-    // eo hack
-
-    // button's background reflects the selected color
-    bgStyleTpl: Ext.create('Ext.XTemplate',
-        Ext.isIE && Ext.ieVersion < 10 ?
-          'filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=\'#{hexAlpha}{hex}\', endColorstr=\'#{hexAlpha}{hex}\');' /* IE6-9 */
-          : 'background: {rgba};'
-    ),
-    
-    listeners: {
-        afterrender : {
-            single  : true,
-            fn      : 'onFirstRender',
-            scope   : 'controller'
-        },
-        click: {
-            fn    : 'onClick',
-            scope : 'controller'
-        }
-    },
-
     /**
      * @event select
      * Fires when a color is selected. Simply dragging sliders around will trigger this.
@@ -88,17 +60,18 @@ Ext.define('Ext.ux.colorpicker.Button', {
 
     /**
      * @event selected
-     * Fires when a color is selected by actually clicking the Ok button on the colorpicker.
+     * Fires when a color is selected by actually clicking the Ok button on the colorpicker
+     * or by clicking outside of it in order to hide it.
      * @param {Ext.ux.colorpicker.ColorPicker} the color picker
      * @param {String} color The value of the selected color as per specified {@link #format}.
      */
 
-    constructor: function(cfg) {
-        var me = this,
+    // override as required by parent pickerfield
+    createPicker: function() {
+        var me    = this,
+            value = me.getValue(),
             vc,
             cpCfg; // config for color picker instance
-
-        me.callParent(arguments);
 
         vc = me.getController();
 
@@ -106,6 +79,8 @@ Ext.define('Ext.ux.colorpicker.Button', {
             format              : me.getFormat(),
             showPreviousColor   : true,
             showOkCancelButtons : true,
+            value               : value,
+            previousValue       : value,
             listeners           : {
                 select: {
                     fn    : vc.onColorPickerSelect,
@@ -122,12 +97,6 @@ Ext.define('Ext.ux.colorpicker.Button', {
             }
         };
 
-        // initial color picker value
-        if (cfg.value) {
-            cpCfg.value         = cfg.value;
-            cpCfg.previousValue = cfg.value;
-        }
-
         // create a color picker instance but don't render yet
         me.colorPicker = Ext.widget('acolorpicker', cpCfg);
 
@@ -137,11 +106,38 @@ Ext.define('Ext.ux.colorpicker.Button', {
             header       : false,
             resizable    : false
         });
+
+        return me.colorPickerWindow;
+    },
+
+    // Sets value of the input DOM node
+    setText: function(text) {
+        var me = this;
+
+        // if rendered, apply to the input
+        if (me.inputEl && me.inputEl.dom) {
+            me.inputEl.dom.value = text;
+        }
+        // otherwise defer until first render
+        else {
+            me.on({
+                render: {
+                    single : true,
+                    scope  : me,
+                    fn     : function() {
+                        var me = this;
+                        me.inputEl.dom.value = me.getValue();
+                    }
+                }
+            });
+        }
     },
 
     // Expects value formatted as per "format" config
     setValue: function(color) {
         var me = this;
+
+        me.setText(color);
 
         if (!me.colorPicker) {
             return;
@@ -153,6 +149,11 @@ Ext.define('Ext.ux.colorpicker.Button', {
     // Returns value formatted as per "format" config
     getValue: function(color) {
         var me = this;
+
+        if (!me.colorPicker) {
+            return me.config.value;
+        }
+
         return me.colorPicker.getValue();
     },
 
