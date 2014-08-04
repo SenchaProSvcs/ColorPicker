@@ -19,8 +19,9 @@ Verified this working using:
 
 ## TODO Features/Issues
 * Move to SDK examples
-* Color swatches & saving in local storage
 * When dragging a Slider or ColorMap handle, if you simultaneously scroll the outer window, the handle will be able to break out of the boundaries, but only during the current drag session
+* When dragging on a Slider or a ColorMap, outside of the handle, when in ipad (iOS7) with the Color Picker embedded in a scrollable area (as in this preview), the input causes the scroller to engage
+* Color swatches & saving in local storage
 
 # OLD IMPLEMENTATION
 
